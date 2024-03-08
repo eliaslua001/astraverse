@@ -302,6 +302,7 @@ window.addEventListener('scroll', function() {
     const markerOffset = markerLine.getBoundingClientRect().top + window.scrollY - sunPosition;
 
     if (markerOffset > 0) {
+      let distanceFromSunKm = (markerOffset > 0 ? markerOffset : 0) * scaleRatio + sunDistanceKm;
       document.getElementById('distance').textContent = distanceFromSunKm.toLocaleString();
       document.querySelector('.distance-meter').style.display = 'block';
     } else {
