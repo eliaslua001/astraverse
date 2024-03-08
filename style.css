@@ -227,7 +227,7 @@ body {
 }
 
 .fact-wrapper {
-  padding: 15px; //* Add padding on all sides */
+  padding: 15px; /* Add padding on all sides */
   width: 200px;
   height: auto;
   position: relative;
