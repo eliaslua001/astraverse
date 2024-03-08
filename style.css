@@ -312,11 +312,6 @@ body {
   z-index: 999;
 }
 
-/* Add a class to show the marker line when visualization is active */
-.show-marker .marker-line {
-  display: block;
-}
-
 .celestial-body .name {
   position: absolute;
   top: calc(100% + 5px);
