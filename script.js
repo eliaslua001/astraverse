@@ -230,10 +230,17 @@ celestialBodies.forEach(body => {
   modelViewer.id = body.id;
   modelViewer.className = 'celestial-body';
   modelViewer.dataset.name = body.name;
-  modelViewer.style.backgroundColor = body.color; // Set background color
   modelViewer.setAttribute('src', body.src); // Set the source of the 3D model
   modelViewer.setAttribute('auto-rotate', ''); // Add auto-rotate attribute if desired
   modelViewer.setAttribute('camera-controls', ''); // Add camera controls attribute if desired
+
+  // Set glow color to match the body's color
+  setGlowColor(modelViewer, body.color);
+
+  // Function to set the glow effect for each celestial body
+  function setGlowColor(modelViewer, color) {
+    modelViewer.style.boxShadow = `0 0 20px 10px ${color}`;
+  }
 
   // Calculate size based on actual diameter and scale ratio
   const size = body.diameter / scaleRatio;
