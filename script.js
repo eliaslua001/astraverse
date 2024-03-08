@@ -234,14 +234,6 @@ celestialBodies.forEach(body => {
   modelViewer.setAttribute('auto-rotate', ''); // Add auto-rotate attribute if desired
   modelViewer.setAttribute('camera-controls', ''); // Add camera controls attribute if desired
 
-  // Set glow color to match the body's color
-  setGlowColor(modelViewer, body.color);
-
-  // Function to set the glow effect for each celestial body
-  function setGlowColor(modelViewer, color) {
-    modelViewer.style.boxShadow = `0 0 20px 10px ${color}`;
-  }
-
   // Calculate size based on actual diameter and scale ratio
   const size = body.diameter / scaleRatio;
 
@@ -264,15 +256,8 @@ celestialBodies.forEach(body => {
     showFact(0); // Show the first fact when clicked
     factContainer.style.display = 'block'; // Show the fact container
   });
-
 });
 
-  // Get the calculated size of the model after it's rendered
-  const calculatedWidth = modelViewer.offsetWidth;
-  const calculatedHeight = modelViewer.offsetHeight;
-  console.log(`Calculated width of ${body.name}: ${calculatedWidth}px`);
-  console.log(`Calculated height of ${body.name}: ${calculatedHeight}px`);
-  
 function parseNumeriqueSpace(number) {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
