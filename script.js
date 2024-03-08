@@ -294,15 +294,25 @@ function startExploring() {
   window.addEventListener('scroll', function () {
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(function () {
-      const scrollPosition = window.scrollY;
-      const markerOffset = markerLine.getBoundingClientRect().top + window.scrollY - sunPosition;
-  
-      if (markerOffset > 0) {
-        let distanceFromSunKm = (markerOffset > 0 ? markerOffset : 0) * scaleRatio + sunDistanceKm;
-        document.getElementById('distance').textContent = distanceFromSunKm.toLocaleString();
-        document.querySelector('.distance-meter').style.display = 'block';
-      } else {
-        document.querySelector('.distance-meter').style.display = 'none';
-      }
+        const scrollPosition = window.scrollY;
+        const markerOffset = markerLine.getBoundingClientRect().top + window.scrollY - sunPosition;
+
+        if (markerOffset > 0) {
+            let distanceFromSunKm = (markerOffset > 0 ? markerOffset : 0) * scaleRatio + sunDistanceKm;
+            document.getElementById('distance').textContent = distanceFromSunKm.toLocaleString();
+            document.querySelector('.distance-meter').style.display = 'block';
+        } else {
+            document.querySelector('.distance-meter').style.display = 'none';
+        }
+
+        // Check if the current celestial body is the Sun
+        if (celestialBodies[currentBodyIndex].id === 'sun') {
+            // Hide the marker line if the user is at the Sun
+            markerLine.style.display = 'none';
+            // Hide the distance meter if the user is at the Sun
+            document.querySelector('.distance-meter').style.display = 'none';
+        } else {
+            markerLine.style.display = 'block'; // Show the marker line for other celestial bodies
+        }
     }, 50); // Adjust the debounce delay as needed
-  });
+});
