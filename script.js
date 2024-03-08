@@ -234,6 +234,12 @@ celestialBodies.forEach(body => {
   modelViewer.setAttribute('auto-rotate', ''); // Add auto-rotate attribute if desired
   modelViewer.setAttribute('camera-controls', ''); // Add camera controls attribute if desired
 
+  // Set camera control attributes for greater zooming capabilities
+  modelViewer.setAttribute('max-camera-orbit', 'auto'); // Allow automatic adjustment of maximum camera orbit
+  modelViewer.setAttribute('min-camera-orbit', 'auto'); // Allow automatic adjustment of minimum camera orbit
+  modelViewer.setAttribute('max-field-of-view', 'auto'); // Allow automatic adjustment of maximum field of view
+  modelViewer.setAttribute('min-field-of-view', 'auto'); // Allow automatic adjustment of minimum field of view
+
   // Calculate size based on actual diameter and scale ratio
   const size = body.diameter / scaleRatio;
 
