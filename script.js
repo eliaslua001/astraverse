@@ -1,7 +1,6 @@
 function startExploring() {
     document.getElementById('root').style.display = 'none'; // Hide the landing page
     document.getElementById('landing-content').style.display = 'none'; // Hide the landing content
-    document.body.classList.add('show-marker'); // Add class to show the marker line
     document.querySelector('.container').style.display = 'block'; // Show the celestial bodies
     document.querySelector('.astronaut').style.display = 'block'; // Show the astronaut
   }
