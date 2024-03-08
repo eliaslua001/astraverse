@@ -299,7 +299,7 @@ window.addEventListener('scroll', function() {
   clearTimeout(debounceTimer);
   debounceTimer = setTimeout(function() {
     const scrollPosition = window.scrollY;
-    const markerOffset = markerLine.getBoundingClientRect().top + window.scrollY - celestialBodies[0].position;
+    const markerOffset = markerLine.getBoundingClientRect().top + window.scrollY - sunPosition;
     let distanceFromSunKm = (markerOffset > 0 ? markerOffset : 0) * scaleRatio + sunDistanceKm;
 
     if (markerOffset > celestialBodies[0].diameter / scaleRatio) {
