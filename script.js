@@ -300,9 +300,8 @@ window.addEventListener('scroll', function() {
   debounceTimer = setTimeout(function() {
     const scrollPosition = window.scrollY;
     const markerOffset = markerLine.getBoundingClientRect().top + window.scrollY - sunPosition;
-    let distanceFromSunKm = (markerOffset > 0 ? markerOffset : 0) * scaleRatio + sunDistanceKm;
 
-    if (markerOffset > celestialBodies[0].diameter / scaleRatio) {
+    if (markerOffset > 0) {
       document.getElementById('distance').textContent = distanceFromSunKm.toLocaleString();
       document.querySelector('.distance-meter').style.display = 'block';
     } else {
