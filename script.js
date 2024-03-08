@@ -291,30 +291,17 @@ function startExploring() {
     }
   });
   
-  window.addEventListener('scroll', function () {
+  window.addEventListener('scroll', function() {
     clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(function () {
+    debounceTimer = setTimeout(function() {
         const scrollPosition = window.scrollY;
         const markerOffset = markerLine.getBoundingClientRect().top + window.scrollY - sunPosition;
+        let distanceFromSunKm = (markerOffset > 0 ? markerOffset : 0) * scaleRatio + sunDistanceKm;
 
-        if (markerOffset > 0) {
-            let distanceFromSunKm = (markerOffset > 0 ? markerOffset : 0) * scaleRatio + sunDistanceKm;
+        if (markerOffset > celestialBodies[0].diameter / scaleRatio) {
             document.getElementById('distance').textContent = distanceFromSunKm.toLocaleString();
             document.querySelector('.distance-meter').style.display = 'block';
         } else {
-            document.querySelector('.distance-meter').style.display = 'none';
-        }
-
-        // Check if the scroll position is at or beyond the Sun
-        if (scrollPosition >= sunPosition) {
-            // Show the marker line
-            markerLine.style.display = 'block';
-            // Show the distance meter
-            document.querySelector('.distance-meter').style.display = 'block';
-        } else {
-            // Hide the marker line
-            markerLine.style.display = 'none';
-            // Hide the distance meter
             document.querySelector('.distance-meter').style.display = 'none';
         }
     }, 50); // Adjust the debounce delay as needed
