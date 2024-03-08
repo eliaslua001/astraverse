@@ -172,13 +172,6 @@ document.addEventListener('DOMContentLoaded', function() {
   generateAstronaut(); // Generate astronaut
 });
 
-
-
-// Function to set the glow effect for each celestial body
-function setGlowColor(element, color) {
-  element.style.boxShadow = `0 0 20px 10px ${color}`;
-}
-
 const factContainer = document.querySelector('.fact-container');
 const factWrapper = factContainer.querySelector('.fact-wrapper');
 factWrapper.style.backgroundColor = 'rgba(120, 120, 120, 0.7)'; // Set the background color dynamically
@@ -243,7 +236,12 @@ celestialBodies.forEach(body => {
   modelViewer.setAttribute('camera-controls', ''); // Add camera controls attribute if desired
 
   // Set glow color to match the body's color
-  setGlowColor(element, body.color);
+  setGlowColor(modelViewer, body.color);
+
+  // Function to set the glow effect for each celestial body
+  function setGlowColor(modelViewer, color) {
+    modelViewer.style.boxShadow = `0 0 20px 10px ${color}`;
+  }
 
   // Calculate size based on actual diameter and scale ratio
   const size = body.diameter / scaleRatio;
