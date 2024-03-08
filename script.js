@@ -305,14 +305,17 @@ function startExploring() {
             document.querySelector('.distance-meter').style.display = 'none';
         }
 
-        // Check if the current celestial body is the Sun
-        if (celestialBodies[currentBodyIndex].id === 'sun') {
-            // Hide the marker line if the user is at the Sun
-            markerLine.style.display = 'none';
-            // Hide the distance meter if the user is at the Sun
-            document.querySelector('.distance-meter').style.display = 'none';
+        // Check if the scroll position is at or beyond the Sun
+        if (scrollPosition >= sunPosition) {
+            // Show the marker line
+            markerLine.style.display = 'block';
+            // Show the distance meter
+            document.querySelector('.distance-meter').style.display = 'block';
         } else {
-            markerLine.style.display = 'block'; // Show the marker line for other celestial bodies
+            // Hide the marker line
+            markerLine.style.display = 'none';
+            // Hide the distance meter
+            document.querySelector('.distance-meter').style.display = 'none';
         }
     }, 50); // Adjust the debounce delay as needed
 });
