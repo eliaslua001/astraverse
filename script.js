@@ -230,6 +230,7 @@ celestialBodies.forEach(body => {
   modelViewer.id = body.id;
   modelViewer.className = 'celestial-body';
   modelViewer.dataset.name = body.name;
+  modelViewer.style.backgroundColor = body.color; // Set background color
   modelViewer.setAttribute('src', body.src); // Set the source of the 3D model
   modelViewer.setAttribute('auto-rotate', ''); // Add auto-rotate attribute if desired
   modelViewer.setAttribute('camera-controls', ''); // Add camera controls attribute if desired
@@ -298,7 +299,7 @@ window.addEventListener('scroll', function() {
   clearTimeout(debounceTimer);
   debounceTimer = setTimeout(function() {
     const scrollPosition = window.scrollY;
-    const markerOffset = markerLine.getBoundingClientRect().top + window.scrollY - sunPosition;
+    const markerOffset = markerLine.getBoundingClientRect().top + window.scrollY - celestialBodies[0].position;
     let distanceFromSunKm = (markerOffset > 0 ? markerOffset : 0) * scaleRatio + sunDistanceKm;
 
     if (markerOffset > celestialBodies[0].diameter / scaleRatio) {
