@@ -301,8 +301,10 @@ function startExploring() {
         if (markerOffset > celestialBodies[0].diameter / scaleRatio) {
             document.getElementById('distance').textContent = distanceFromSunKm.toLocaleString();
             document.querySelector('.distance-meter').style.display = 'block';
+            document.querySelector('.marker-line').style.display = 'block'; // Show the marker line
         } else {
             document.querySelector('.distance-meter').style.display = 'none';
+            document.querySelector('.marker-line').style.display = 'none'; // Hide the marker line
         }
     }, 50); // Adjust the debounce delay as needed
 });
