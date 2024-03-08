@@ -12,6 +12,7 @@ function startExploring() {
   const celestialBodies = [{
     id: 'sun',
     src: 'assets/sun.glb',
+    poster: 'assets/sun.png',
     alt: 'Sun',
     color: 'yellow',
     diameter: 1392700, // 1.3927 million kilometres
@@ -25,6 +26,7 @@ function startExploring() {
   {
     id: 'mercury',
     src: 'assets/mercury.glb',
+    poster: 'assets/mercury.png',
     alt: 'Mercury',
     color: 'gray',
     diameter: 4879.4, // 4,879.4 kilometres
@@ -38,6 +40,7 @@ function startExploring() {
   {
     id: 'venus',
     src: 'assets/venus.glb',
+    poster: 'assets/venus.png',
     alt: 'Venus',
     color: 'orange',
     diameter: 12104, // 12,104 kilometers
@@ -51,6 +54,7 @@ function startExploring() {
   {
     id: 'earth',
     src: 'assets/earth.glb',
+    poster: 'assets/earth.png',
     alt: 'Earth',
     color: 'blue',
     diameter: 12742, // 12,742 kilometres
@@ -64,6 +68,7 @@ function startExploring() {
   {
     id: 'moon',
     src: 'assets/moon.glb',
+    poster: 'assets/moon.png',
     alt: 'Moon',
     color: 'gray',
     diameter: 3475, // 3,475 kilometers
@@ -77,6 +82,7 @@ function startExploring() {
   {
     id: 'mars',
     src: 'assets/mars.glb',
+    poster: 'assets/mars.png',
     alt: 'Mars',
     color: 'red',
     diameter: 6779, // 6,779 kilometers
@@ -90,6 +96,7 @@ function startExploring() {
   {
     id: 'jupiter',
     src: 'assets/jupiter.glb',
+    poster: 'assets/jupiter.png',
     alt: 'Jupiter',
     color: 'tan',
     diameter: 142800, // 142,800 kilometres
@@ -103,6 +110,7 @@ function startExploring() {
   {
     id: 'saturn',
     src: 'assets/saturn.glb',
+    poster: 'assets/saturn.png',
     alt: 'Saturn',
     color: 'gold',
     diameter: 120536, // 120,536 kilometres
@@ -116,6 +124,7 @@ function startExploring() {
   {
     id: 'uranus',
     src: 'assets/uranus.glb',
+    poster: 'assets/uranus.png',
     alt: 'Uranus',
     color: 'lightblue',
     diameter: 50724, // 50,724 kilometres
@@ -129,6 +138,7 @@ function startExploring() {
   {
     id: 'neptune',
     src: 'assets/neptune.glb',
+    poster: 'assets/neptune.png',
     alt: 'Neptune',
     color: 'blue',
     diameter: 49528, // 49,528 kilometers
@@ -229,7 +239,7 @@ function startExploring() {
     modelViewer.id = body.id;
     modelViewer.className = 'celestial-body';
     modelViewer.dataset.name = body.name;
-    modelViewer.setAttribute('src', body.src); // Set the source of the 3D model
+    modelViewer.setAttribute('poster', body.poster); // Set the poster attribute to the URL of the poster image
     modelViewer.setAttribute('auto-rotate', ''); // Add auto-rotate attribute if desired
     modelViewer.setAttribute('camera-controls', ''); // Add camera controls attribute if desired
   
