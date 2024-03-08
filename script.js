@@ -186,71 +186,10 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('root').appendChild(modelViewer);
       });
 
-      // Function to load 3D models
-      function loadModels() {
-        const loader = new THREE.OBJLoader(); // Assuming you're using OBJ format
-
-        celestialBodies.forEach(body => {
-          loader.load(
-            `assets/${body.id}.obj`, // Replace with actual path to model
-            function(object) {
-              // Adjust position and scale of the loaded model
-              object.traverse(function(child) {
-                if (child instanceof THREE.Mesh) {
-                  child.position.set(body.distance * scaleRatio, 0, 0); // Set position based on distance
-                  child.scale.set(body.diameter / scaleRatio, body.diameter / scaleRatio, body.diameter / scaleRatio); // Set scale based on diameter
-                }
-              });
-              scene.add(object); // Add model to scene
-            },
-            function(xhr) {
-              console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-            },
-            function(error) {
-              console.error('An error occurred', error);
-            }
-          );
-        });
-      }
-
-      // Call loadModels function to load 3D models
-      loadModels();
-
       // Function to set the glow effect for each celestial body
       function setGlowColor(element, color) {
         element.style.boxShadow = `0 0 20px 10px ${color}`;
       }
-
-      // Dynamically create celestial bodies
-      celestialBodies.forEach(body => {
-        const element = document.createElement('div');
-        element.id = body.id;
-        element.className = 'celestial-body';
-        element.dataset.name = body.name; // Add dataset for name
-        element.style.backgroundColor = body.color;
-
-        // Set glow color to match the body's color
-        setGlowColor(element, body.color);
-
-        // Calculate size based on actual diameter and scale ratio
-        const size = body.diameter / scaleRatio;
-
-        // Calculate distance based on scale ratio
-        const distance = (body.distance * astronomicalUnit) / scaleRatio;
-
-        element.style.width = size + 'px';
-        element.style.height = size + 'px';
-        element.style.top = distance + 'px';
-        element.style.left = 'calc(50% - ' + (size / 2) + 'px)'; // Adjust the left position to center the body
-        document.querySelector('.container').appendChild(element);
-
-        const nameElement = document.createElement('p');
-        nameElement.className = 'name';
-        nameElement.textContent = body.name;
-        element.appendChild(nameElement);
-
-        // Rest of your existing code for creating celestial bodies...
-      });
 
       const factContainer = document.querySelector('.fact-container');
       const factWrapper = factContainer.querySelector('.fact-wrapper');
