@@ -1,52 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AstraVerse: Scrollable Solar System</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <!-- Include the ModelViewer library -->
-    <script type="module" src="https://unpkg.com/@google/model-viewer"></script>
-  </head>
+    <title>3D Model Viewer</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer@2.1.0"></script>
+</head>
 
-  <body>
-    <div class="landing-content" id="landing-content">
-      <h1>Welcome to AstraVerse</h1>
-      <p>Explore our scrollable solar system</p>
-      <button onclick="startExploring()" class="glass-btn">Start Exploring</button>
-    </div>
-    <div id="root">
-      <div class="layer layer-1"></div>
-      <div class="layer layer-2"></div>
-      <div class="layer layer-3"></div>
-      <div class="layer layer-4"></div>
-      <div class="layer layer-5"></div>
-      <div class="layer layer-6"></div>
-    </div>
-    <div class="container" style="display: none;">
-      <!-- Celestial bodies will be added here by JavaScript -->
-    </div>
-    <div class="fact-container" style="display: none;">
-      <div class="close-button">&#10006;</div>
-      <div class="arrow left-arrow">&#10094;</div>
-      <p class="name"></p>
-      <p class="diameter"></p>
-      <p class="distance"></p>
-      <div class="fact-wrapper"></div>
-      <div class="arrow right-arrow">&#10095;</div>
-    </div>
-    <div class="marker-line"></div>
-    <div class="distance-meter">Distance: <span id="distance">0</span> km</div>
-    <!-- Astronaut or spaceship element -->
-    <div class="astronaut" id="astronaut"></div>
-    <div class="fact-container astronaut-fact" style="display: none;">
-      <div class="fact-wrapper">
-        <p class="fact"></p>
-        <div class="close-icon">×</div>
-      </div>
-    </div>
-    <script src="script.js"></script>
-  </body>
+<body>
+    <model-viewer src="assets/earth.glb"
+        alt="A 3D model" style="width: 800px; height: 600px;"></model-viewer>
+</body>
 
 </html>
