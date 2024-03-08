@@ -240,7 +240,7 @@ function startExploring() {
     modelViewer.setAttribute('min-field-of-view', 'auto'); // Allow automatic adjustment of minimum field of view
   
     // Calculate size based on actual diameter and scale ratio
-    const size = body.diameter / scaleRatio;
+    const size = body.diameter / scaleRatio  * 0.3; // Adjust the scale factor as needed;
   
     // Calculate distance based on scale ratio
     const distance = (body.distance * astronomicalUnit) / scaleRatio;
