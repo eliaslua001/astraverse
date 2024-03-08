@@ -265,6 +265,12 @@ celestialBodies.forEach(body => {
     factContainer.style.display = 'block'; // Show the fact container
   });
 
+  // Get the calculated size of the model after it's rendered
+  const calculatedWidth = modelViewer.offsetWidth;
+  const calculatedHeight = modelViewer.offsetHeight;
+  console.log(`Calculated width of ${body.name}: ${calculatedWidth}px`);
+  console.log(`Calculated height of ${body.name}: ${calculatedHeight}px`);
+
 });
 
 function parseNumeriqueSpace(number) {
