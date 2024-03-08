@@ -183,8 +183,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const distance = body.distance * 100; // Adjust scale as needed
         modelViewer.style.top = distance + 'px';
         modelViewer.style.left = 'calc(50% - 100px)'; // Adjust the left position to center the body
-        document.getElementById('root').appendChild(modelViewer);
-      });
+        document.querySelector('.container').appendChild(modelViewer);
+      })});
 
       // Function to set the glow effect for each celestial body
       function setGlowColor(element, color) {
