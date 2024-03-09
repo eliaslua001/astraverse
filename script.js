@@ -206,6 +206,7 @@ closeIcon.addEventListener('click', function () {
 
 let currentBodyIndex = 0;
 let currentFactIndex = 0;
+let currentRotation = 0;
 
 function showFact(index) {
   const body = celestialBodies[currentBodyIndex];
@@ -229,6 +230,7 @@ function showFact(index) {
   }
   // Create and append model-viewer for the current body
   const modelViewer = document.createElement('model-viewer');
+  currentRotation = modelViewer.currentRotation;
   modelViewer.className = 'model-viewer';
   modelViewer.setAttribute('src', body.src);
   modelViewer.setAttribute('alt', body.alt);
@@ -255,13 +257,15 @@ closeButton.addEventListener('click', function () {
 leftArrow.addEventListener('click', function () {
   currentFactIndex = (currentFactIndex - 1 + celestialBodies[currentBodyIndex].facts.length) % celestialBodies[currentBodyIndex].facts.length;
   showFact(currentFactIndex); // Show the updated fact
-  event.stopPropagation();
+  const modelViewer = document.querySelector('.model-viewer'); // Set the stored rotation angle back to the model
+  modelViewer.currentRotation = currentRotation;
 });
 
 rightArrow.addEventListener('click', function () {
   currentFactIndex = (currentFactIndex + 1) % celestialBodies[currentBodyIndex].facts.length;
   showFact(currentFactIndex); // Show the updated fact
-  event.stopPropagation();
+  const modelViewer = document.querySelector('.model-viewer'); // Set the stored rotation angle back to the model
+  modelViewer.currentRotation = currentRotation;
 });
 
 celestialBodies.forEach(body => {

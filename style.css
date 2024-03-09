@@ -9,9 +9,12 @@
 }
 
 .glass-btn {
-  background-color: rgba(255, 255, 255, 0.3); /* Set initial background color with some transparency */
-  transition: background-color 0.3s ease; /* Add a transition effect for smoother change */
-  border: 0px solid #009688; /* Green border */
+  background-color: rgba(255, 255, 255, 0.3);
+  /* Set initial background color with some transparency */
+  transition: background-color 0.3s ease;
+  /* Add a transition effect for smoother change */
+  border: 0px solid #009688;
+  /* Green border */
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 25px;
@@ -29,7 +32,8 @@
   transform: translate(-50%, -50%);
   width: 300%;
   height: 300%;
-  background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+  background: rgba(255, 255, 255, 0.2);
+  /* Semi-transparent white */
   border-radius: 50%;
   z-index: 0;
   transition: all 0.3s ease;
@@ -60,7 +64,8 @@
 }
 
 .glass-btn:hover {
-  background-color: rgba(255, 255, 255, 0.5); /* Adjust the opacity as needed */
+  background-color: rgba(255, 255, 255, 0.5);
+  /* Adjust the opacity as needed */
   color: black;
 }
 
@@ -74,8 +79,10 @@
   background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 10%, transparent 70%);
   animation: glitter 1s linear infinite;
   /* Adjust the duration of the glitter effect as needed */
-  z-index: -1; /* Place the glitter effect behind the button */
-  pointer-events: none; /* Ensure the glitter overlay doesn't interfere with button clicks */
+  z-index: -1;
+  /* Place the glitter effect behind the button */
+  pointer-events: none;
+  /* Ensure the glitter overlay doesn't interfere with button clicks */
 }
 
 .landing-content h1,
@@ -234,18 +241,23 @@ body {
 }
 
 .model-viewer {
-  max-width: 300px; /* Set a maximum width to prevent models from exceeding the container */
-  max-height: 300px; /* Set a maximum height to prevent models from exceeding the container */
-  margin: 0 auto; /* Center the model-viewer horizontally */
+  max-width: 300px;
+  /* Set a maximum width to prevent models from exceeding the container */
+  max-height: 300px;
+  /* Set a maximum height to prevent models from exceeding the container */
+  margin: 0 auto;
+  /* Center the model-viewer horizontally */
 }
 
 .fact-wrapper {
-  padding: 15px; /* Add padding on all sides */
+  padding: 15px;
+  /* Add padding on all sides */
   width: auto;
   height: auto;
   position: relative;
   background-color: transparent;
-  border-radius: 10px; /* Add border radius to round the corners */
+  border-radius: 10px;
+  /* Add border radius to round the corners */
   flex-direction: column;
   font-size: 15px;
   justify-content: space-evenly;
@@ -258,22 +270,28 @@ body {
   color: white;
   z-index: 1000;
   padding: 7px;
-  top: 80%; /* Center vertically */
-  transform: translateY(-50%); /* Center vertically */
+  top: 80%;
+  /* Center vertically */
+  transform: translateY(-50%);
+  /* Center vertically */
 }
 
 .left-arrow {
   position: absolute;
   left: 4px;
-  top: 50%; /* Position at 50% from the top */
-  transform: translateY(-50%); /* Center vertically */
+  top: 50%;
+  /* Position at 50% from the top */
+  transform: translateY(-50%);
+  /* Center vertically */
 }
 
 .right-arrow {
   position: absolute;
   right: 4px;
-  top: 50%; /* Position at 50% from the top */
-  transform: translateY(-50%); /* Center vertically */
+  top: 50%;
+  /* Position at 50% from the top */
+  transform: translateY(-50%);
+  /* Center vertically */
 }
 
 .left-arrow:hover,
@@ -283,16 +301,20 @@ body {
 
 .close-button {
   position: absolute;
-  top: 5px; /* Adjust top position as needed */
-  right: 10px; /* Adjust right position as needed */
+  top: 5px;
+  /* Adjust top position as needed */
+  right: 10px;
+  /* Adjust right position as needed */
   cursor: pointer;
   color: white;
   font-size: 20px;
-  z-index: 1001; /* Ensure it's above the fact container */
+  z-index: 1001;
+  /* Ensure it's above the fact container */
 }
 
 .close-button:hover {
-  color: gray; /* Change color on hover */
+  color: gray;
+  /* Change color on hover */
 }
 
 .fact-container .name {
@@ -306,7 +328,8 @@ body {
 }
 
 .marker-line {
-  display: none; /* Initially hide the marker line */
+  display: none;
+  /* Initially hide the marker line */
   position: fixed;
   left: 0;
   top: 50%;
@@ -317,7 +340,8 @@ body {
 }
 
 .astronaut {
-  display: none; /* Initially hide the astronaut */
+  display: none;
+  /* Initially hide the astronaut */
   position: fixed;
   width: 50px;
   height: 50px;
@@ -337,20 +361,27 @@ body {
   color: gray;
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adjust position relative to the astronaut */
-  left: 80px; /* Position to the right of the astronaut */
-  top: calc(50% - 185px); /* Position slightly above the center */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  /* Adjust position relative to the astronaut */
+  left: 80px;
+  /* Position to the right of the astronaut */
+  top: calc(50% - 185px);
+  /* Position slightly above the center */
 }
 
 .astronaut-fact::after {
   content: '';
   position: absolute;
-  bottom: -20px; /* Shift the arrow to the bottom */
-  left: -20px; /* Shift the arrow to the left */
+  bottom: -20px;
+  /* Shift the arrow to the bottom */
+  left: -20px;
+  /* Shift the arrow to the left */
   border-width: 10px;
   border-style: solid;
-  border-color: transparent rgba(255, 255, 255, 0.9) transparent transparent; /* Arrow color */
-  transform: rotate(-45deg); /* Rotate the arrow */
+  border-color: transparent rgba(255, 255, 255, 0.9) transparent transparent;
+  /* Arrow color */
+  transform: rotate(-45deg);
+  /* Rotate the arrow */
 }
 
 .close-icon {
@@ -363,5 +394,6 @@ body {
 }
 
 .close-icon:hover {
-  color: #666666; /* Change color on hover */
+  color: #666666;
+  /* Change color on hover */
 }
