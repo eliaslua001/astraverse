@@ -259,8 +259,9 @@ celestialBodies.forEach(body => {
   // Function to set the glow effect for each celestial body
   function setGlowColor(modelViewer, color) {
     // Reduce the box-shadow size to make the glow smaller than the poster background
-    const glowSize = '10px'; // Adjust the glow size as needed
-    modelViewer.style.boxShadow = `0 0 ${glowSize} 5px ${color}`;
+    const glowSize = '5px'; // Adjust the glow size as needed
+    const glowSpread = '2px'; // Adjust the spread of the glow as needed
+    modelViewer.style.boxShadow = `0 0 ${glowSize} ${glowSpread} ${color}`;
   }
 
   // Set glow color to match the body's color
