@@ -279,7 +279,7 @@ body {
 
 .left-arrow:hover,
 .right-arrow:hover {
-  color: #595959;
+  color: #808080;
 }
 
 .close-button {
@@ -293,7 +293,7 @@ body {
 }
 
 .close-button:hover {
-  color: gray; /* Change color on hover */
+  color: #808080; /* Change color on hover */
 }
 
 .fact-container .name {
