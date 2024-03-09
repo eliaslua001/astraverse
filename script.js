@@ -254,17 +254,16 @@ closeButton.addEventListener('click', function () {
   }
 });
 
-leftArrow.addEventListener('click', function () {
+leftArrow.addEventListener('click', () => {
   currentFactIndex = (currentFactIndex - 1 + celestialBodies[currentBodyIndex].facts.length) % celestialBodies[currentBodyIndex].facts.length;
   showFact(currentFactIndex); // Show the updated fact
-  event.stopPropagation();
 });
 
-rightArrow.addEventListener('click', function () {
+rightArrow.addEventListener('click', () => {
   currentFactIndex = (currentFactIndex + 1) % celestialBodies[currentBodyIndex].facts.length;
   showFact(currentFactIndex); // Show the updated fact
-  event.stopPropagation();
 });
+
 
 celestialBodies.forEach(body => {
   const modelViewer = document.createElement('model-viewer');

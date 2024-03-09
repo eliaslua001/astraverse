@@ -233,7 +233,7 @@ body {
   justify-content: center;
 }
 
-.fact-container .model-viewer {
+.model-viewer {
   width: 100%; /* Adjust the width as needed */
   height: auto; /* Let the height adjust automatically to maintain aspect ratio */
   max-width: 300px; /* Set a maximum width to prevent models from exceeding the container */
@@ -264,12 +264,14 @@ body {
 }
 
 .left-arrow {
+  position: absolute;
   left: 4px;
   top: 50%; /* Position at 50% from the top */
   transform: translateY(-50%); /* Center vertically */
 }
 
 .right-arrow {
+  position: absolute;
   right: 4px;
   top: 50%; /* Position at 50% from the top */
   transform: translateY(-50%); /* Center vertically */
