@@ -18,7 +18,7 @@ const celestialBodies = [{
   diameter: 1392700, // 1.3927 million kilometres
   distance: 0, // Starting point for this model
   name: 'Sun',
-  age: '4.5 billion'
+  age: '4.5 billion',
   facts: [
     'The Sun is a star at the center of the Solar System.',
     'It is composed of hot plasma interwoven with magnetic fields.',
