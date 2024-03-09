@@ -243,17 +243,25 @@ celestialBodies.forEach(body => {
   modelViewer.setAttribute('auto-rotate', ''); // Add auto-rotate attribute if desired
   modelViewer.setAttribute('camera-controls', ''); // Add camera controls attribute if desired
 
-  // Calculate size based on actual diameter and scale ratio
-  const size = body.diameter / scaleRatio
+  if (body.id === 'saturn') {
+    // Calculate size based on actual dimensions and scale ratio
+    const saturnWidth = 120536 / scaleRatio; // Width of Saturn in pixels
+    const saturnHeight = 1341.7866 / scaleRatio; // Height of Saturn (including rings) in pixels
+    modelViewer.style.width = saturnWidth + 'px'; // Set the width of the model
+    modelViewer.style.height = saturnHeight + 'px'; // Set the height of the model
+    modelViewer.style.left = 'calc(50% - ' + (saturnWidth / 2) + 'px)'; // Center horizontally
+    modelViewer.style.top = (distance + (saturnHeight / 2)) + 'px'; // Position vertically
+  } else {
+    // Calculate size based on actual diameter and scale ratio
+    const size = body.diameter / scaleRatio;
+    // Calculate distance based on scale ratio
+    const distance = (body.distance * astronomicalUnit) / scaleRatio;
 
-  // Calculate distance based on scale ratio
-  const distance = (body.distance * astronomicalUnit) / scaleRatio;
-
-  modelViewer.style.width = size + 'px'; // Set the desired width for the model
-  modelViewer.style.height = size + 'px'; // Set the desired height for the model
-  modelViewer.style.top = distance + 'px'; // Set the distance from the top
-  modelViewer.style.left = 'calc(50% - ' + (size / 2) + 'px)'; // Adjust the left position to center the body
-  document.querySelector('.container').appendChild(modelViewer);
+    modelViewer.style.width = size + 'px'; // Set the desired width for the model
+    modelViewer.style.height = size + 'px'; // Set the desired height for the model
+    modelViewer.style.top = distance + 'px'; // Set the distance from the top
+    modelViewer.style.left = 'calc(50% - ' + (size / 2) + 'px)'; // Adjust the left position to center the body
+  }
 
   // Create and append text element to display the name of the celestial body
   const nameElement = document.createElement('p');
