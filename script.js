@@ -151,6 +151,21 @@ const celestialBodies = [{
 }
 ];
 
+const astronautData = {
+  src: 'assets/astronaut.glb',
+  poster: 'assets/astronaut.png',
+  alt: 'Astronaut',
+  diameter: 50, // Estimated diameter of the astronaut model in centimeters
+  name: 'Astronaut',
+  facts: [
+    'Space is completely silent.',
+    'The Sun contains 99.86% of the mass in the Solar System.',
+    'The largest volcano in the Solar System is on Mars: Olympus Mons.',
+    'A day on Venus is longer than a year on Venus.',
+    'There are more stars in the universe than grains of sand on all the beaches on Earth.'
+    // Add more facts as needed
+  ]
+};
 
 function generateAstronaut() {
   const astronaut = document.getElementById('astronaut');
@@ -161,14 +176,7 @@ function generateAstronaut() {
 }
 
 function showRandomAstronautFact() {
-  const astronautFacts = [
-    'Space is completely silent.',
-    'The Sun contains 99.86% of the mass in the Solar System.',
-    'The largest volcano in the Solar System is on Mars: Olympus Mons.',
-    'A day on Venus is longer than a year on Venus.',
-    'There are more stars in the universe than grains of sand on all the beaches on Earth.'
-    // Add more facts as needed
-  ];
+  const astronautFacts = astronautData.facts;
 
   const randomAstronautFact = astronautFacts[Math.floor(Math.random() * astronautFacts.length)];
   const astronautFactContainer = document.querySelector('.astronaut-fact');
