@@ -351,10 +351,10 @@ body {
   transform: rotate(-45deg); /* Rotate the arrow */
 }
 
-.close-icon {
+.close-icon { 
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: -8px;
+  right: -2px;
   cursor: pointer;
   font-size: 20px;
   color: #999;
