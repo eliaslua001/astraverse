@@ -243,9 +243,6 @@ celestialBodies.forEach(body => {
   modelViewer.setAttribute('auto-rotate', ''); // Add auto-rotate attribute if desired
   modelViewer.setAttribute('camera-controls', ''); // Add camera controls attribute if desired
 
-  // Calculate size based on actual diameter and scale ratio
-  const size = body.diameter / scaleRatio
-
   // Calculate distance based on scale ratio
   const distance = (body.distance * astronomicalUnit) / scaleRatio;
 
@@ -268,10 +265,8 @@ celestialBodies.forEach(body => {
     modelViewer.style.height = size + 'px'; // Set the desired height for the model
   }
 
-  modelViewer.style.width = size + 'px'; // Set the desired width for the model
-  modelViewer.style.height = size + 'px'; // Set the desired height for the model
   modelViewer.style.top = distance + 'px'; // Set the distance from the top
-  modelViewer.style.left = 'calc(50% - ' + (size / 2) + 'px)'; // Adjust the left position to center the body
+  modelViewer.style.left = 'calc(50% - ' + (parseInt(modelViewer.style.width) / 2) + 'px)'; // Adjust the left position to center the body
   document.querySelector('.container').appendChild(modelViewer);
 
   // Function to set the glow effect for each celestial body
