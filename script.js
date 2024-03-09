@@ -211,6 +211,9 @@ function showFact(index) {
   const body = celestialBodies[currentBodyIndex];
   const facts = body.facts;
   const factContainer = document.querySelector('.fact-container');
+  const nameElement = document.querySelector('.name'); // Define name element
+  const diameterElement = document.querySelector('.diameter'); // Define diameter element
+  const distanceElement = document.querySelector('.distance'); // Define distance element
   nameElement.textContent = body.name;
   diameterElement.textContent = `Diameter: ${parseNumeriqueSpace(body.diameter)} km`;
 
