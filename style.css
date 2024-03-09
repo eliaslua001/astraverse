@@ -193,6 +193,8 @@ body {
   position: absolute;
   border-radius: 50%;
   cursor: pointer;
+  background-size: cover;
+  background-position: center;
 }
 
 .celestial-body .name {
