@@ -218,15 +218,11 @@ function showFact(index) {
   } else {
     distanceElement.textContent = ''; // Hide the distance for the Sun
   }
-  factWrapper.textContent = facts[index];
-  currentFactIndex = index;
-
   // Remove existing model-viewer if any
   const existingModelViewer = document.querySelector('.model-viewer');
   if (existingModelViewer) {
     existingModelViewer.remove();
   }
-
   // Create and append model-viewer for the current body
   const modelViewer = document.createElement('model-viewer');
   modelViewer.className = 'model-viewer';
@@ -238,6 +234,9 @@ function showFact(index) {
   modelViewer.style.height = 'auto';
   modelViewer.style.marginTop = '10px'; // Adjust margin as needed
   factWrapper.appendChild(modelViewer);
+  // Set the text content of factWrapper to the fact
+  factWrapper.textContent = facts[index];
+  currentFactIndex = index;
 }
 
 closeButton.addEventListener('click', function () {
