@@ -209,21 +209,18 @@ let currentFactIndex = 0;
 
 function showFact(index) {
   const body = celestialBodies[currentBodyIndex];
+  const modelSize = body.diameter / scaleRatio; // Assuming the diameter represents the size of the model
   const facts = body.facts;
   const factContainer = document.querySelector('.fact-container');
-  const nameElement = document.querySelector('.name'); // Define name element
-  const diameterElement = document.querySelector('.diameter'); // Define diameter element
-  const distanceElement = document.querySelector('.distance'); // Define distance element
+  factContainer.style.height = (modelSize + 50) + 'px'; // Add some extra space
   nameElement.textContent = body.name;
   diameterElement.textContent = `Diameter: ${parseNumeriqueSpace(body.diameter)} km`;
-
   // Check if the current body is the Sun, then hide the distance
   if (body.id !== 'sun') {
     distanceElement.textContent = `Distance from Sun: ${parseNumeriqueSpace(Math.ceil(body.distance * astronomicalUnit))} km`;
   } else {
     distanceElement.textContent = ''; // Hide the distance for the Sun
   }
-
   // Remove existing model-viewer if any
   const existingModelViewer = document.querySelector('.model-viewer');
   if (existingModelViewer) {
@@ -236,12 +233,9 @@ function showFact(index) {
   modelViewer.setAttribute('alt', body.alt);
   modelViewer.setAttribute('auto-rotate', '');
   modelViewer.setAttribute('camera-controls', '');
-
-  // Adjust the positioning of the model viewer and facts wrapper
-  modelViewer.style.width = 'calc(50% - 10px)';
-  modelViewer.style.height = '100%';
-  factWrapper.style.width = 'calc(50% - 10px)';
-
+  modelViewer.style.width = '100%';
+  modelViewer.style.height = 'auto';
+  modelViewer.style.marginTop = '10px'; // Adjust margin as needed
   factContainer.appendChild(modelViewer);
   // Set the text content of factWrapper to the fact
   factWrapper.textContent = facts[index];
@@ -257,16 +251,17 @@ closeButton.addEventListener('click', function () {
   }
 });
 
-leftArrow.addEventListener('click', () => {
+leftArrow.addEventListener('click', function () {
   currentFactIndex = (currentFactIndex - 1 + celestialBodies[currentBodyIndex].facts.length) % celestialBodies[currentBodyIndex].facts.length;
   showFact(currentFactIndex); // Show the updated fact
+  event.stopPropagation();
 });
 
-rightArrow.addEventListener('click', () => {
+rightArrow.addEventListener('click', function () {
   currentFactIndex = (currentFactIndex + 1) % celestialBodies[currentBodyIndex].facts.length;
   showFact(currentFactIndex); // Show the updated fact
+  event.stopPropagation();
 });
-
 
 celestialBodies.forEach(body => {
   const modelViewer = document.createElement('model-viewer');
@@ -301,11 +296,6 @@ celestialBodies.forEach(body => {
     currentBodyIndex = celestialBodies.findIndex(item => item.id === body.id); // Set current body index
     showFact(0); // Show the first fact when clicked
     factContainer.style.display = 'block'; // Show the fact container
-
-    // Remove auto-rotate when a model is clicked
-    document.querySelectorAll('.model-viewer').forEach(viewer => {
-      viewer.removeAttribute('auto-rotate');
-    });
   });
 });
 
