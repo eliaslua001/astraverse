@@ -18,6 +18,7 @@ const celestialBodies = [{
   diameter: 1392700, // 1.3927 million kilometres
   distance: 0, // Starting point for this model
   name: 'Sun',
+  age: '4.5 billion'
   facts: [
     'The Sun is a star at the center of the Solar System.',
     'It is composed of hot plasma interwoven with magnetic fields.',
@@ -352,6 +353,16 @@ window.addEventListener('scroll', function () {
     } else {
       document.querySelector('.distance-meter').style.display = 'none';
       document.querySelector('.marker-line').style.display = 'none'; // Hide the marker line
+    }
+
+    const neptuneOffset = document.getElementById('neptune').getBoundingClientRect().top;
+    if (neptuneOffset < 0) {
+      document.querySelector('.astronaut').style.display = 'none';
+      document.getElementById('distance').style.display = 'none';
+      document.querySelector('.marker-line').style.display = 'none';
+    } else {
+      document.querySelector('.astronaut').style.display = 'block';
+      document.getElementById('distance').style.display = 'block';
     }
   }, 50); // Adjust the debounce delay as needed
 });
