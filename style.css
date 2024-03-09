@@ -195,13 +195,15 @@ body {
   cursor: pointer;
 }
 
-.celestial-name {
+.celestial-body .name {
   position: absolute;
-  bottom: -20px;
-  /* Adjust as needed */
+  top: calc(100% + 5px);
   left: 50%;
   transform: translateX(-50%);
-  text-align: center;
+  pointer-events: none;
+  color: white;
+  font-size: 20px;
+  z-index: 2001;
 }
 
 .distance-meter {
@@ -320,17 +322,6 @@ body {
   height: 1px;
   background-color: red;
   z-index: 999;
-}
-
-.celestial-body .name {
-  position: absolute;
-  top: calc(100% + 5px);
-  left: 50%;
-  transform: translateX(-50%);
-  pointer-events: none;
-  color: white;
-  font-size: 20px;
-  z-index: 2001;
 }
 
 .astronaut {

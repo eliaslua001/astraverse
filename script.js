@@ -267,7 +267,7 @@ celestialBodies.forEach(body => {
 
   // Create and append text element to display the name of the celestial body
   const nameElement = document.createElement('p');
-  nameElement.className = 'celestial-name';
+  nameElement.className = 'celestial-body .name';
   nameElement.textContent = body.name;
   modelViewer.appendChild(nameElement);
 
