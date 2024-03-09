@@ -233,7 +233,7 @@ function showFact(index) {
   modelViewer.style.width = '100%';
   modelViewer.style.height = 'auto';
   modelViewer.style.marginTop = '10px'; // Adjust margin as needed
-  factWrapper.appendChild(modelViewer);
+  factContainer.appendChild(modelViewer);
   // Set the text content of factWrapper to the fact
   factWrapper.textContent = facts[index];
   currentFactIndex = index;
