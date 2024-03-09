@@ -220,7 +220,34 @@ function showFact(index) {
   }
   factWrapper.textContent = facts[index];
   currentFactIndex = index;
+
+  // Remove existing model-viewer if any
+  const existingModelViewer = document.querySelector('.model-viewer');
+  if (existingModelViewer) {
+    existingModelViewer.remove();
+  }
+
+  // Create and append model-viewer for the current body
+  const modelViewer = document.createElement('model-viewer');
+  modelViewer.className = 'model-viewer';
+  modelViewer.setAttribute('src', body.src);
+  modelViewer.setAttribute('alt', body.alt);
+  modelViewer.setAttribute('auto-rotate', '');
+  modelViewer.setAttribute('camera-controls', '');
+  modelViewer.style.width = '100%';
+  modelViewer.style.height = 'auto';
+  modelViewer.style.marginTop = '10px'; // Adjust margin as needed
+  factWrapper.appendChild(modelViewer);
 }
+
+closeButton.addEventListener('click', function () {
+  factContainer.style.display = 'none';
+  // Remove existing model-viewer if any when closing the fact container
+  const existingModelViewer = document.querySelector('.model-viewer');
+  if (existingModelViewer) {
+    existingModelViewer.remove();
+  }
+});
 
 leftArrow.addEventListener('click', function () {
   currentFactIndex = (currentFactIndex - 1 + celestialBodies[currentBodyIndex].facts.length) % celestialBodies[currentBodyIndex].facts.length;
