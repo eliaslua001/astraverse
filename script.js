@@ -356,13 +356,13 @@ window.addEventListener('scroll', function () {
     }
 
     const neptuneOffset = document.getElementById('neptune').getBoundingClientRect().top;
-    if (neptuneOffset < 0) {
+    if (neptuneOffset < 0 || neptuneOffset > window.innerHeight) {
       document.querySelector('.astronaut').style.display = 'none';
-      document.getElementById('.distance-meter').style.display = 'none';
+      document.querySelector('.distance-meter').style.display = 'none';
       document.querySelector('.marker-line').style.display = 'none';
     } else {
       document.querySelector('.astronaut').style.display = 'block';
-      document.getElementById('.distance-meter').style.display = 'block';
+      document.querySelector('.distance-meter').style.display = 'block';
     }
   }, 50); // Adjust the debounce delay as needed
 });
