@@ -3,8 +3,6 @@ function startExploring() {
   document.getElementById('landing-content').style.display = 'none'; // Hide the landing content
   document.querySelector('.container').style.display = 'block'; // Show the celestial bodies
   document.querySelector('.astronaut').style.display = 'block'; // Show the astronaut
-
-  await resizePosterImages(); // Wait for the posters to be resized
 }
 const astronomicalUnit = 149597871; // 149,597,871 kilometers (1 AU)
 const scaleRatio = 300; // Each unit represents 300 times the corresponding distance in reality
@@ -15,8 +13,6 @@ const celestialBodies = [{
   id: 'sun',
   src: 'assets/sun.glb',
   poster: 'assets/sun.png',
-  posterWidth: 4645,
-  posterHeight: 4645,
   alt: 'Sun',
   color: 'yellow',
   diameter: 1392700, // 1.3927 million kilometres
@@ -31,8 +27,6 @@ const celestialBodies = [{
   id: 'mercury',
   src: 'assets/mercury.glb',
   poster: 'assets/mercury.png',
-  posterWidth: 19,
-  posterHeight: 19,
   alt: 'Mercury',
   color: 'gray',
   diameter: 4879.4, // 4,879.4 kilometres
@@ -47,8 +41,6 @@ const celestialBodies = [{
   id: 'venus',
   src: 'assets/venus.glb',
   poster: 'assets/venus.png',
-  posterWidth: 43,
-  posterHeight: 43,
   alt: 'Venus',
   color: 'orange',
   diameter: 12104, // 12,104 kilometers
@@ -63,8 +55,6 @@ const celestialBodies = [{
   id: 'earth',
   src: 'assets/earth.glb',
   poster: 'assets/earth.png',
-  posterWidth: 45,
-  posterHeight: 45,
   alt: 'Earth',
   color: 'blue',
   diameter: 12742, // 12,742 kilometres
@@ -80,8 +70,6 @@ const celestialBodies = [{
   src: 'assets/moon.glb',
   poster: 'assets/moon.png',
   alt: 'Moon',
-  posterWidth: 14,
-  posterHeight: 14,
   color: 'gray',
   diameter: 3475, // 3,475 kilometers
   distance: 1.00257, // 1 AU + 384,400 kilometres (0.00257 AU)
@@ -109,8 +97,6 @@ const celestialBodies = [{
   id: 'jupiter',
   src: 'assets/jupiter.glb',
   poster: 'assets/jupiter.png',
-  posterWidth: 479,
-  posterHeight: 479,
   alt: 'Jupiter',
   color: 'tan',
   diameter: 142800, // 142,800 kilometres
@@ -125,8 +111,6 @@ const celestialBodies = [{
   id: 'saturn',
   src: 'assets/saturn.glb',
   poster: 'assets/saturn.png',
-  posterWidth: 1344,
-  posterHeight: 404,
   alt: 'Saturn',
   color: 'gold',
   diameter: 120536, // 120,536 kilometres, 1341.7866 px including rings
@@ -141,8 +125,6 @@ const celestialBodies = [{
   id: 'uranus',
   src: 'assets/uranus.glb',
   poster: 'assets/uranus.png',
-  posterWidth: 172,
-  posterHeight: 172,
   alt: 'Uranus',
   color: 'lightblue',
   diameter: 50724, // 50,724 kilometres
@@ -157,8 +139,6 @@ const celestialBodies = [{
   id: 'neptune',
   src: 'assets/neptune.glb',
   poster: 'assets/neptune.png',
-  posterWidth: 168,
-  posterHeight: 168,
   alt: 'Neptune',
   color: 'blue',
   diameter: 49528, // 49,528 kilometers
@@ -254,126 +234,95 @@ rightArrow.addEventListener('click', function () {
   event.stopPropagation();
 });
 
-async function resizePosterImages() {
-  // Iterate over celestial bodies to resize poster images
-  for (const body of celestialBodies) {
-    // Load the poster image
-    const img = new Image();
-    img.src = body.poster;
+celestialBodies.forEach(body => {
+  const modelViewer = document.createElement('model-viewer');
+  modelViewer.id = body.id;
+  modelViewer.className = 'celestial-body';
+  modelViewer.dataset.name = body.name;
+  modelViewer.setAttribute('poster', body.poster); // Set the poster attribute to the URL of the poster image
+  modelViewer.setAttribute('auto-rotate', ''); // Add auto-rotate attribute if desired
+  modelViewer.setAttribute('camera-controls', ''); // Add camera controls attribute if desired
 
-    // Wait for the image to load
-    await new Promise(resolve => {
-      img.onload = resolve;
-    });
+  // Calculate size based on actual diameter and scale ratio
+  const size = body.diameter / scaleRatio
 
-    // Create a canvas element to draw the resized image
-    const canvas = document.createElement('canvas');
-    canvas.width = body.posterWidth; // Use custom width if provided, else use default
-    canvas.height = body.posterHeight; // Use custom height if provided, else use default
-    const ctx = canvas.getContext('2d');
+  // Calculate distance based on scale ratio
+  const distance = (body.distance * astronomicalUnit) / scaleRatio;
+  modelViewer.style.width = size + 'px'; // Set the desired width for the model
+  modelViewer.style.height = size + 'px'; // Set the desired height for the model
+  modelViewer.style.top = distance + 'px'; // Set the distance from the top
+  modelViewer.style.left = 'calc(50% - ' + (size / 2) + 'px)'; // Adjust the left position to center the body
+  modelViewer.style.background = `url(${body.poster})`; // Set the background image to the poster image
+  modelViewer.style.backgroundSize = 'cover'; // Ensure the background image covers the entire element
+  document.querySelector('.container').appendChild(modelViewer);
 
-    // Draw the resized image onto the canvas
-    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-
-    // Convert the canvas content back to a data URL
-    const resizedPoster = canvas.toDataURL('image/png');
-
-    // Update the celestial body object with the resized poster
-    body.resizedPoster = resizedPoster;
+  // Function to set the glow effect for each celestial body
+  function setGlowColor(modelViewer, color) {
+    // Reduce the box-shadow size to make the glow smaller than the poster background
+    const glowSize = '5px'; // Adjust the glow size as needed
+    const glowSpread = '2px'; // Adjust the spread of the glow as needed
+    modelViewer.style.boxShadow = `0 0 ${glowSize} ${glowSpread} ${color}`;
   }
-}
 
-// Call the function to resize poster images before generating the modelViewer elements
-resizePosterImages().then(() => {
-  // Generate modelViewer elements using the resized poster images
-  celestialBodies.forEach(body => {
-    const modelViewer = document.createElement('model-viewer');
-    modelViewer.id = body.id;
-    modelViewer.className = 'celestial-body';
-    modelViewer.dataset.name = body.name;
-    modelViewer.setAttribute('poster', body.resizedPoster); // Set the poster attribute to the URL of the poster image
-    modelViewer.setAttribute('auto-rotate', ''); // Add auto-rotate attribute if desired
-    modelViewer.setAttribute('camera-controls', ''); // Add camera controls attribute if desired
+  // Set glow color to match the body's color
+  setGlowColor(modelViewer, body.color);
 
-    // Calculate size based on actual diameter and scale ratio
-    const size = body.diameter / scaleRatio
+  // Create and append text element to display the name of the celestial body
+  const nameElement = document.createElement('p');
+  nameElement.className = 'name';
+  nameElement.textContent = body.name;
+  modelViewer.appendChild(nameElement);
 
-    // Calculate distance based on scale ratio
-    const distance = (body.distance * astronomicalUnit) / scaleRatio;
-    modelViewer.style.width = size + 'px'; // Set the desired width for the model
-    modelViewer.style.height = size + 'px'; // Set the desired height for the model
-    modelViewer.style.top = distance + 'px'; // Set the distance from the top
-    modelViewer.style.left = 'calc(50% - ' + (size / 2) + 'px)'; // Adjust the left position to center the body
-    document.querySelector('.container').appendChild(modelViewer);
+  document.querySelector('.container').appendChild(modelViewer);
 
-    // Function to set the glow effect for each celestial body
-    function setGlowColor(modelViewer, color) {
-      // Reduce the box-shadow size to make the glow smaller than the poster background
-      const glowSize = '5px'; // Adjust the glow size as needed
-      const glowSpread = '2px'; // Adjust the spread of the glow as needed
-      modelViewer.style.boxShadow = `0 0 ${glowSize} ${glowSpread} ${color}`;
-    }
-
-    // Set glow color to match the body's color
-    setGlowColor(modelViewer, body.color);
-
-    // Create and append text element to display the name of the celestial body
-    const nameElement = document.createElement('p');
-    nameElement.className = 'name';
-    nameElement.textContent = body.name;
-    modelViewer.appendChild(nameElement);
-
-    document.querySelector('.container').appendChild(modelViewer);
-
-    modelViewer.addEventListener('click', function () {
-      currentBodyIndex = celestialBodies.findIndex(item => item.id === body.id); // Set current body index
-      showFact(0); // Show the first fact when clicked
-      factContainer.style.display = 'block'; // Show the fact container
-    });
+  modelViewer.addEventListener('click', function () {
+    currentBodyIndex = celestialBodies.findIndex(item => item.id === body.id); // Set current body index
+    showFact(0); // Show the first fact when clicked
+    factContainer.style.display = 'block'; // Show the fact container
   });
 });
 
-  function parseNumeriqueSpace(number) {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+function parseNumeriqueSpace(number) {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}
+
+const markerLine = document.querySelector('.marker-line');
+const sunPosition = celestialBodies[0].distance * astronomicalUnit / scaleRatio;
+const sunDistanceKm = celestialBodies[0].distance * astronomicalUnit;
+
+const lastBody = celestialBodies[celestialBodies.length - 1];
+const lastBodyDistance = (lastBody.distance * astronomicalUnit) / scaleRatio;
+const lastBodyDiameter = lastBody.diameter / scaleRatio;
+const bufferHeight = lastBodyDistance + lastBodyDiameter + 1000; // Adjust the buffer height as needed
+
+// Set the container height to include the buffer
+document.querySelector('.container').style.height = bufferHeight + 'px';
+
+factContainer.addEventListener('click', function (event) {
+  // Prevent click events from propagating outside the container
+  event.stopPropagation();
+});
+
+document.addEventListener('click', function (event) {
+  if (!event.target.closest('.celestial-body') && event.target !== factContainer) {
+    factContainer.style.display = 'none';
   }
+});
 
-  const markerLine = document.querySelector('.marker-line');
-  const sunPosition = celestialBodies[0].distance * astronomicalUnit / scaleRatio;
-  const sunDistanceKm = celestialBodies[0].distance * astronomicalUnit;
+window.addEventListener('scroll', function () {
+  clearTimeout(debounceTimer);
+  debounceTimer = setTimeout(function () {
+    const scrollPosition = window.scrollY;
+    const markerOffset = markerLine.getBoundingClientRect().top + window.scrollY - sunPosition;
+    let distanceFromSunKm = (markerOffset > 0 ? markerOffset : 0) * scaleRatio + sunDistanceKm;
 
-  const lastBody = celestialBodies[celestialBodies.length - 1];
-  const lastBodyDistance = (lastBody.distance * astronomicalUnit) / scaleRatio;
-  const lastBodyDiameter = lastBody.diameter / scaleRatio;
-  const bufferHeight = lastBodyDistance + lastBodyDiameter + 1000; // Adjust the buffer height as needed
-
-  // Set the container height to include the buffer
-  document.querySelector('.container').style.height = bufferHeight + 'px';
-
-  factContainer.addEventListener('click', function (event) {
-    // Prevent click events from propagating outside the container
-    event.stopPropagation();
-  });
-
-  document.addEventListener('click', function (event) {
-    if (!event.target.closest('.celestial-body') && event.target !== factContainer) {
-      factContainer.style.display = 'none';
+    if (markerOffset > celestialBodies[0].diameter / scaleRatio) {
+      document.getElementById('distance').textContent = distanceFromSunKm.toLocaleString();
+      document.querySelector('.distance-meter').style.display = 'block';
+      document.querySelector('.marker-line').style.display = 'block'; // Show the marker line
+    } else {
+      document.querySelector('.distance-meter').style.display = 'none';
+      document.querySelector('.marker-line').style.display = 'none'; // Hide the marker line
     }
-  });
-
-  window.addEventListener('scroll', function () {
-    clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(function () {
-      const scrollPosition = window.scrollY;
-      const markerOffset = markerLine.getBoundingClientRect().top + window.scrollY - sunPosition;
-      let distanceFromSunKm = (markerOffset > 0 ? markerOffset : 0) * scaleRatio + sunDistanceKm;
-
-      if (markerOffset > celestialBodies[0].diameter / scaleRatio) {
-        document.getElementById('distance').textContent = distanceFromSunKm.toLocaleString();
-        document.querySelector('.distance-meter').style.display = 'block';
-        document.querySelector('.marker-line').style.display = 'block'; // Show the marker line
-      } else {
-        document.querySelector('.distance-meter').style.display = 'none';
-        document.querySelector('.marker-line').style.display = 'none'; // Hide the marker line
-      }
-    }, 50); // Adjust the debounce delay as needed
-  });
+  }, 50); // Adjust the debounce delay as needed
+});
