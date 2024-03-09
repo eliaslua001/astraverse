@@ -41,8 +41,11 @@
   </div>
   <div class="marker-line"></div>
   <div class="distance-meter">Distance: <span id="distance">0</span> km</div>
-  <!-- Astronaut or spaceship element -->
-  <div class="astronaut" id="astronaut"></div>
+  <div class="astronaut" id="astronaut">
+    <!-- Import the astronaut model here -->
+    <model-viewer src="assets/astronaut.glb" alt="Astronaut" poster="assets/astronaut.png" autoplay="false" camera-controls
+      style="width: 100%; height: auto;"></model-viewer>
+  </div>
   <div class="fact-container astronaut-fact" style="display: none;">
     <div class="fact-wrapper">
       <p class="fact"></p>
