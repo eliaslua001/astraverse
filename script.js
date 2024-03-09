@@ -212,7 +212,7 @@ function showFact(index) {
   const modelSize = body.diameter / scaleRatio; // Assuming the diameter represents the size of the model
   const facts = body.facts;
   const factContainer = document.querySelector('.fact-container');
-  factContainer.style.height = '400px';
+  factContainer.style.height = 'auto';
   const factWrapper = factContainer.querySelector('.fact-wrapper');
   nameElement.textContent = body.name;
 
