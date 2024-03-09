@@ -249,6 +249,25 @@ celestialBodies.forEach(body => {
   // Calculate distance based on scale ratio
   const distance = (body.distance * astronomicalUnit) / scaleRatio;
 
+  if (body.id === 'saturn') {
+    // For Saturn, manually set the width to accommodate the rings
+    const width = 1341.7866; // Width including rings
+    const height = body.diameter / scaleRatio; // Calculate height based on diameter
+    modelViewer.style.width = width + 'px'; // Set the width
+    modelViewer.style.height = height + 'px'; // Set the height
+  } else if (body.id === 'jupiter') {
+    // For Jupiter, manually adjust the size
+    const width = 2039; // Set the desired width for Jupiter (in pixels)
+    const height = 2048; // Set the desired height for Jupiter (in pixels)
+    modelViewer.style.width = width + 'px'; // Set the desired width for the model
+    modelViewer.style.height = height + 'px'; // Set the desired height for the model
+  } else {
+    // For other celestial bodies, calculate size based on actual diameter and scale ratio
+    const size = body.diameter / scaleRatio;
+    modelViewer.style.width = size + 'px'; // Set the desired width for the model
+    modelViewer.style.height = size + 'px'; // Set the desired height for the model
+  }
+
   modelViewer.style.width = size + 'px'; // Set the desired width for the model
   modelViewer.style.height = size + 'px'; // Set the desired height for the model
   modelViewer.style.top = distance + 'px'; // Set the distance from the top
@@ -257,8 +276,12 @@ celestialBodies.forEach(body => {
 
   // Function to set the glow effect for each celestial body
   function setGlowColor(modelViewer, color) {
-    modelViewer.style.boxShadow = `0 0 20px 10px ${color}`;
+    // Reduce the box-shadow size to make the glow smaller than the poster background
+    const glowSize = '5px'; // Adjust the glow size as needed
+    const glowSpread = '2px'; // Adjust the spread of the glow as needed
+    modelViewer.style.boxShadow = `0 0 ${glowSize} ${glowSpread} ${color}`;
   }
+
 
   // Set glow color to match the body's color
   setGlowColor(modelViewer, body.color);
