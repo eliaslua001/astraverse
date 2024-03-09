@@ -239,7 +239,6 @@ celestialBodies.forEach(body => {
   modelViewer.id = body.id;
   modelViewer.className = 'celestial-body';
   modelViewer.dataset.name = body.name;
-  modelViewer.style.background = `url(${body.poster})`;
   modelViewer.setAttribute('poster', body.poster); // Set the poster attribute to the URL of the poster image
   modelViewer.setAttribute('auto-rotate', ''); // Add auto-rotate attribute if desired
   modelViewer.setAttribute('camera-controls', ''); // Add camera controls attribute if desired
@@ -254,6 +253,7 @@ celestialBodies.forEach(body => {
   modelViewer.style.height = size + 'px'; // Set the desired height for the model
   modelViewer.style.top = distance + 'px'; // Set the distance from the top
   modelViewer.style.left = 'calc(50% - ' + (size / 2) + 'px)'; // Adjust the left position to center the body
+  modelViewer.style.background = `url(${body.poster})`; // Set the background image to the poster image
   document.querySelector('.container').appendChild(modelViewer);
 
   // Function to set the glow effect for each celestial body
@@ -263,6 +263,14 @@ celestialBodies.forEach(body => {
 
   // Set glow color to match the body's color
   setGlowColor(modelViewer, body.color);
+
+  // Create and append text element to display the name of the celestial body
+  const nameElement = document.createElement('p');
+  nameElement.className = 'celestial-name';
+  nameElement.textContent = body.name;
+  modelViewer.appendChild(nameElement);
+
+  document.querySelector('.container').appendChild(modelViewer);
 
   modelViewer.addEventListener('click', function () {
     currentBodyIndex = celestialBodies.findIndex(item => item.id === body.id); // Set current body index
