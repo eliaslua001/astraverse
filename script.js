@@ -262,7 +262,7 @@ celestialBodies.forEach(body => {
   }
 
   // Set glow color to match the body's color
-  setGlowColor(circle, body.color);
+  setGlowColor(modelViewer, body.color);
 
   modelViewer.addEventListener('click', function () {
     currentBodyIndex = celestialBodies.findIndex(item => item.id === body.id); // Set current body index
