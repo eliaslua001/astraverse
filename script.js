@@ -257,8 +257,8 @@ celestialBodies.forEach(body => {
   document.querySelector('.container').appendChild(modelViewer);
 
   // Function to set the glow effect for each celestial body
-  function setGlowColor(element, color) {
-    element.style.boxShadow = `0 0 20px 10px ${color}`;
+  function setGlowColor(modelViewer, color) {
+    modelViewer.style.boxShadow = `0 0 20px 10px ${color}`;
   }
 
   // Set glow color to match the body's color
