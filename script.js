@@ -235,7 +235,7 @@ function showFact(index) {
   modelViewer.setAttribute('auto-rotate', '');
   modelViewer.setAttribute('camera-controls', '');
   modelViewer.style.width = '100%';
-  modelViewer.style.height = '100%';
+  modelViewer.style.height = '300px';
   modelViewer.style.marginTop = '10px'; // Adjust margin as needed
   factContainer.appendChild(modelViewer);
   // Set the text content of factWrapper to the fact
