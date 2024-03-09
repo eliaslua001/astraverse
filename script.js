@@ -239,6 +239,7 @@ celestialBodies.forEach(body => {
   modelViewer.id = body.id;
   modelViewer.className = 'celestial-body';
   modelViewer.dataset.name = body.name;
+  modelViewer.style.background = `url(${body.poster})`;
   modelViewer.setAttribute('poster', body.poster); // Set the poster attribute to the URL of the poster image
   modelViewer.setAttribute('auto-rotate', ''); // Add auto-rotate attribute if desired
   modelViewer.setAttribute('camera-controls', ''); // Add camera controls attribute if desired
@@ -254,20 +255,6 @@ celestialBodies.forEach(body => {
   modelViewer.style.top = distance + 'px'; // Set the distance from the top
   modelViewer.style.left = 'calc(50% - ' + (size / 2) + 'px)'; // Adjust the left position to center the body
   document.querySelector('.container').appendChild(modelViewer);
-
-  const nameElement = document.createElement('p');
-  nameElement.className = 'name';
-  nameElement.textContent = body.name;
-  modelViewer.appendChild(nameElement);
-
-  const circle = document.createElement('div');
-  circle.className = 'circle';
-  circle.style.backgroundImage = `url(${body.poster})`;
-  circle.style.width = size + 'px'; // Set the width of the circle
-  circle.style.height = size + 'px'; // Set the height of the circle
-  circle.style.top = distance + 'px'; // Set the distance from the top
-  circle.style.left = 'calc(50% - ' + (size / 2) + 'px)'; // Adjust the left position to center the circle
-  document.querySelector('.container').appendChild(circle);
 
   // Function to set the glow effect for each celestial body
   function setGlowColor(element, color) {
