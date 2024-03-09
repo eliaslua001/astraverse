@@ -195,6 +195,15 @@ body {
   cursor: pointer;
 }
 
+.celestial-name {
+  position: absolute;
+  bottom: -20px;
+  /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
 .distance-meter {
   display: none;
   position: fixed;
@@ -226,7 +235,8 @@ body {
 }
 
 .fact-wrapper {
-  padding: 15px; /* Add padding on all sides */
+  padding: 15px;
+  /* Add padding on all sides */
   width: 200px;
   height: auto;
   position: relative;
