@@ -213,12 +213,14 @@ function showFact(index) {
   const factContainer = document.querySelector('.fact-container');
   nameElement.textContent = body.name;
   diameterElement.textContent = `Diameter: ${parseNumeriqueSpace(body.diameter)} km`;
+
   // Check if the current body is the Sun, then hide the distance
   if (body.id !== 'sun') {
     distanceElement.textContent = `Distance from Sun: ${parseNumeriqueSpace(Math.ceil(body.distance * astronomicalUnit))} km`;
   } else {
     distanceElement.textContent = ''; // Hide the distance for the Sun
   }
+
   // Remove existing model-viewer if any
   const existingModelViewer = document.querySelector('.model-viewer');
   if (existingModelViewer) {
@@ -231,9 +233,12 @@ function showFact(index) {
   modelViewer.setAttribute('alt', body.alt);
   modelViewer.setAttribute('auto-rotate', '');
   modelViewer.setAttribute('camera-controls', '');
-  modelViewer.style.width = '100%';
+
+  // Adjust the positioning of the model viewer and facts wrapper
+  modelViewer.style.width = 'calc(50% - 10px)';
   modelViewer.style.height = '100%';
-  modelViewer.style.marginTop = '10px'; // Adjust margin as needed
+  factWrapper.style.width = 'calc(50% - 10px)';
+
   factContainer.appendChild(modelViewer);
   // Set the text content of factWrapper to the fact
   factWrapper.textContent = facts[index];
@@ -294,6 +299,11 @@ celestialBodies.forEach(body => {
     currentBodyIndex = celestialBodies.findIndex(item => item.id === body.id); // Set current body index
     showFact(0); // Show the first fact when clicked
     factContainer.style.display = 'block'; // Show the fact container
+
+    // Remove auto-rotate when a model is clicked
+    document.querySelectorAll('.model-viewer').forEach(viewer => {
+      viewer.removeAttribute('auto-rotate');
+    });
   });
 });
 
