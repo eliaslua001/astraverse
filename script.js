@@ -255,14 +255,6 @@ celestialBodies.forEach(body => {
   modelViewer.style.left = 'calc(50% - ' + (size / 2) + 'px)'; // Adjust the left position to center the body
   document.querySelector('.container').appendChild(modelViewer);
 
-  // Function to set the glow effect for each celestial body
-  function setGlowColor(modelViewer, color) {
-    modelViewer.style.boxShadow = `0 0 20px 10px ${color}`;
-  }
-
-  // Set glow color to match the body's color
-  setGlowColor(modelViewer, body.color);
-
   // Create and append text element to display the name of the celestial body
   const nameElement = document.createElement('p');
   nameElement.className = 'name';
