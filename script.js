@@ -212,8 +212,10 @@ function showFact(index) {
   const modelSize = body.diameter / scaleRatio; // Assuming the diameter represents the size of the model
   const facts = body.facts;
   const factContainer = document.querySelector('.fact-container');
-  factContainer.style.height = (modelSize + 50) + 'px'; // Add some extra space
+  factContainer.style.height = '400px';
+  const factWrapper = factContainer.querySelector('.fact-wrapper');
   nameElement.textContent = body.name;
+
   diameterElement.textContent = `Diameter: ${parseNumeriqueSpace(body.diameter)} km`;
   // Check if the current body is the Sun, then hide the distance
   if (body.id !== 'sun') {
