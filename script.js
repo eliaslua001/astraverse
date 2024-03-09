@@ -255,6 +255,7 @@ celestialBodies.forEach(body => {
   modelViewer.style.left = 'calc(50% - ' + (size / 2) + 'px)'; // Adjust the left position to center the body
   modelViewer.style.background = `url(${body.poster})`; // Set the background image to the poster image
   modelViewer.style.backgroundSize = 'cover'; // Ensure the background image covers the entire element
+  modelViewer.style.transform = 'scale(1.5)'; // Scale up the image to fill the container
   document.querySelector('.container').appendChild(modelViewer);
 
   // Function to set the glow effect for each celestial body
