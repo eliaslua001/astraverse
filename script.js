@@ -155,7 +155,6 @@ const astronautData = {
   src: 'assets/astronaut.glb',
   poster: 'assets/astronaut.png',
   alt: 'Astronaut',
-  diameter: 50, // Estimated diameter of the astronaut model in centimeters
   name: 'Astronaut',
   facts: [
     'Space is completely silent.',
