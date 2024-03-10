@@ -63,11 +63,11 @@ function start() {
         }
     };
 
-    //starfield and settings
-    var starfield = document.getElementById("starfield"),
-        context = starfield.getContext("2d"),
-        width = starfield.width = window.innerWidth,
-        height = starfield.height = window.innerHeight,
+    //Canvas and settings
+    var canvas = document.getElementById("canvas"),
+        context = canvas.getContext("2d"),
+        width = canvas.width = window.innerWidth,
+        height = canvas.height = window.innerHeight,
         stars = [],
         shootingStars = [],
         layers = [
@@ -122,7 +122,7 @@ function start() {
     function update() {
         if (!paused) {
             context.clearRect(0, 0, width, height);
-            context.fillStyle = "#000000";
+            context.fillStyle = "#282a3a";
             context.fillRect(0, 0, width, height);
             context.fill();
 

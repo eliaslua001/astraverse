@@ -179,7 +179,7 @@ body {
   overflow-y: scroll;
 }
 
-.starfield {
+.canvas {
   display: block;
   position: fixed;
   top: 0;
