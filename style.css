@@ -383,10 +383,11 @@ canvas {
 
 .scroll-image {
   position: fixed;
-  top: calc(50% - 15px); /* Adjust vertically centered position */
+  top: calc(50% - 57px); /* Adjust vertically centered position */
   right: 20px; /* Adjust distance from the right */
   width: 50px;
   height: auto;
+  z-index: 1001;
 }
 
 .fact-container .name {
