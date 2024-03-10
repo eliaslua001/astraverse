@@ -483,10 +483,7 @@ canvas {
 
 .spaceship {
   display: none;
-  /* Initially hide the astronaut */
   position: fixed;
-  width: inherit;
-  height: inherit;
   cursor: pointer;
   z-index: 1000;
   right: 20px;
