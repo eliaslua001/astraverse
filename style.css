@@ -508,7 +508,7 @@ canvas {
   }
 }
 .spaceship {
-  animation: floating 3s infinite alternate, tilting 3s infinite alternate;
+  animation: floating 3s infinite alternate, tilting 6s infinite alternate;
   display: none;
   position: fixed;
   cursor: pointer;
