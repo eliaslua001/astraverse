@@ -239,12 +239,12 @@ button.active .text {
 
 body {
   height: auto;
+  background-color: black;
   margin: 0;
   padding: 0;
   color: white;
   font-family: Arial, sans-serif;
   overflow-y: scroll;
-  background-color: #000000;
 }
 
 /* Starfield */
