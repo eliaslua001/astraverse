@@ -179,7 +179,8 @@ body {
   overflow-y: scroll;
 }
 
-.canvas {
+/* Starfield */
+canvas {
   display: block;
   position: fixed;
   top: 0;
@@ -190,6 +191,7 @@ body {
   overflow: hidden;
   z-index: -1;
 }
+/* Starfield */
 
 .container {
   position: relative;
