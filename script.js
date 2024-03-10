@@ -250,16 +250,16 @@ function showFact(index) {
   currentFactIndex = index;
 
   // Dynamically generate and append left arrow
-const leftArrow = document.createElement('div');
-leftArrow.className = 'left-arrow';
-leftArrow.innerHTML = '&#11166;';
-factWrapper.appendChild(leftArrow);
+  const leftArrow = document.createElement('div');
+  leftArrow.className = 'left-arrow';
+  leftArrow.innerHTML = '&#11166;';
+  factWrapper.appendChild(leftArrow);
 
-// Dynamically generate and append right arrow
-const rightArrow = document.createElement('div');
-rightArrow.className = 'right-arrow';
-rightArrow.innerHTML = '&#11164';
-factWrapper.appendChild(rightArrow);
+  // Dynamically generate and append right arrow
+  const rightArrow = document.createElement('div');
+  rightArrow.className = 'right-arrow';
+  rightArrow.innerHTML = '&#11164';
+  factWrapper.appendChild(rightArrow);
 }
 
 closeButton.addEventListener('click', function () {
