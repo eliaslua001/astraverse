@@ -137,7 +137,7 @@ button.active .shimmer::after {
 }
 
 button .text {
-  color: #0000004f;
+  color: #FFFFFF4f;
   background-clip: text;
   background-color: var(--bg);
   background-image: linear-gradient(120deg, transparent, hsla(var(--glow-hue),100%,80%,0.66) 40%, hsla(var(--glow-hue),100%,90%,.9) 50%, transparent 52%);
@@ -162,7 +162,6 @@ button.active .text {
   height: 100vh;
   position: absolute;
   overflow: hidden;
-
 }
 
 .layer {
@@ -214,8 +213,6 @@ button.active .text {
 }
 
 .layer-6 {
-  width: 100%;
-  height: 100%;
   background:
     radial-gradient(ellipse at 50% 50%, rgba(255, 248, 176, 0.27) 0%, rgba(69, 168, 255, 0) 63.54%) 67% 39.3% / 10% 10% no-repeat,
     radial-gradient(ellipse at 50% 50%, rgba(69, 168, 255, 0) 40.28%, rgba(255, 183, 163, 0.05) 52.43%, rgba(69, 168, 255, 0) 63.54%) 68% 38.6% / 15% 15% no-repeat,
@@ -247,6 +244,7 @@ body {
   color: white;
   font-family: Arial, sans-serif;
   overflow-y: scroll;
+  background-color: #000000;
 }
 
 /* Starfield */
