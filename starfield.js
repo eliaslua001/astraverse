@@ -89,9 +89,6 @@ function start() {
         shootingStarRadius = 3,
         paused = false;
 
-    // Set background color to black
-    canvas.style.backgroundColor = "#000000";
-
     //Create all stars
     for (var j = 0; j < layers.length; j += 1) {
         var layer = layers[j];
@@ -125,7 +122,7 @@ function start() {
     function update() {
         if (!paused) {
             context.clearRect(0, 0, width, height);
-            context.fillStyle = "#282a3a";
+            context.fillStyle = "#000000";
             context.fillRect(0, 0, width, height);
             context.fill();
 
