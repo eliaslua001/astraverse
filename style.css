@@ -267,8 +267,8 @@ canvas {
   height: auto;
 }
 
-.svg-object {
-  width: 30px;
+.scroll-image {
+  width: 50px;
   height: auto;
   top: calc(50vh - 15px);
 	right: 20px;
