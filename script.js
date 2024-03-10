@@ -218,7 +218,6 @@ let currentRotation = 0;
 
 function showFact(index) {
   const body = celestialBodies[currentBodyIndex];
-  const modelSize = body.diameter / scaleRatio; // Assuming the diameter represents the size of the model
   const facts = body.facts;
   const factContainer = document.querySelector('.fact-container');
   const factWrapper = factContainer.querySelector('.fact-wrapper');
