@@ -1,5 +1,5 @@
 "use strict";
-window.onload = function() {
+window.onload = function () {
     setTimeout(start, 200);
 };
 
@@ -28,7 +28,7 @@ function start() {
         vy: 0,
         radius: 0,
 
-        create: function(x, y, speed, direction) {
+        create: function (x, y, speed, direction) {
             var obj = Object.create(this);
             obj.x = x;
             obj.y = y;
@@ -37,27 +37,27 @@ function start() {
             return obj;
         },
 
-        getSpeed: function() {
+        getSpeed: function () {
             return Math.sqrt(this.vx * this.vx + this.vy * this.vy);
         },
 
-        setSpeed: function(speed) {
+        setSpeed: function (speed) {
             var heading = this.getHeading();
             this.vx = Math.cos(heading) * speed;
             this.vy = Math.sin(heading) * speed;
         },
 
-        getHeading: function() {
+        getHeading: function () {
             return Math.atan2(this.vy, this.vx);
         },
 
-        setHeading: function(heading) {
+        setHeading: function (heading) {
             var speed = this.getSpeed();
             this.vx = Math.cos(heading) * speed;
             this.vy = Math.sin(heading) * speed;
         },
 
-        update: function() {
+        update: function () {
             this.x += this.vx;
             this.y += this.vy;
         }
@@ -89,6 +89,9 @@ function start() {
         shootingStarRadius = 3,
         paused = false;
 
+    // Set background color to black
+    canvas.style.backgroundColor = "#000000";
+
     //Create all stars
     for (var j = 0; j < layers.length; j += 1) {
         var layer = layers[j];
@@ -114,7 +117,7 @@ function start() {
     }
 
     function killShootingStar(shootingStar) {
-        setTimeout(function() {
+        setTimeout(function () {
             shootingStar.isDying = true;
         }, shootingStarLifeTime);
     }
@@ -169,8 +172,8 @@ function start() {
             }
 
             //Delete dead shooting shootingStars
-            for (i = shootingStars.length -1; i >= 0 ; i--){
-                if (shootingStars[i].isDead){
+            for (i = shootingStars.length - 1; i >= 0; i--) {
+                if (shootingStars[i].isDead) {
                     shootingStars.splice(i, 1);
                 }
             }
@@ -231,17 +234,17 @@ function start() {
     update();
 
     //Shooting stars
-    setInterval(function() {
+    setInterval(function () {
         if (paused) return;
         createShootingStar();
     }, shootingStarEmittingInterval);
 
     window.onfocus = function () {
-      paused = false;
+        paused = false;
     };
 
     window.onblur = function () {
-      paused = true;
+        paused = true;
     };
 
 }
