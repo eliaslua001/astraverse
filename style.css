@@ -266,6 +266,7 @@ canvas {
   overflow: hidden;
   z-index: -1;
 }
+
 /* Starfield */
 
 .container {
@@ -474,7 +475,7 @@ canvas {
 
 .close-icon:hover {
   color: #666666;
-  text-shadow:3px 3px 30px #dddbcd;
+  text-shadow: 3px 3px 30px #dddbcd;
   -moz-transition: all 0.2s ease-in;
   -o-transition: all 0.2s ease-in;
   -webkit-transition: all 0.2s ease-in;
@@ -485,16 +486,30 @@ canvas {
   0% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-5px);
   }
+
   100% {
     transform: translateY(0);
   }
 }
 
+@keyframes tilting {
+
+  0%,
+  100% {
+    transform: rotateX(0deg);
+  }
+
+  50% {
+    transform: rotateX(5deg);
+  }
+}
+
 .spaceship {
-  animation: floating 3s infinite alternate;
+  animation: floating 3s infinite alternate, tilting 3s infinite alternate;
   display: none;
   position: fixed;
   cursor: pointer;
