@@ -270,7 +270,7 @@ canvas {
 .scroll-image {
   width: 50px;
   height: auto;
-  top: calc(50vh - 15px);
+  top: 50%;
 	right: 20px;
 }
 
