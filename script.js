@@ -3,6 +3,7 @@ function startExploring() {
   document.getElementById('landing-content').style.display = 'none'; // Hide the landing content
   document.querySelector('.container').style.display = 'block'; // Show the celestial bodies
   document.querySelector('.astronaut').style.display = 'block'; // Show the astronaut
+  document.querySelector('.spaceship').style.display = 'block'; // Show the astronaut
 }
 const astronomicalUnit = 149597871; // 149,597,871 kilometers (1 AU)
 const scaleRatio = 300; // Each unit represents 300 times the corresponding distance in reality

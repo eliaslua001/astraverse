@@ -480,3 +480,15 @@ canvas {
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
 }
+
+.spaceship {
+  display: none;
+  /* Initially hide the astronaut */
+  position: fixed;
+  width: inherit;
+  height: inherit;
+  cursor: pointer;
+  z-index: 1000;
+  right: 20px;
+  top: calc(50% - 100px);
+}
