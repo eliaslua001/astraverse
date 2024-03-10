@@ -269,7 +269,7 @@ body {
   color: white;
   z-index: 1000;
   padding: 7px;
-  top: 50%;
+  top: 80%;
   /* Center vertically */
   transform: translateY(-50%);
   /* Center vertically */
@@ -278,11 +278,19 @@ body {
 .left-arrow {
   position: absolute;
   left: 4px;
+  top: 50%;
+  /* Position at 50% from the top */
+  transform: translateY(-50%);
+  /* Center vertically */
 }
 
 .right-arrow {
   position: absolute;
   right: 4px;
+  top: 50%;
+  /* Position at 50% from the top */
+  transform: translateY(-50%);
+  /* Center vertically */
 }
 
 .left-arrow:hover,
