@@ -277,7 +277,6 @@ body {
 
 .left-arrow {
   position: absolute;
-  left: 4px;
   top: 50%;
   /* Position at 50% from the top */
   transform: translateY(-50%);
@@ -286,7 +285,6 @@ body {
 
 .right-arrow {
   position: absolute;
-  right: 4px;
   top: 50%;
   /* Position at 50% from the top */
   transform: translateY(-50%);
