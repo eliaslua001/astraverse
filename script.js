@@ -248,9 +248,8 @@ function showFact(index) {
   // Set the text content of factWrapper to the fact
   factWrapper.textContent = facts[index];
   currentFactIndex = index;
-}
 
-// Dynamically generate and append left arrow
+  // Dynamically generate and append left arrow
 const leftArrow = document.createElement('div');
 leftArrow.className = 'left-arrow';
 leftArrow.innerHTML = '&#11166;';
@@ -261,6 +260,7 @@ const rightArrow = document.createElement('div');
 rightArrow.className = 'right-arrow';
 rightArrow.innerHTML = '&#11164';
 factWrapper.appendChild(rightArrow);
+}
 
 closeButton.addEventListener('click', function () {
   factContainer.style.display = 'none';
