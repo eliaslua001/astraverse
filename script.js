@@ -252,6 +252,18 @@ function showFact(index) {
   currentFactIndex = index;
 }
 
+// Dynamically generate and append left arrow
+const leftArrow = document.createElement('div');
+leftArrow.className = 'left-arrow';
+leftArrow.innerHTML = '<i class="fas fa-arrow-left"></i>';
+factWrapper.appendChild(leftArrow);
+
+// Dynamically generate and append right arrow
+const rightArrow = document.createElement('div');
+rightArrow.className = 'right-arrow';
+rightArrow.innerHTML = '<i class="fas fa-arrow-right"></i>';
+factWrapper.appendChild(rightArrow);
+
 closeButton.addEventListener('click', function () {
   factContainer.style.display = 'none';
   // Remove existing model-viewer if any when closing the fact container
