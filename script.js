@@ -152,34 +152,6 @@ const celestialBodies = [{
 }
 ];
 
-// Check if the current body is Earth
-if (body.id === 'earth') {
-  // Store Earth's position
-  const earthPosition = {
-    top: body.position.top,
-    left: body.position.left,
-    diameter: body.diameter
-  };
-
-  // Create and append model-viewer for the ISS
-  const issViewer = document.createElement('model-viewer');
-  issViewer.id = issData.id;
-  issViewer.className = 'celestial-body';
-  issViewer.dataset.name = issData.alt;
-  issViewer.setAttribute('src', issData.src);
-  issViewer.setAttribute('alt', issData.alt);
-  issViewer.setAttribute('auto-rotate', '');
-  issViewer.setAttribute('camera-controls', '');
-  issViewer.style.width = issData.diameter + 'px';
-  issViewer.style.height = issData.width + 'px';
-  issViewer.style.position = 'absolute';
-
-  // Position the ISS relative to Earth
-  issViewer.style.top = (earthPosition.top + earthPosition.diameter / 2 - issData.width / 2) + 'px';
-  issViewer.style.left = (earthPosition.left + earthPosition.diameter + 20) + 'px'; // Adjusted by 20 pixels
-  document.querySelector('.container').appendChild(issViewer);
-}
-
 const astronautData = {
   src: 'assets/astronaut.glb',
   poster: 'assets/astronaut.png',
