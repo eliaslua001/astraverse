@@ -497,17 +497,16 @@ canvas {
 }
 
 @keyframes tilting {
-
-  0%,
-  100% {
+  0% {
     transform: rotateX(0deg);
   }
-
   50% {
     transform: rotateX(5deg);
   }
+  100% {
+    transform: rotateX(0deg);
+  }
 }
-
 .spaceship {
   animation: floating 3s infinite alternate, tilting 3s infinite alternate;
   display: none;
