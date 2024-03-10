@@ -169,7 +169,7 @@ button.active .text {
   height: 100vh;
   position: absolute;
   overflow: hidden;
-
+  background-color: #000000;
 }
 
 .layer {
