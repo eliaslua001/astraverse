@@ -63,11 +63,11 @@ function start() {
         }
     };
 
-    //Canvas and settings
-    var canvas = document.getElementById("canvas"),
-        context = canvas.getContext("2d"),
-        width = canvas.width = window.innerWidth,
-        height = canvas.height = window.innerHeight,
+    //starfield and settings
+    var starfield = document.getElementById("starfield"),
+        context = starfield.getContext("2d"),
+        width = starfield.width = window.innerWidth,
+        height = starfield.height = window.innerHeight,
         stars = [],
         shootingStars = [],
         layers = [
