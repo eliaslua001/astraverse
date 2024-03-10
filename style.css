@@ -487,5 +487,5 @@ canvas {
   cursor: pointer;
   z-index: 1000;
   right: 20px;
-  top: calc(50% - 100px);
+  top: calc(50% - 20%);
 }
