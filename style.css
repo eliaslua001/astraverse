@@ -481,7 +481,20 @@ canvas {
   transition: all 0.2s ease-in;
 }
 
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .spaceship {
+  animation: floating 3s infinite alternate;
   display: none;
   position: fixed;
   cursor: pointer;
