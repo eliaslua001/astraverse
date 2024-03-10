@@ -267,6 +267,13 @@ canvas {
   height: auto;
 }
 
+.scroll-img {
+  width: 30px;
+  height: auto;
+  top: calc(50vh - 15px);
+	right: 20px;
+}
+
 .celestial-body {
   position: absolute;
   border-radius: 50%;
