@@ -341,7 +341,7 @@ canvas {
   justify-content: space-evenly;
 }
 
-.fact-container .arrow {
+.fact-wrapper .arrow {
   position: absolute;
   font-size: 24px;
   cursor: pointer;
@@ -356,18 +356,12 @@ canvas {
 
 .left-arrow {
   position: absolute;
-  top: 50%;
-  /* Position at 50% from the top */
-  transform: translateY(-50%);
-  /* Center vertically */
+  left: 4px;
 }
 
 .right-arrow {
   position: absolute;
-  top: 50%;
-  /* Position at 50% from the top */
-  transform: translateY(-50%);
-  /* Center vertically */
+  right: 7px;
 }
 
 .left-arrow:hover,
