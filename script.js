@@ -195,6 +195,8 @@ factWrapper.style.backgroundColor = 'rgba(120, 120, 120, 0.7)'; // Set the backg
 const nameElement = factContainer.querySelector('.name');
 const diameterElement = factContainer.querySelector('.diameter');
 const distanceElement = factContainer.querySelector('.distance');
+const leftArrow = document.querySelector('.left-arrow');
+const rightArrow = document.querySelector('.right-arrow');
 const closeButton = document.querySelector('.close-button');
 
 closeButton.addEventListener('click', function () {
