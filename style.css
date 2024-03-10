@@ -283,7 +283,7 @@ canvas {
 }
 
 .container .model-poster:hover {
-  cursor: grab;
+  cursor: grab !important;
 }
 
 .celestial-body .name {
