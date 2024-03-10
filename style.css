@@ -341,17 +341,16 @@ canvas {
   justify-content: space-evenly;
 }
 
-.fact-wrapper .arrow {
+.left-arrow,
+.right-arrow  {
   position: absolute;
   font-size: 24px;
   cursor: pointer;
   color: white;
   z-index: 1000;
   padding: 7px;
-  top: 80%;
-  /* Center vertically */
+  top: 50%;
   transform: translateY(-50%);
-  /* Center vertically */
 }
 
 .left-arrow {
