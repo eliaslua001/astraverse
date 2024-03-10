@@ -278,21 +278,16 @@ body {
 .left-arrow {
   position: absolute;
   left: 4px;
-  top: 50%;
-  /* Position at 50% from the top */
 }
 
 .right-arrow {
   position: absolute;
   right: 4px;
-  top: 50%;
-  /* Position at 50% from the top */
 }
 
 .left-arrow:hover,
 .right-arrow:hover {
   color: #808080;
-  transform: translateY(-50%); /* Center vertically */
 }
 
 .close-button {
