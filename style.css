@@ -286,6 +286,7 @@ body {
 .left-arrow:hover,
 .right-arrow:hover {
   color: #808080;
+  transform: translateY(-50%); /* Center vertically */
 }
 
 .close-button {
