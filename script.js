@@ -1,3 +1,5 @@
+let userInputName = '';
+
 function startExploring() {
   document.getElementById('root').style.display = 'none'; // Hide the landing page
   document.getElementById('landing-content').style.display = 'none'; // Hide the landing content
@@ -5,7 +7,8 @@ function startExploring() {
   document.querySelector('.astronaut').style.display = 'block'; // Show the astronaut
   document.querySelector('.spaceship').style.display = 'block'; // Show the spaceship
   var spaceshipName = document.getElementById('spaceshipName').value;
-  spaceshipData.name = spaceshipName ? spaceshipName : 'Odyssey';
+  userInputName = spaceshipName.trim(); // Store the user input name
+  spaceshipData.name = userInputName ? userInputName : 'Odyssey';
 }
 const astronomicalUnit = 149597871; // 149,597,871 kilometers (1 AU)
 const scaleRatio = 300; // Each unit represents 300 times the corresponding distance in reality
@@ -183,7 +186,7 @@ function showRandomSpaceshipMessage() {
   const userInput = document.getElementById('spaceshipName').value.trim();
   spaceshipData.name = userInput ? userInput : 'Odyssey';
 
-  const missionControl = `Houston, ${spaceshipData.name}.`;
+  const missionControl = `Houston, ${userInputName}.`;
   missionControlElement.textContent = missionControl;
   missionControlElement.classList.add('missionControl'); // Add the class for styling
   messageContentElement.textContent = randomSpaceshipMessage;
@@ -191,9 +194,8 @@ function showRandomSpaceshipMessage() {
 }
 
 const closeButtonMC = document.querySelector('.closeButtonMC');
-const userInput = document.getElementById('spaceshipName').value.trim();
-spaceshipData.name = userInput ? userInput : 'Odyssey';
-closeButtonMC.textContent = `${spaceshipData.name}, Houston<br>Roger.`;
+spaceshipData.name = userInputName ? userInputName : 'Odyssey';
+closeButtonMC.textContent = `<div>${userInputName}, Houston</div><div>Roger.</div>`;
 closeButtonMC.addEventListener('click', function () {
   const spaceshipMessageContainer = document.querySelector('.spaceship-message');
   spaceshipMessageContainer.style.display = 'none';
