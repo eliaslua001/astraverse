@@ -332,11 +332,11 @@ function showFact(index) {
 
   if (body.id === 'saturn') {
     modelViewer.setAttribute('camera-orbit', '0deg 75deg 3098m');
-
-    factContainer.appendChild(modelViewer); // Set the text content of factWrapper to the fact
-    factWrapper.textContent = facts[index];
-    currentFactIndex = index;
   }
+
+  factContainer.appendChild(modelViewer); // Set the text content of factWrapper to the fact
+  factWrapper.textContent = facts[index];
+  currentFactIndex = index;
 }
 closeButton.addEventListener('click', function () {
   factContainer.style.display = 'none';
