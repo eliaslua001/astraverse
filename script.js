@@ -186,7 +186,7 @@ function showRandomSpaceshipMessage() {
   const userInput = document.getElementById('spaceshipName').value.trim();
   spaceshipData.name = userInput ? userInput : 'Odyssey';
 
-  const missionControl = `Houston, ${userInputName}.`;
+  const missionControl = `Houston, ${spaceshipData.name}.`;
   missionControlElement.textContent = missionControl;
   missionControlElement.classList.add('missionControl'); // Add the class for styling
   messageContentElement.textContent = randomSpaceshipMessage;
@@ -194,8 +194,7 @@ function showRandomSpaceshipMessage() {
 }
 
 const closeButtonMC = document.querySelector('.closeButtonMC');
-spaceshipData.name = userInputName ? userInputName : 'Odyssey';
-closeButtonMC.textContent = `${userInputName}, Houston. Roger.`;
+closeButtonMC.textContent = `${spaceshipData.name}, Houston. Roger.`;
 closeButtonMC.addEventListener('click', function () {
   const spaceshipMessageContainer = document.querySelector('.spaceship-message');
   spaceshipMessageContainer.style.display = 'none';
