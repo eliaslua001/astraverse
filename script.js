@@ -332,6 +332,7 @@ function showFact(index) {
   if (body.id === 'saturn') { // Calculate the width for Saturn dynamically
     const saturnWidth = 500;
     modelViewer.style.width = saturnWidth + 'px';
+    modelViewer.setAttribute('camera-orbit', '0deg 75deg 4098m');
     modelViewer.classList.add('saturn-viewer');
   } else {
     // Set the default width for other celestial bodies
