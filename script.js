@@ -332,6 +332,7 @@ function showFact(index) {
   if (body.id === 'saturn') { // Calculate the width for Saturn dynamically
     const saturnWidth = 500;
     modelViewer.style.width = saturnWidth + 'px';
+    modelViewer.classList.add('saturn-viewer');
   } else {
     // Set the default width for other celestial bodies
     modelViewer.style.width = '100%';
@@ -374,23 +375,23 @@ celestialBodies.forEach(body => {
   modelViewer.setAttribute('auto-rotate', ''); // Add auto-rotate attribute if desired
   modelViewer.setAttribute('camera-controls', ''); // Add camera controls attribute if desired
 
-  let size = body.diameter / scaleRatio;
-
   if (body.id === 'saturn') {
     // Calculate size and shape for Saturn
+    const size = body.width / scaleRatio
     modelViewer.style.width = body.width / scaleRatio + 'px'; // Set the desired width for the model
     modelViewer.style.height = body.diameter / scaleRatio + 'px';
+    modelViewer.style.left = 'calc(50% - ' + (size / 2) + 'px)'; // Adjust the left position to center the body
   } else {
     // Calculate size and shape for other celestial bodies (circles)
+    const size = body.diameter / scaleRatio
     modelViewer.style.width = size + 'px'; // Set the desired width for the model
     modelViewer.style.height = size + 'px'; // Set the desired height for the model
+    modelViewer.style.left = 'calc(50% - ' + (size / 2) + 'px)'; // Adjust the left position to center the body
   }
 
   // Calculate distance based on scale ratio
   const distance = (body.distance * astronomicalUnit) / scaleRatio;
-
   modelViewer.style.top = distance + 'px'; // Set the distance from the top
-  modelViewer.style.left = 'calc(50% - ' + (size / 2) + 'px)'; // Adjust the left position to center the body
   document.querySelector('.container').appendChild(modelViewer);
 
   // Create and append text element to display the name of the celestial body
