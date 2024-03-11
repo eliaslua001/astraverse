@@ -63,7 +63,6 @@
   }
 }
 
-/* Style for the message log button */
 .message-log-button {
   position: fixed;
   color: #ffffff;
@@ -74,7 +73,6 @@
   z-index: 9999;
 }
 
-/* Style for the message log overlay */
 .message-log-overlay {
   display: none;
   position: fixed;
@@ -86,7 +84,6 @@
   z-index: 9998;
 }
 
-/* Style for the message log content */
 .message-log-content {
   position: absolute;
   top: 50%;
@@ -99,12 +96,20 @@
   overflow: auto;
 }
 
-/* Style for the close button */
 .close-messageLog {
   position: absolute;
   top: 10px;
   right: 13px;
   cursor: pointer;
+}
+
+.close-messageLog:hover {
+  color: #666666;
+  text-shadow: 3px 3px 30px #dddbcd;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
 
 .footnote {
