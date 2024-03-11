@@ -153,45 +153,41 @@ const celestialBodies = [{
 }
 ];
 
-const spaceshipData = {
-  name: 'Spaceship Name', // Replace this with the name entered by the user
-  messages: [
-    "Remember to buckle up! Safety first as we embark on our journey.",
-    "Keep an eye on the distance meter to track our progress.",
-    "Hover over celestial bodies to learn fascinating facts about them.",
-    "Use the left and right arrows to explore different facts about each celestial body.",
-    "Click on the astronaut to discover interesting space trivia.",
-    "Enjoy the breathtaking views as we glide through the cosmos.",
-    "Rememebr to take breaks, stay hydrated, and adjust your screen brightness to avoid eye strain during this mission.",
-    "Explore the mysteries of each planet and moon we encounter.",
-    "Stay curious! There's always something new to discover in space.",
-    "Feel free to ask questions or share your thoughts as we voyage through the stars."
-    // Add more messages here
+const astronautData = {
+  src: 'assets/astronaut.glb',
+  poster: 'assets/astronaut.png',
+  alt: 'Astronaut',
+  name: 'Astronaut',
+  facts: [
+    'Space is completely silent.',
+    'The Sun contains 99.86% of the mass in the Solar System.',
+    'The largest volcano in the Solar System is on Mars: Olympus Mons.',
+    'A day on Venus is longer than a year on Venus.',
+    'There are more stars in the universe than grains of sand on all the beaches on Earth.'
+    // Add more facts as needed
   ]
 };
 
-function generateSpaceship() {
-  const spaceship = document.getElementById('spaceship');
+function generateAstronaut() {
+  const astronaut = document.getElementById('astronaut');
 
-  spaceship.addEventListener('click', function () {
-    showRandomSpaceshipMessage(); // Display random message
+  astronaut.addEventListener('click', function () {
+    showRandomAstronautFact(); // Display random fact
   });
 }
 
-function showRandomSpaceshipMessage() {
-  const spaceshipMessages = spaceshipData.messages;
+function showRandomAstronautFact() {
+  const astronautFacts = astronautData.facts;
 
-  const randomSpaceshipMessage = spaceshipMessages[Math.floor(Math.random() * spaceshipMessages.length)];
-  const spaceshipMessageContainer = document.querySelector('.spaceship-message');
-  const spaceshipMessage = spaceshipMessageContainer.querySelector('.message');
-  spaceshipMessage.innerHTML = `<i>Mission Control to ${spaceshipData.name}:</i><br>${randomSpaceshipMessage}`;
-  spaceshipMessageContainer.style.display = 'block';
+  const randomAstronautFact = astronautFacts[Math.floor(Math.random() * astronautFacts.length)];
+  const astronautFactContainer = document.querySelector('.astronaut-fact');
+  const astronautFact = astronautFactContainer.querySelector('.fact');
+  astronautFact.textContent = randomAstronautFact;
+  astronautFactContainer.style.display = 'block';
 }
 
 document.addEventListener('DOMContentLoaded', function () {
   generateAstronaut(); // Generate astronaut
-  generateSpaceship(); // Generate spaceship
-
 });
 
 const factContainer = document.querySelector('.fact-container');
@@ -216,72 +212,6 @@ closeIcon.addEventListener('click', function () {
   astronautFactContainer.style.display = 'none';
 });
 
-const spaceshipTips = [
-  "Remember to buckle up! Safety first as we embark on our journey.",
-  "Keep an eye on the distance meter to track our progress.",
-  "Hover over celestial bodies to learn fascinating facts about them.",
-  "Use the left and right arrows to explore different facts about each celestial body.",
-  "Click on the astronaut to discover interesting space trivia.",
-  "Enjoy the breathtaking views as we glide through the cosmos.",
-  "Did you know? The Sun contains 99.86% of the mass in the Solar System.",
-  "Explore the mysteries of each planet and moon we encounter.",
-  "Stay curious! There's always something new to discover in space.",
-  "Feel free to ask questions or share your thoughts as we voyage through the stars."
-];
-
-const spaceshipFactContainer = document.querySelector('.spaceship-fact');
-const spaceshipFact = spaceshipFactContainer.querySelector('.fact');
-const closeButtonSC = spaceshipFactContainer.querySelector('.close-button');
-
-// Function to show a random spaceship tip
-function showRandomSpaceshipTip() {
-  const randomIndex = Math.floor(Math.random() * spaceshipTips.length);
-  const tip = spaceshipTips[randomIndex];
-  spaceshipFact.textContent = tip;
-  spaceshipFactContainer.style.display = 'block';
-}
-
-// Close the spaceship tip container when the close button is clicked
-closeButtonSC.addEventListener('click', function () {
-  spaceshipFactContainer.style.display = 'none';
-});
-
-const spaceshipName = "Spaceship Name"; // Replace this with the name entered by the user
-const spaceshipMessage = [
-  "Mission Control to " + spaceshipName + "</br> Remember to buckle up! Safety first as we embark on our journey.",
-  "Mission Control to " + spaceshipName + "</br> Keep an eye on the distance meter to track our progress.",
-  // Add more messages here
-];
-
-const spaceshipMessage = [
-  "Remember to buckle up! Safety first as we embark on our journey.",
-  "Keep an eye on the distance meter to track our progress.",
-  "Hover over celestial bodies to learn fascinating facts about them.",
-  "Use the left and right arrows to explore different facts about each celestial body.",
-  "Click on the astronaut to discover interesting space trivia.",
-  "Enjoy the breathtaking views as we glide through the cosmos.",
-  "Rememebr to take breaks, stay hydrated, and adjust your screen brightness to avoid eye strain during this mission.",
-  "Explore the mysteries of each planet and moon we encounter.",
-  "Stay curious! There's always something new to discover in space.",
-  "Feel free to ask questions or share your thoughts as we voyage through the stars."
-];
-
-const spaceshipMessageContainer = document.querySelector('.spaceship-message');
-const spaceshipMessage = spaceshipFactContainer.querySelector('.message');
-const closeButtonSC = spaceshipFactContainer.querySelector('.close-buttonsc');
-
-// Function to show a random spaceship message
-function showRandomSpaceshipMessage() {
-  const randomIndex = Math.floor(Math.random() * spaceshipMessage.length);
-  const message = spaceshipMessage[randomIndex];
-  spaceshipFact.textContent = message;
-  spaceshipFactContainer.style.display = 'block';
-}
-
-// Close the spaceship message container when the close button is clicked
-closeButtonSC.addEventListener('click', function () {
-  spaceshipFactContainer.style.display = 'none';
-});
 
 let currentBodyIndex = 0;
 let currentFactIndex = 0;
