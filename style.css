@@ -555,7 +555,7 @@ canvas {
   border-radius: 8px;
   border: 2px solid #cba7d454;
   box-shadow: 0 0 5px #e05ef1;
-  display: none;
+  display: relative;
 }
 
 .spaceship-message .missionControl {
@@ -579,9 +579,14 @@ canvas {
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
+  font-style: italic;
+  text-transform: uppercase;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .spaceship-message .closeButtonMC:hover {
-  background-color: #000;
+  background-color: #b98fe7bf;
+  border: 1px solid #cba7d454;
   color: #fff;
 }
