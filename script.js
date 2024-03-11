@@ -6,11 +6,11 @@ function startExploring() {
   document.querySelector('.container').style.display = 'block'; // Show the celestial bodies
   document.querySelector('.astronaut').style.display = 'block'; // Show the astronaut
   document.querySelector('.spaceship').style.display = 'block'; // Show the spaceship
+  document.querySelector('.message-log-button').style.display = 'block'; // Show the spaceship
   var spaceshipName = document.getElementById('spaceshipName').value;
   userInputName = spaceshipName.trim(); // Store the user input name
   spaceshipData.name = userInputName ? userInputName : 'Odyssey';
   updateCloseButtonMCText();
-  // Show the message log content automatically after starting exploration
   document.querySelector('.message-log-overlay').style.display = 'block';
 }
 const astronomicalUnit = 149597871; // 149,597,871 kilometers (1 AU)
