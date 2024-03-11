@@ -63,34 +63,32 @@
   }
 }
 
-.spaceshipName {
+#spaceshipName {
   display: inline-block;
-  color: #f4f2ca;
   text-align: center;
-  background-color: #d8492e;
+  background-color: #929292d1;
   padding: .9em 1.8em;
   border: none;
   cursor: pointer;
   outline: none;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
   border-radius: 4px;
-  -webkit-transition: all .1s linear;
-  -moz-transition: all .1s linear;
   transition: all .1s linear;
 }
 
-.spaceshipName:hover {
-  background-color: #d0432a;
+#spaceshipName:hover {
+  background-color: #ffffff4d;
 }
 
 /* after button is clicked */
-.spaceshipName.active {
+#spaceshipName.active {
   width: 200px;
-  outline: none;
   color: #efaa9d;
   text-align: left;
   cursor: inherit;
+}
+
+#spaceshipName::placeholder {
+  color: #ccc;
 }
 
 .placeholder {
@@ -100,6 +98,7 @@
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
+
 
 button {
   background-color: rgba(255, 255, 255, 0.3);
@@ -182,7 +181,7 @@ button.active .shimmer::after {
 }
 
 button .text {
-  color: #FFFFFF4f;
+  color: #ccc;
   background-clip: text;
   background-color: var(--bg);
   background-image: linear-gradient(120deg, transparent, hsla(var(--glow-hue), 100%, 80%, 0.66) 40%, hsla(var(--glow-hue), 100%, 90%, .9) 50%, transparent 52%);
