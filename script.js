@@ -1,7 +1,3 @@
-$("input[placeholder]").each(function () {
-  $(this).attr('size', $(this).attr('placeholder').length);
-});
-
 function startExploring() {
   document.getElementById('root').style.display = 'none'; // Hide the landing page
   document.getElementById('landing-content').style.display = 'none'; // Hide the landing content
@@ -192,6 +188,10 @@ function showRandomAstronautFact() {
 
 document.addEventListener('DOMContentLoaded', function () {
   generateAstronaut(); // Generate astronaut
+
+  $("input[placeholder]").each(function () {
+    $(this).attr('size', $(this).attr('placeholder').length);
+  });
 });
 
 const factContainer = document.querySelector('.fact-container');
