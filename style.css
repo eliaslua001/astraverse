@@ -549,13 +549,23 @@ canvas {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #000000b3;
+  background-color: #000000e0;
   color: #ffffff;
   padding: 10px 20px;
   border-radius: 8px;
+  border: 2px solid #cba7d454;
+  box-shadow: 0 0 5px #e05ef1;
   display: none;
 }
 
-.spaceship-message .message {
+.spaceship-message .missionControl {
   margin-top: 5px;
+  text-align: center;
+  font-style: italic;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.spaceship-message .messageContent {
+  text-align: center;
 }

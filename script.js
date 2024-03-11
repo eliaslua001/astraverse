@@ -155,7 +155,7 @@ const celestialBodies = [{
 ];
 
 const spaceshipData = {
-  name: spaceshipName,
+  name: '',
   messages: [
     "Remember to buckle up! Safety first as we embark on our journey.",
     "Keep an eye on the distance meter to track our progress.",
@@ -178,7 +178,12 @@ function showRandomSpaceshipMessage() {
   const randomSpaceshipMessage = spaceshipMessages[Math.floor(Math.random() * spaceshipMessages.length)];
   const spaceshipMessageContainer = document.querySelector('.spaceship-message');
   const spaceshipMessage = spaceshipMessageContainer.querySelector('.message');
-  spaceshipMessage.innerHTML = `<i>Mission Control to ${spaceshipData.name}:</i><br>${randomSpaceshipMessage}`;
+  const userInput = document.getElementById('spaceshipName').value.trim();
+  spaceshipData.name = userInput ? userInput : 'Odyssey';
+
+  const missionControl = 'Mission Control to ${spaceshipData.name}:';
+  const messageContent = `${missionControl}<br>${randomSpaceshipMessage}`;
+  spaceshipMessage.innerHTML = messageContent;
   spaceshipMessageContainer.style.display = 'block';
 }
 
@@ -218,6 +223,7 @@ function showRandomAstronautFact() {
 document.addEventListener('DOMContentLoaded', function () {
   generateAstronaut(); // Generate astronaut
   generateSpaceship(); // Generate spaceship
+  const input = document.getElementById('spaceshipName'); // Retrieve the input element
   input.setAttribute('size', input.getAttribute('placeholder').length);
 });
 
