@@ -555,7 +555,6 @@ canvas {
   border-radius: 8px;
   border: 2px solid #cba7d454;
   box-shadow: 0 0 5px #e05ef1;
-  display: relative;
 }
 
 .spaceship-message .missionControl {
