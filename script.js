@@ -11,7 +11,7 @@ function startExploring() {
   spaceshipData.name = userInputName ? userInputName : 'Odyssey';
   updateCloseButtonMCText();
   // Show the message log content automatically after starting exploration
-  document.querySelector('message-log-overlay').style.display = 'block';
+  document.querySelector('.message-log-overlay').style.display = 'block';
 }
 const astronomicalUnit = 149597871; // 149,597,871 kilometers (1 AU)
 const scaleRatio = 300; // Each unit represents 300 times the corresponding distance in reality
