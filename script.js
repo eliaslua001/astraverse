@@ -326,11 +326,18 @@ function showFact(index) {
   modelViewer.setAttribute('alt', body.alt);
   modelViewer.setAttribute('auto-rotate', '');
   modelViewer.setAttribute('camera-controls', '');
-  modelViewer.style.width = '100%';
   modelViewer.style.height = '300px';
-  modelViewer.style.marginTop = '10px'; // Adjust margin as needed
-  factContainer.appendChild(modelViewer);
-  // Set the text content of factWrapper to the fact
+  modelViewer.style.marginTop = '10px';
+  
+  if (body.id === 'saturn') { // Calculate the width for Saturn dynamically
+    const saturnWidth = 500;
+    modelViewer.style.width = saturnWidth + 'px';
+  } else {
+    // Set the default width for other celestial bodies
+    modelViewer.style.width = '100%';
+  }
+
+  factContainer.appendChild(modelViewer); // Set the text content of factWrapper to the fact
   factWrapper.textContent = facts[index];
   currentFactIndex = index;
 }
@@ -367,7 +374,7 @@ celestialBodies.forEach(body => {
   modelViewer.setAttribute('auto-rotate', ''); // Add auto-rotate attribute if desired
   modelViewer.setAttribute('camera-controls', ''); // Add camera controls attribute if desired
 
-  let size;
+  let size = body.diameter / scaleRatio;
 
   if (body.id === 'saturn') {
     // Calculate size and shape for Saturn
@@ -375,7 +382,6 @@ celestialBodies.forEach(body => {
     modelViewer.style.height = body.diameter / scaleRatio + 'px';
   } else {
     // Calculate size and shape for other celestial bodies (circles)
-    size = body.diameter / scaleRatio;
     modelViewer.style.width = size + 'px'; // Set the desired width for the model
     modelViewer.style.height = size + 'px'; // Set the desired height for the model
   }

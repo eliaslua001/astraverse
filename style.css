@@ -457,6 +457,10 @@ canvas {
   /* Center the model-viewer horizontally */
 }
 
+.saturn-viewer {
+  max-width: none; /* Override the max-width property */
+}
+
 .fact-wrapper {
   padding: 15px;
   /* Add padding on all sides */
