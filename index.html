@@ -15,10 +15,16 @@
   <div class="landing-content" id="landing-content">
     <h1>Welcome to AstraVerse</h1>
     <p>Explore our scrollable solar system</p>
-    <button onclick="startExploring()" class="button">
-      <span class="text">Start Exploring</span>
-      <span class="shimmer"></span>
-    </button>
+    <div class="wrapper">
+      <div class="onboard">
+        <input type="text" value="" name="spaceshipName" id="spaceshipName"
+          placeholder="Enter your designation to launch the mission ..."><br><br>
+        <button onclick="startExploring()" class="button">
+          <span class="text">Start Exploring</span>
+          <span class="shimmer"></span>
+        </button>
+      </div>
+    </div>
   </div>
   <div id="root">
     <div class="layer layer-1"></div>
@@ -49,18 +55,29 @@
   <div class="distance-meter">Distance: <span id="distance">0</span> km</div>
   <div class="astronaut" id="astronaut">
     <!-- Import the astronaut model here -->
-    <model-viewer src="assets/astronaut.glb" alt="Astronaut" autoplay="false" interaction-prompt="none" camera-orbit="-10.08deg 103.7deg 5.894m" field-of-view="30deg" camera-controls disable-tap
+    <model-viewer src="assets/astronaut.glb" alt="Astronaut" autoplay="false" interaction-prompt="none"
+      camera-orbit="-10.08deg 103.7deg 5.894m" field-of-view="30deg" camera-controls disable-tap
       style="width: 100%; height: 100px;"></model-viewer>
   </div>
   <div class="spaceship" id="spaceship">
     <!-- Import the spaceship model here -->
-    <model-viewer src="assets/spaceship.glb" alt="Spaceship" autoplay="false" interaction-prompt="none" camera-orbit="-54.64deg 69.19deg 60m" field-of-view="26.26deg" camera-controls disable-tap
+    <model-viewer src="assets/spaceship.glb" alt="Spaceship" autoplay="false" interaction-prompt="none"
+      camera-orbit="-54.64deg 69.19deg 60m" field-of-view="26.26deg" camera-controls disable-tap
       style="width: 300px; height: 300px;"></model-viewer>
   </div>
   <div class="fact-container astronaut-fact" style="display: none;">
     <div class="fact-wrapper">
       <p class="fact"></p>
       <div class="close-icon">&#10006;</div>
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="middle">
+      <input type="text" value="" name="spaceshipName" id="spaceshipName" placeholder="Enter spaceship name">
+      <button onclick="startExploring()" class="button">
+        <span class="text">Start Exploring</span>
+        <span class="shimmer"></span>
+      </button>
     </div>
   </div>
   <script src="script.js"></script>

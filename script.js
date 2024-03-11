@@ -1,3 +1,7 @@
+$("input[placeholder]").each(function () {
+  $(this).attr('size', $(this).attr('placeholder').length);
+});
+
 function startExploring() {
   document.getElementById('root').style.display = 'none'; // Hide the landing page
   document.getElementById('landing-content').style.display = 'none'; // Hide the landing content
