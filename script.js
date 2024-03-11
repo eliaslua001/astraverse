@@ -182,12 +182,19 @@ function showRandomSpaceshipMessage() {
   const userInput = document.getElementById('spaceshipName').value.trim();
   spaceshipData.name = userInput ? userInput : 'Odyssey';
 
-  const missionControl = `Houston, ${spaceshipData.name}:`;
+  const missionControl = `Houston, ${spaceshipData.name}.`;
   missionControlElement.textContent = missionControl;
   missionControlElement.classList.add('missionControl'); // Add the class for styling
   messageContentElement.textContent = randomSpaceshipMessage;
   spaceshipMessageContainer.style.display = 'block';
 }
+
+const closeButtonMC = document.querySelector('.closeButtonMC');
+closeButton.textContent = userInput ? `${userInput}, Houston<br>Roger.` : `${spaceshipData.name}, Houston<br>Roger.`;
+closeButtonMC.addEventListener('click', function () {
+  const spaceshipMessageContainer = document.querySelector('.spaceship-message');
+  spaceshipMessageContainer.style.display = 'none';
+});
 
 const astronautData = {
   src: 'assets/astronaut.glb',
