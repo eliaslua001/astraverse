@@ -5,6 +5,7 @@ function startExploring() {
   document.querySelector('.astronaut').style.display = 'block'; // Show the astronaut
   document.querySelector('.spaceship').style.display = 'block'; // Show the spaceship
   var spaceshipName = document.getElementById('spaceshipName').value;
+  spaceshipData.name = spaceshipName ? spaceshipName : 'Odyssey';
 }
 const astronomicalUnit = 149597871; // 149,597,871 kilometers (1 AU)
 const scaleRatio = 300; // Each unit represents 300 times the corresponding distance in reality
@@ -190,8 +191,7 @@ function showRandomSpaceshipMessage() {
 }
 
 const closeButtonMC = document.querySelector('.closeButtonMC');
-const userInput2 = document.getElementById('spaceshipName').value.trim();
-closeButtonMC.textContent = userInput2 ? `${userInput2}, Houston<br>Roger.` : `${spaceshipData.name}, Houston<br>Roger.`;
+closeButtonMC.textContent = `${spaceshipData.name}, Houston<br>Roger.`;
 closeButtonMC.addEventListener('click', function () {
   const spaceshipMessageContainer = document.querySelector('.spaceship-message');
   spaceshipMessageContainer.style.display = 'none';
