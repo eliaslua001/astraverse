@@ -188,10 +188,7 @@ function showRandomAstronautFact() {
 
 document.addEventListener('DOMContentLoaded', function () {
   generateAstronaut(); // Generate astronaut
-
-  $("input[placeholder]").each(function () {
-    $(this).attr('size', $(this).attr('placeholder').length);
-  });
+  input.setAttribute('size', input.getAttribute('placeholder').length);
 });
 
 const factContainer = document.querySelector('.fact-container');
