@@ -91,6 +91,11 @@
   height: 100%;
   background-color: #161616f7;
   z-index: 9998;
+  overflow-y: auto;
+}
+
+.overlay-visible {
+  overflow: hidden; /* Disable background scrolling */
 }
 
 .message-log-content {
