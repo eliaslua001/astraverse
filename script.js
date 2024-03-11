@@ -367,13 +367,15 @@ celestialBodies.forEach(body => {
   modelViewer.setAttribute('auto-rotate', ''); // Add auto-rotate attribute if desired
   modelViewer.setAttribute('camera-controls', ''); // Add camera controls attribute if desired
 
+  let size;
+
   if (body.id === 'saturn') {
     // Calculate size and shape for Saturn
     modelViewer.style.width = body.width / scaleRatio + 'px'; // Set the desired width for the model
     modelViewer.style.height = body.height + 'px';
   } else {
     // Calculate size and shape for other celestial bodies (circles)
-    const size = body.diameter / scaleRatio;
+    size = body.diameter / scaleRatio;
     modelViewer.style.width = size + 'px'; // Set the desired width for the model
     modelViewer.style.height = size + 'px'; // Set the desired height for the model
   }
