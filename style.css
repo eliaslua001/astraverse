@@ -95,7 +95,8 @@
 }
 
 .overlay-visible {
-  overflow: hidden; /* Disable background scrolling */
+  overflow: hidden;
+  /* Disable background scrolling */
 }
 
 .message-log-content {
@@ -463,7 +464,8 @@ canvas {
 }
 
 .saturn-viewer {
-  max-width: none; /* Override the max-width property */
+  max-width: none;
+  /* Override the max-width property */
 }
 
 .fact-wrapper {

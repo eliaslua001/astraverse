@@ -231,11 +231,13 @@ const astronautData = {
 function showOverlay() {
   messageLogOverlay.style.display = 'block';
   document.body.classList.add('overlay-visible'); // Add class to disable background scrolling
+  document.documentElement.classList.add('overlay-visible');
 }
 
 function hideOverlay() {
   messageLogOverlay.style.display = 'none';
   document.body.classList.remove('overlay-visible'); // Remove class to enable background scrolling
+  document.documentElement.classList.remove('overlay-visible');
 }
 
 function generateAstronaut() {
@@ -338,7 +340,7 @@ function showFact(index) {
   modelViewer.setAttribute('camera-controls', '');
   modelViewer.style.height = '300px';
   modelViewer.style.marginTop = '10px';
-  
+
   if (body.id === 'saturn') { // Calculate the width for Saturn dynamically
     const saturnWidth = 500;
     modelViewer.style.width = saturnWidth + 'px';
