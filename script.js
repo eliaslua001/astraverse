@@ -337,114 +337,114 @@ function showFact(index) {
     factWrapper.textContent = facts[index];
     currentFactIndex = index;
   }
+}
+closeButton.addEventListener('click', function () {
+  factContainer.style.display = 'none';
+  // Remove existing model-viewer if any when closing the fact container
+  const existingModelViewer = document.querySelector('.model-viewer');
+  if (existingModelViewer) {
+    existingModelViewer.remove();
+  }
+});
 
-  closeButton.addEventListener('click', function () {
-    factContainer.style.display = 'none';
-    // Remove existing model-viewer if any when closing the fact container
-    const existingModelViewer = document.querySelector('.model-viewer');
-    if (existingModelViewer) {
-      existingModelViewer.remove();
-    }
-  });
+leftArrow.addEventListener('click', function () {
+  currentFactIndex = (currentFactIndex - 1 + celestialBodies[currentBodyIndex].facts.length) % celestialBodies[currentBodyIndex].facts.length;
+  showFact(currentFactIndex); // Show the updated fact
+  const modelViewer = document.querySelector('.model-viewer'); // Set the stored rotation angle back to the model
+  modelViewer.currentRotation = currentRotation;
+});
 
-  leftArrow.addEventListener('click', function () {
-    currentFactIndex = (currentFactIndex - 1 + celestialBodies[currentBodyIndex].facts.length) % celestialBodies[currentBodyIndex].facts.length;
-    showFact(currentFactIndex); // Show the updated fact
-    const modelViewer = document.querySelector('.model-viewer'); // Set the stored rotation angle back to the model
-    modelViewer.currentRotation = currentRotation;
-  });
+rightArrow.addEventListener('click', function () {
+  currentFactIndex = (currentFactIndex + 1) % celestialBodies[currentBodyIndex].facts.length;
+  showFact(currentFactIndex); // Show the updated fact
+  const modelViewer = document.querySelector('.model-viewer'); // Set the stored rotation angle back to the model
+  modelViewer.currentRotation = currentRotation;
+});
 
-  rightArrow.addEventListener('click', function () {
-    currentFactIndex = (currentFactIndex + 1) % celestialBodies[currentBodyIndex].facts.length;
-    showFact(currentFactIndex); // Show the updated fact
-    const modelViewer = document.querySelector('.model-viewer'); // Set the stored rotation angle back to the model
-    modelViewer.currentRotation = currentRotation;
-  });
+celestialBodies.forEach(body => {
+  const modelViewer = document.createElement('model-viewer');
+  modelViewer.id = body.id;
+  modelViewer.className = 'celestial-body';
+  modelViewer.dataset.name = body.name;
+  modelViewer.setAttribute('poster', body.poster); // Set the poster attribute to the URL of the poster image
+  modelViewer.setAttribute('auto-rotate', ''); // Add auto-rotate attribute if desired
+  modelViewer.setAttribute('camera-controls', ''); // Add camera controls attribute if desired
 
-  celestialBodies.forEach(body => {
-    const modelViewer = document.createElement('model-viewer');
-    modelViewer.id = body.id;
-    modelViewer.className = 'celestial-body';
-    modelViewer.dataset.name = body.name;
-    modelViewer.setAttribute('poster', body.poster); // Set the poster attribute to the URL of the poster image
-    modelViewer.setAttribute('auto-rotate', ''); // Add auto-rotate attribute if desired
-    modelViewer.setAttribute('camera-controls', ''); // Add camera controls attribute if desired
-
-    if (body.id === 'saturn') {
-      // Calculate size and shape for Saturn
-      const size = body.width / scaleRatio
-      modelViewer.style.width = body.width / scaleRatio + 'px'; // Set the desired width for the model
-      modelViewer.style.height = body.diameter / scaleRatio + 'px';
-      modelViewer.style.left = 'calc(50% - ' + (size / 2) + 'px)'; // Adjust the left position to center the body
-    } else {
-      // Calculate size and shape for other celestial bodies (circles)
-      const size = body.diameter / scaleRatio
-      modelViewer.style.width = size + 'px'; // Set the desired width for the model
-      modelViewer.style.height = size + 'px'; // Set the desired height for the model
-      modelViewer.style.left = 'calc(50% - ' + (size / 2) + 'px)'; // Adjust the left position to center the body
-    }
-
-    // Calculate distance based on scale ratio
-    const distance = (body.distance * astronomicalUnit) / scaleRatio;
-    modelViewer.style.top = distance + 'px'; // Set the distance from the top
-    document.querySelector('.container').appendChild(modelViewer);
-
-    // Create and append text element to display the name of the celestial body
-    const nameElement = document.createElement('p');
-    nameElement.className = 'name';
-    nameElement.textContent = body.name;
-    modelViewer.appendChild(nameElement);
-
-    document.querySelector('.container').appendChild(modelViewer);
-
-    modelViewer.addEventListener('click', function () {
-      currentBodyIndex = celestialBodies.findIndex(item => item.id === body.id); // Set current body index
-      showFact(0); // Show the first fact when clicked
-      factContainer.style.display = 'block'; // Show the fact container
-    });
-  });
-
-  function parseNumeriqueSpace(number) {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  if (body.id === 'saturn') {
+    // Calculate size and shape for Saturn
+    const size = body.width / scaleRatio
+    modelViewer.style.width = body.width / scaleRatio + 'px'; // Set the desired width for the model
+    modelViewer.style.height = body.diameter / scaleRatio + 'px';
+    modelViewer.style.left = 'calc(50% - ' + (size / 2) + 'px)'; // Adjust the left position to center the body
+  } else {
+    // Calculate size and shape for other celestial bodies (circles)
+    const size = body.diameter / scaleRatio
+    modelViewer.style.width = size + 'px'; // Set the desired width for the model
+    modelViewer.style.height = size + 'px'; // Set the desired height for the model
+    modelViewer.style.left = 'calc(50% - ' + (size / 2) + 'px)'; // Adjust the left position to center the body
   }
 
-  const markerLine = document.querySelector('.marker-line');
-  const sunPosition = celestialBodies[0].distance * astronomicalUnit / scaleRatio;
-  const sunDistanceKm = celestialBodies[0].distance * astronomicalUnit;
+  // Calculate distance based on scale ratio
+  const distance = (body.distance * astronomicalUnit) / scaleRatio;
+  modelViewer.style.top = distance + 'px'; // Set the distance from the top
+  document.querySelector('.container').appendChild(modelViewer);
 
-  const lastBody = celestialBodies[celestialBodies.length - 1];
-  const lastBodyDistance = (lastBody.distance * astronomicalUnit) / scaleRatio;
-  const lastBodyDiameter = lastBody.diameter / scaleRatio;
-  const bufferHeight = lastBodyDistance + lastBodyDiameter + 1000; // Adjust the buffer height as needed
+  // Create and append text element to display the name of the celestial body
+  const nameElement = document.createElement('p');
+  nameElement.className = 'name';
+  nameElement.textContent = body.name;
+  modelViewer.appendChild(nameElement);
 
-  // Set the container height to include the buffer
-  document.querySelector('.container').style.height = bufferHeight + 'px';
+  document.querySelector('.container').appendChild(modelViewer);
 
-  factContainer.addEventListener('click', function (event) {
-    // Prevent click events from propagating outside the container
-    event.stopPropagation();
+  modelViewer.addEventListener('click', function () {
+    currentBodyIndex = celestialBodies.findIndex(item => item.id === body.id); // Set current body index
+    showFact(0); // Show the first fact when clicked
+    factContainer.style.display = 'block'; // Show the fact container
   });
+});
 
-  document.addEventListener('click', function (event) {
-    if (!event.target.closest('.celestial-body') && event.target !== factContainer) {
-      factContainer.style.display = 'none';
+function parseNumeriqueSpace(number) {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}
+
+const markerLine = document.querySelector('.marker-line');
+const sunPosition = celestialBodies[0].distance * astronomicalUnit / scaleRatio;
+const sunDistanceKm = celestialBodies[0].distance * astronomicalUnit;
+
+const lastBody = celestialBodies[celestialBodies.length - 1];
+const lastBodyDistance = (lastBody.distance * astronomicalUnit) / scaleRatio;
+const lastBodyDiameter = lastBody.diameter / scaleRatio;
+const bufferHeight = lastBodyDistance + lastBodyDiameter + 1000; // Adjust the buffer height as needed
+
+// Set the container height to include the buffer
+document.querySelector('.container').style.height = bufferHeight + 'px';
+
+factContainer.addEventListener('click', function (event) {
+  // Prevent click events from propagating outside the container
+  event.stopPropagation();
+});
+
+document.addEventListener('click', function (event) {
+  if (!event.target.closest('.celestial-body') && event.target !== factContainer) {
+    factContainer.style.display = 'none';
+  }
+});
+
+window.addEventListener('scroll', function () {
+  clearTimeout(debounceTimer);
+  debounceTimer = setTimeout(function () {
+    const scrollPosition = window.scrollY;
+    const markerOffset = markerLine.getBoundingClientRect().top + window.scrollY - sunPosition;
+    let distanceFromSunKm = (markerOffset > 0 ? markerOffset : 0) * scaleRatio + sunDistanceKm;
+
+    if (markerOffset > celestialBodies[0].diameter / scaleRatio) {
+      document.getElementById('distance').textContent = distanceFromSunKm.toLocaleString();
+      document.querySelector('.distance-meter').style.display = 'block';
+      document.querySelector('.marker-line').style.display = 'block'; // Show the marker line
+    } else {
+      document.querySelector('.distance-meter').style.display = 'none';
+      document.querySelector('.marker-line').style.display = 'none'; // Hide the marker line
     }
-  });
-
-  window.addEventListener('scroll', function () {
-    clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(function () {
-      const scrollPosition = window.scrollY;
-      const markerOffset = markerLine.getBoundingClientRect().top + window.scrollY - sunPosition;
-      let distanceFromSunKm = (markerOffset > 0 ? markerOffset : 0) * scaleRatio + sunDistanceKm;
-
-      if (markerOffset > celestialBodies[0].diameter / scaleRatio) {
-        document.getElementById('distance').textContent = distanceFromSunKm.toLocaleString();
-        document.querySelector('.distance-meter').style.display = 'block';
-        document.querySelector('.marker-line').style.display = 'block'; // Show the marker line
-      } else {
-        document.querySelector('.distance-meter').style.display = 'none';
-        document.querySelector('.marker-line').style.display = 'none'; // Hide the marker line
-      }
-    }, 50); // Adjust the debounce delay as needed
-  });
+  }, 50); // Adjust the debounce delay as needed
+});
