@@ -196,7 +196,7 @@ function showRandomSpaceshipMessage() {
   updateCloseButtonMCText();
 }
 
-const closeButtonMC = document.querySelector('.closeButtonMC').style.display = 'none';
+const closeButtonMC = document.querySelector('.closeButtonMC');
 updateCloseButtonMCText(); // Call the function to set the initial text
 
 function updateCloseButtonMCText() {

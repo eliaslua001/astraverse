@@ -545,6 +545,7 @@ canvas {
 }
 
 .spaceship-message {
+  display:none;
   position: fixed;
   bottom: 20px;
   left: 50%;
