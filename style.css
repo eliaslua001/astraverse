@@ -94,11 +94,6 @@
   overflow-y: auto;
 }
 
-.overlay-visible {
-  overflow: hidden;
-  /* Disable background scrolling */
-}
-
 .message-log-content {
   position: absolute;
   top: 50%;
@@ -455,17 +450,12 @@ canvas {
 }
 
 .model-viewer {
-  max-width: 300px;
+  max-width: 500px;
   /* Set a maximum width to prevent models from exceeding the container */
   max-height: 300px;
   /* Set a maximum height to prevent models from exceeding the container */
   margin: 0 auto;
   /* Center the model-viewer horizontally */
-}
-
-.saturn-viewer {
-  max-width: none;
-  /* Override the max-width property */
 }
 
 .fact-wrapper {
