@@ -123,8 +123,8 @@ const celestialBodies = [{
   poster: 'assets/saturn.png',
   alt: 'Saturn',
   color: 'gold',
-  width: 1341.7866, // 120,536 kilometres, 1341.7866 px including rings
-  height: 401.787,
+  width: 402536, // 120,536 kilometres, 402,536 kilometres including rings
+  diameter: 120536,
   distance: 9.5, // AU Distance
   name: 'Saturn',
   facts: [
@@ -372,7 +372,7 @@ celestialBodies.forEach(body => {
   if (body.id === 'saturn') {
     // Calculate size and shape for Saturn
     modelViewer.style.width = body.width / scaleRatio + 'px'; // Set the desired width for the model
-    modelViewer.style.height = body.height + 'px';
+    modelViewer.style.height = body.diameter / scaleRatio + 'px';
   } else {
     // Calculate size and shape for other celestial bodies (circles)
     size = body.diameter / scaleRatio;
