@@ -177,13 +177,15 @@ function showRandomSpaceshipMessage() {
 
   const randomSpaceshipMessage = spaceshipMessages[Math.floor(Math.random() * spaceshipMessages.length)];
   const spaceshipMessageContainer = document.querySelector('.spaceship-message');
-  const spaceshipMessage = spaceshipMessageContainer.querySelector('.message');
+  const missionControlElement = spaceshipMessageContainer.querySelector('.missionControl');
+  const messageContentElement = spaceshipMessageContainer.querySelector('.messageContent');
   const userInput = document.getElementById('spaceshipName').value.trim();
   spaceshipData.name = userInput ? userInput : 'Odyssey';
 
-  const missionControl = 'Mission Control to ${spaceshipData.name}:';
-  const messageContent = `${missionControl}<br>${randomSpaceshipMessage}`;
-  spaceshipMessage.innerHTML = messageContent;
+  const missionControl = `Mission Control to ${spaceshipData.name}:`;
+  missionControlElement.textContent = missionControl;
+  missionControlElement.classList.add('missionControl'); // Add the class for styling
+  messageContentElement.textContent = randomSpaceshipMessage;
   spaceshipMessageContainer.style.display = 'block';
 }
 
