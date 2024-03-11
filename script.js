@@ -195,7 +195,7 @@ function showRandomSpaceshipMessage() {
 
 const closeButtonMC = document.querySelector('.closeButtonMC');
 spaceshipData.name = userInputName ? userInputName : 'Odyssey';
-closeButtonMC.textContent = `<div>${userInputName}, Houston</div><div>Roger.</div>`;
+closeButtonMC.textContent = `${userInputName}, Houston. Roger.`;
 closeButtonMC.addEventListener('click', function () {
   const spaceshipMessageContainer = document.querySelector('.spaceship-message');
   spaceshipMessageContainer.style.display = 'none';
