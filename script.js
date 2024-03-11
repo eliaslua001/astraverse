@@ -182,7 +182,7 @@ function showRandomSpaceshipMessage() {
   const userInput = document.getElementById('spaceshipName').value.trim();
   spaceshipData.name = userInput ? userInput : 'Odyssey';
 
-  const missionControl = `Mission Control to ${spaceshipData.name}:`;
+  const missionControl = `Houston, ${spaceshipData.name}:`;
   missionControlElement.textContent = missionControl;
   missionControlElement.classList.add('missionControl'); // Add the class for styling
   messageContentElement.textContent = randomSpaceshipMessage;
