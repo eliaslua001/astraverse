@@ -123,7 +123,8 @@ const celestialBodies = [{
   poster: 'assets/saturn.png',
   alt: 'Saturn',
   color: 'gold',
-  diameter: 120536, // 120,536 kilometres, 1341.7866 px including rings
+  width: 1341.7866, // 120,536 kilometres, 1341.7866 px including rings
+  height: 401.787,
   distance: 9.5, // AU Distance
   name: 'Saturn',
   facts: [
@@ -366,14 +367,20 @@ celestialBodies.forEach(body => {
   modelViewer.setAttribute('auto-rotate', ''); // Add auto-rotate attribute if desired
   modelViewer.setAttribute('camera-controls', ''); // Add camera controls attribute if desired
 
-  // Calculate size based on actual diameter and scale ratio
-  const size = body.diameter / scaleRatio
+  if (body.id === 'saturn') {
+    // Calculate size and shape for Saturn
+    modelViewer.style.width = body.width / scaleRatio + 'px'; // Set the desired width for the model
+    modelViewer.style.height = body.height + 'px';
+  } else {
+    // Calculate size and shape for other celestial bodies (circles)
+    const size = body.diameter / scaleRatio;
+    modelViewer.style.width = size + 'px'; // Set the desired width for the model
+    modelViewer.style.height = size + 'px'; // Set the desired height for the model
+  }
 
   // Calculate distance based on scale ratio
   const distance = (body.distance * astronomicalUnit) / scaleRatio;
 
-  modelViewer.style.width = size + 'px'; // Set the desired width for the model
-  modelViewer.style.height = size + 'px'; // Set the desired height for the model
   modelViewer.style.top = distance + 'px'; // Set the distance from the top
   modelViewer.style.left = 'calc(50% - ' + (size / 2) + 'px)'; // Adjust the left position to center the body
   document.querySelector('.container').appendChild(modelViewer);
