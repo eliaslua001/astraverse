@@ -543,3 +543,19 @@ canvas {
   right: 20px;
   top: calc(50% - 20%);
 }
+
+.spaceship-message {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #000000b3;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  display: none;
+}
+
+.spaceship-message .message {
+  margin-top: 5px;
+}

@@ -3,7 +3,8 @@ function startExploring() {
   document.getElementById('landing-content').style.display = 'none'; // Hide the landing content
   document.querySelector('.container').style.display = 'block'; // Show the celestial bodies
   document.querySelector('.astronaut').style.display = 'block'; // Show the astronaut
-  document.querySelector('.spaceship').style.display = 'block'; // Show the astronaut
+  document.querySelector('.spaceship').style.display = 'block'; // Show the spaceship
+  var spaceshipName = document.getElementById('spaceshipName').value;
 }
 const astronomicalUnit = 149597871; // 149,597,871 kilometers (1 AU)
 const scaleRatio = 300; // Each unit represents 300 times the corresponding distance in reality
@@ -153,6 +154,34 @@ const celestialBodies = [{
 }
 ];
 
+const spaceshipData = {
+  name: spaceshipName,
+  messages: [
+    "Remember to buckle up! Safety first as we embark on our journey.",
+    "Keep an eye on the distance meter to track our progress.",
+    "Hover over celestial bodies to learn fascinating facts about them.",
+    // Add more messages here
+  ]
+};
+
+function generateSpaceship() {
+  const spaceship = document.getElementById('spaceship');
+
+  spaceship.addEventListener('click', function () {
+    showRandomSpaceshipMessage(); // Display random message
+  });
+}
+
+function showRandomSpaceshipMessage() {
+  const spaceshipMessages = spaceshipData.messages;
+
+  const randomSpaceshipMessage = spaceshipMessages[Math.floor(Math.random() * spaceshipMessages.length)];
+  const spaceshipMessageContainer = document.querySelector('.spaceship-message');
+  const spaceshipMessage = spaceshipMessageContainer.querySelector('.message');
+  spaceshipMessage.innerHTML = `<i>Mission Control to ${spaceshipData.name}:</i><br>${randomSpaceshipMessage}`;
+  spaceshipMessageContainer.style.display = 'block';
+}
+
 const astronautData = {
   src: 'assets/astronaut.glb',
   poster: 'assets/astronaut.png',
@@ -188,6 +217,7 @@ function showRandomAstronautFact() {
 
 document.addEventListener('DOMContentLoaded', function () {
   generateAstronaut(); // Generate astronaut
+  generateSpaceship(); // Generate spaceship
   input.setAttribute('size', input.getAttribute('placeholder').length);
 });
 
