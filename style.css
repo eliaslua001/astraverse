@@ -1,11 +1,23 @@
 .landing-content {
   position: absolute;
   top: 50%;
-  left: 60%;
+  left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
   color: white;
   z-index: 2;
+  flex-direction: column; /* Align items vertically */
+  justify-content: center; /* Center items horizontally */
+  align-items: center;
+}
+
+.landing-page {
+  background-color: #000000;
+}
+
+.av-logo {
+  width: 150%;
+  height: auto;
 }
 
 :root {

@@ -1,8 +1,7 @@
 let userInputName = '';
 
 function startExploring() {
-  document.getElementById('root').style.display = 'none'; // Hide the landing page
-  document.getElementById('landing-content').style.display = 'none'; // Hide the landing content
+  document.getElementById('landing-page').style.display = 'none'; // Hide the landing page
   document.querySelector('.container').style.display = 'block'; // Show the celestial bodies
   document.querySelector('.astronaut').style.display = 'block'; // Show the astronaut
   document.querySelector('.spaceship').style.display = 'block'; // Show the spaceship

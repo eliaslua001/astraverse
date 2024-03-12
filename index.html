@@ -13,28 +13,30 @@
 <body>
   <canvas id="canvas"></canvas>
 
-  <div class="landing-content" id="landing-content">
-    <div class="welcome">
-      <img src="assets/astraverse.svg" alt="AstraVerse Logo" class="av-logo">
-    </div>
-    <div class="wrapper">
-      <div class="onboard">
-        <input type="text" value="" name="spaceshipName" id="spaceshipName"
-          placeholder="Enter your designation ..."><br><br>
-        <button onclick="startExploring()" class="button">
-          <span class="text">Start Exploring</span>
-          <span class="shimmer"></span>
-        </button>
+  <div class="landing-page">
+    <div class="landing-content" id="landing-content">
+      <div class="welcome">
+        <img src="assets/astraverse.svg" alt="AstraVerse Logo" class="av-logo">
+      </div>
+      <div class="wrapper">
+        <div class="onboard">
+          <input type="text" value="" name="spaceshipName" id="spaceshipName"
+            placeholder="Enter your designation ..."><br><br>
+          <button onclick="startExploring()" class="button">
+            <span class="text">Start Exploring</span>
+            <span class="shimmer"></span>
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-  <div id="root">
-    <div class="layer layer-1"></div>
-    <div class="layer layer-2"></div>
-    <div class="layer layer-3"></div>
-    <div class="layer layer-4"></div>
-    <div class="layer layer-5"></div>
-    <div class="layer layer-6"></div>
+    <div id="root">
+      <div class="layer layer-1"></div>
+      <div class="layer layer-2"></div>
+      <div class="layer layer-3"></div>
+      <div class="layer layer-4"></div>
+      <div class="layer layer-5"></div>
+      <div class="layer layer-6"></div>
+    </div>
   </div>
   <div class="container" style="display: none;">
     <!-- Celestial bodies will be added here by JavaScript -->
