@@ -314,7 +314,7 @@ function showRandomAstronautFact() {
   const astronautFactContainer = document.querySelector('.fact-wrapper');
   const astronautFact = astronautFactContainer.querySelector('.fact');
   astronautFact.textContent = randomAstronautFact;
-  const astroFact = document.querySelector('.fact-wrapper');
+  const astroFact = document.querySelector('fact-container astronaut-fact');
   switch (commanderName) {
     case 'Sirius':
     case 'Orion':
