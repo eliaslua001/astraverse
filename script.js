@@ -189,14 +189,7 @@ function generateSpaceship() {
 }
 
 function displayWelcomeMessage() {
-  let commanderNameIndex = localStorage.getItem('commanderNameIndex');
-  if (commanderNameIndex === null) {
-    commanderNameIndex = 0;
-  } else {
-    commanderNameIndex = parseInt(commanderNameIndex);
-  }
-
-  // Array of commander names
+// Array of commander names
   const commanderNames = [
     "Sirius",
     "Elara",
@@ -209,13 +202,7 @@ function displayWelcomeMessage() {
   ];
 
   // Select the commander name based on the index
-  commanderName = commanderNames[commanderNameIndex];
-
-  // Increment the index for the next reload (and loop back to 0 if necessary)
-  commanderNameIndex = (commanderNameIndex + 1) % commanderNames.length;
-
-  // Save the updated index back to local storage
-  localStorage.setItem('commanderNameIndex', commanderNameIndex);
+  commanderName = commanderNames[Math.floor(Math.random() * commanderNames.length)];
 
   // Change background color based on the generated name
   const welcoWrapper = document.querySelector('.welco-wrapper');
@@ -314,7 +301,7 @@ function showRandomAstronautFact() {
   const astronautFactContainer = document.querySelector('.fact-wrapper');
   const astronautFact = astronautFactContainer.querySelector('.fact');
   astronautFact.textContent = randomAstronautFact;
-  const astroFact = document.querySelector('fact-container astronaut-fact');
+  const astroFact = document.querySelector('.fact-container astronaut-fact');
   switch (commanderName) {
     case 'Sirius':
     case 'Orion':
