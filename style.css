@@ -506,7 +506,6 @@ canvas {
   width: auto;
   height: auto;
   position: relative;
-  background-color: transparent;
   border-radius: 10px;
   /* Add border radius to round the corners */
   flex-direction: column;

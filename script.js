@@ -301,22 +301,21 @@ function showRandomAstronautFact() {
   const astronautFactContainer = document.querySelector('.fact-wrapper');
   const astronautFact = astronautFactContainer.querySelector('.fact');
   astronautFact.textContent = randomAstronautFact;
-  const astroFact = document.querySelector('.fact-container .astronaut-fact');
   switch (commanderName) {
     case 'Sirius':
     case 'Orion':
     case 'Atlas':
     case 'Altair':
-      astroFact.style.backgroundColor = '#8fbfe7bf';
+      astronautFactContainer.style.backgroundColor = '#8fbfe7bf';
       break;
     case 'Elara':
     case 'Celeste':
     case 'Luna':
     case 'Andromeda':
-      astroFact.style.backgroundColor = '#e78f8fbf';
+      astronautFactContainer.style.backgroundColor = '#e78f8fbf';
       break;
     default:
-      astroFact.style.backgroundColor = '#eeeeee';
+      astronautFactContainer.style.backgroundColor = '#eeeeee';
   }
   astronautFactContainer.style.display = 'block';
 }
