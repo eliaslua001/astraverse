@@ -218,25 +218,25 @@ function displayWelcomeMessage() {
 
   // Change background color based on the generated name
   const welcoWrapper = document.querySelector('.welco-wrapper');
-  const closeIconWM = document.querySelector('.close-iconWM');
+  const closeIconWMColor = document.querySelector('.close-iconWM');
   switch (commanderName) {
     case 'Sirius':
     case 'Orion':
     case 'Atlas':
     case 'Altair':
       welcoWrapper.style.backgroundColor = '#8fbfe7bf';
-      closeIcon.style.color = '#79b6d6';
+      closeIconWMColor.style.color = '#79b6d6';
       break;
     case 'Elara':
     case 'Celeste':
     case 'Luna':
     case 'Andromeda':
       welcoWrapper.style.backgroundColor = '#e78f8fbf';
-      closeIcon.style.color = '#d67979';
+      closeIconWMColor.style.color = '#d67979';
       break;
     default:
       welcoWrapper.style.backgroundColor = '#eeeeee';
-      closeIcon.style.color = '#808080';
+      closeIconWMColor.style.color = '#808080';
   }
 
   // Construct the welcome message
