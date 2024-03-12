@@ -7,7 +7,6 @@
   text-align: center;
   color: white;
   z-index: 2;
-  display: inline-block; /* Change the display property to inline-block */
 }
 
 .landing-page {
@@ -15,13 +14,12 @@
 }
 
 .av-logo {
-  width: 150%;
+  width: 100%;
   height: auto;
 }
 
 .wrapper {
   text-align: center;
-  width: 100%;
 }
 
 :root {
