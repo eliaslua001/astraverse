@@ -287,14 +287,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Save the updated index back to local storage
     localStorage.setItem('commanderNameIndex', commanderNameIndex);
 
-    // Get the user input name
-    const userInputName = userName.trim();
-
-    // Use a default name if the user did not enter their name
-    const userName = userInputName ? userInputName : 'Reese';
+    // Get the user input name or use a default name if the user did not enter their name
+    const finalUserName = userName.trim() || 'Reese';
 
     // Construct the welcome message
-    const welcomeMessage = `Greetings, ${userInputName}! As Commander ${commanderName} Firstblood, I'm thrilled to welcome you to our cosmic expedition! From the fiery depths of stars to the icy reaches of distant planets, we'll journey together and uncover the marvels of the universe! Let's embark on this stellar adventure, shall we? &#127776; &#128640;`;
+    const welcomeMessage = `Greetings, ${finalUserName}! As Commander ${commanderName} Firstblood, I'm thrilled to welcome you to our cosmic expedition! From the fiery depths of stars to the icy reaches of distant planets, we'll journey together and uncover the marvels of the universe! Let's embark on this stellar adventure, shall we? &#127776; &#128640;`;
 
     // Display the welcome message
     document.querySelector('.welcome-message').innerText = welcomeMessage;
