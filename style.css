@@ -765,6 +765,7 @@ canvas {
 }
 
 .close-iconWM:hover {
+  color: #808080;
   text-shadow: 3px 3px 30px #dddbcd;
   -moz-transition: all 0.2s ease-in;
   -o-transition: all 0.2s ease-in;

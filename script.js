@@ -1,5 +1,6 @@
 let userInputName = '';
 let userInputShipName = '';
+let commanderName = '';
 
 function startExploring() {
   document.getElementById('root').style.display = 'none'; // Hide the landing page
@@ -208,7 +209,7 @@ function displayWelcomeMessage() {
   ];
 
   // Select the commander name based on the index
-  const commanderName = commanderNames[commanderNameIndex];
+  commanderName = commanderNames[commanderNameIndex];
 
   // Increment the index for the next reload (and loop back to 0 if necessary)
   commanderNameIndex = (commanderNameIndex + 1) % commanderNames.length;
@@ -218,29 +219,25 @@ function displayWelcomeMessage() {
 
   // Change background color based on the generated name
   const welcoWrapper = document.querySelector('.welco-wrapper');
-  const closeIconWMColor = document.querySelector('.close-iconWM');
   switch (commanderName) {
     case 'Sirius':
     case 'Orion':
     case 'Atlas':
     case 'Altair':
       welcoWrapper.style.backgroundColor = '#8fbfe7bf';
-      closeIconWMColor.style.color = '#79b6d6';
       break;
     case 'Elara':
     case 'Celeste':
     case 'Luna':
     case 'Andromeda':
       welcoWrapper.style.backgroundColor = '#e78f8fbf';
-      closeIconWMColor.style.color = '#d67979';
       break;
     default:
       welcoWrapper.style.backgroundColor = '#eeeeee';
-      closeIconWMColor.style.color = '#808080';
   }
 
   // Construct the welcome message
-  const welcomeMessage = `Greetings, ${userDisplayName}! As Commander ${commanderName} Firstblood, I'm thrilled to welcome you on our cosmic expedition! From the fiery depths of The Sun to the icy reaches of distant planets, we'll journey together and uncover the marvels of the universe! Let's embark on this stellar adventure, shall we? &#127776; &#128640;`;
+  const welcomeMessage = `Greetings, ${userDisplayName}! As Commander ${commanderName} Firstblood, I'm thrilled to welcome you on our cosmic expedition! From the fiery depths of The Sun to the icy reaches of distant planets, we'll journey together and uncover the marvels of the universe! Let's embark on this stellar adventure, shall we? &#127776;&#128640;`;
 
   // Display the welcome message
   const welcomeMessageElement = document.querySelector('.welco .welcomeMessage');
@@ -317,6 +314,23 @@ function showRandomAstronautFact() {
   const astronautFactContainer = document.querySelector('.astronaut-fact');
   const astronautFact = astronautFactContainer.querySelector('.fact');
   astronautFact.textContent = randomAstronautFact;
+  const astroFact = document.querySelector('.fact-wrapper');
+  switch (commanderName) {
+    case 'Sirius':
+    case 'Orion':
+    case 'Atlas':
+    case 'Altair':
+      astroFact.style.backgroundColor = '#8fbfe7bf';
+      break;
+    case 'Elara':
+    case 'Celeste':
+    case 'Luna':
+    case 'Andromeda':
+      astroFact.style.backgroundColor = '#e78f8fbf';
+      break;
+    default:
+      astroFact.style.backgroundColor = '#eeeeee';
+  }
   astronautFactContainer.style.display = 'block';
 }
 
