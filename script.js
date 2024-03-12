@@ -224,10 +224,10 @@ function displayWelcomeMessage() {
   welcomeMessageElement.innerHTML = welcomeMessage;
 
   // Attach event listener to the close icon
-  const closeIconWM = welcomeMessage.querySelector('.close-iconWM');
+  const closeIconWM = document.querySelector('.close-iconWM');
   closeIconWM.addEventListener('click', function () {
     // Hide the welcome message
-    welcomeMessage.style.display = 'none';
+    document.querySelector('.welco').style.display = 'none';
   });
 }
 
