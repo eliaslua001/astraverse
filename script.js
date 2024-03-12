@@ -311,7 +311,7 @@ function showRandomAstronautFact() {
   const astronautFacts = astronautData.facts;
 
   const randomAstronautFact = astronautFacts[Math.floor(Math.random() * astronautFacts.length)];
-  const astronautFactContainer = document.querySelector('.astronaut-fact');
+  const astronautFactContainer = document.querySelector('.fact-wrapper');
   const astronautFact = astronautFactContainer.querySelector('.fact');
   astronautFact.textContent = randomAstronautFact;
   const astroFact = document.querySelector('.fact-wrapper');
