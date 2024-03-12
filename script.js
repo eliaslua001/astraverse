@@ -1,4 +1,5 @@
 let userInputName = '';
+let userInputShipName = '';
 
 function startExploring() {
   document.getElementById('root').style.display = 'none'; // Hide the landing page
@@ -9,10 +10,14 @@ function startExploring() {
   document.querySelector('.spaceship').style.display = 'block'; // Show the spaceship
   document.querySelector('.message-log-button').style.display = 'block'; // Show the spaceship
   var spaceshipName = document.getElementById('spaceshipName').value;
-  userInputName = spaceshipName.trim(); // Store the user input name
-  spaceshipData.name = userInputName ? userInputName : 'Odyssey';
+  var userName = document.getElementById('userName').value;
+  userInputName = userName.trim(); // Store the user input name
+  userInputShipName = spaceshipName.trim(); // Store the user input name
+  userDisplayName = userInputName ? userInputName : 'Reese';
+  spaceshipData.name = userInputShipName ? userInputShipName : 'Odyssey';
   updateCloseButtonMCText();
   document.querySelector('.message-log-overlay').style.display = 'block';
+  document.querySelector('.welco').style.display = 'block';
 }
 const astronomicalUnit = 149597871; // 149,597,871 kilometers (1 AU)
 const scaleRatio = 300; // Each unit represents 300 times the corresponding distance in reality
@@ -178,6 +183,49 @@ function generateSpaceship() {
 
   spaceship.addEventListener('click', function () {
     showRandomSpaceshipMessage(); // Display random message
+  });
+}
+
+function displayWelcomeMessage() {
+  let commanderNameIndex = localStorage.getItem('commanderNameIndex');
+  if (commanderNameIndex === null) {
+    commanderNameIndex = 0;
+  } else {
+    commanderNameIndex = parseInt(commanderNameIndex);
+  }
+
+  // Array of commander names
+  const commanderNames = [
+    "Sirius",
+    "Elara",
+    "Orion",
+    "Celeste",
+    "Atlas",
+    "Luna",
+    "Altair",
+    "Andromeda"
+  ];
+
+  // Select the commander name based on the index
+  const commanderName = commanderNames[commanderNameIndex];
+
+  // Increment the index for the next reload (and loop back to 0 if necessary)
+  commanderNameIndex = (commanderNameIndex + 1) % commanderNames.length;
+
+  // Save the updated index back to local storage
+  localStorage.setItem('commanderNameIndex', commanderNameIndex);
+
+  // Construct the welcome message
+  const welcomeMessage = `Greetings, ${userDisplayName}! As Commander ${commanderName} Firstblood, I'm thrilled to welcome you on our cosmic expedition! From the fiery depths of The Sun to the icy reaches of distant planets, we'll journey together and uncover the marvels of the universe! Let's embark on this stellar adventure, shall we? &#127776; &#128640;`;
+
+  // Display the welcome message
+  document.querySelector('.welcomeMessage').innerText = welcomeMessage;
+
+  // Attach event listener to the close icon
+  const closeIcon = welcomeMessageElement.querySelector('.close-iconWM');
+  closeIcon.addEventListener('click', function () {
+    // Hide the welcome message
+    welcomeMessageElement.style.display = 'none';
   });
 }
 
