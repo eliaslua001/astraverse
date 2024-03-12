@@ -286,29 +286,21 @@ const astronautData = {
   ]
 };
 
+function generateAstronaut() {
+  const astronaut = document.getElementById('astronaut');
+
+  astronaut.addEventListener('click', function () {
+    showRandomAstronautFact(); // Display random fact
+  });
+}
+
 function showRandomAstronautFact() {
   const astronautFacts = astronautData.facts;
 
   const randomAstronautFact = astronautFacts[Math.floor(Math.random() * astronautFacts.length)];
-  const astronautFactContainer = document.querySelector('.fact-wrapper');
+  const astronautFactContainer = document.querySelector('.astronaut-fact');
   const astronautFact = astronautFactContainer.querySelector('.fact');
   astronautFact.textContent = randomAstronautFact;
-  switch (commanderName) {
-    case 'Sirius':
-    case 'Orion':
-    case 'Atlas':
-    case 'Altair':
-      astronautFactContainer.style.backgroundColor = '#8fbfe7bf';
-      break;
-    case 'Elara':
-    case 'Celeste':
-    case 'Luna':
-    case 'Andromeda':
-      astronautFactContainer.style.backgroundColor = '#e78f8fbf';
-      break;
-    default:
-      astronautFactContainer.style.backgroundColor = '#eeeeee';
-  }
   astronautFactContainer.style.display = 'block';
 }
 
@@ -319,8 +311,6 @@ document.addEventListener('DOMContentLoaded', function () {
   input.setAttribute('size', input.getAttribute('placeholder').length);
   const messageLogButton = document.getElementById('message-log-button');
   const messageLogOverlay = document.getElementById('message-log-overlay');
-  const astronaut = document.getElementById('astronaut');
-  astronaut.addEventListener('click', showRandomAstronautFact);
 
   // Show message log overlay when user clicks start exploring
   function showOverlay() {
