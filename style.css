@@ -714,6 +714,41 @@ canvas {
   color: #fff;
 }
 
+.welco-container {
+  width: 600px;
+  height: auto;
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  left: 50%;
+  right: 50%;
+  top: calc(50% + 10px);
+  transform: translate(-50%, -50%);
+  background-color: rgba(128, 128, 128, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  z-index: 1000;
+  border: 2px solid rgba(225, 225, 225, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.welco-wrapper {
+  padding: 15px;
+  /* Add padding on all sides */
+  width: auto;
+  height: auto;
+  position: relative;
+  background-color: transparent;
+  border-radius: 10px;
+  /* Add border radius to round the corners */
+  flex-direction: column;
+  font-size: 15px;
+  justify-content: space-evenly;
+}
+
 .welcome-message {
   padding: 15px;
   /* Add padding on all sides */
