@@ -18,10 +18,11 @@
       <img src="assets/astraverse.svg" alt="AstraVerse Logo" class="av-logo">
       <div class="wrapper">
         <div class="onboard">
+          <input type="text" value="" name="userName" id="userName" placeholder="Who's on board?"><br><br>
           <input type="text" value="" name="spaceshipName" id="spaceshipName"
-            placeholder="Enter your designation ..."><br><br>
+            placeholder="What's your ship designation?"><br><br>
           <button onclick="startExploring()" class="button">
-            <span class="text">Start Exploring</span>
+            <span class="text">Launch Mission</span>
             <span class="shimmer"></span>
           </button>
         </div>
@@ -101,6 +102,11 @@
     <p class="missionControl"></p>
     <p class="messageContent"></p>
     <button class="closeButtonMC"></button>
+  </div>
+  <div class="fact-container welcome-messageCOM" style="display: none;">
+    <div class="welcome-message">
+      <div class="close-icon">&#10006;</div>
+    </div>
   </div>
   <div class="fact-container astronaut-fact" style="display: none;">
     <div class="fact-wrapper">

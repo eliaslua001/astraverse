@@ -1,4 +1,5 @@
 let userInputName = '';
+let userInputShipName = '';
 
 function startExploring() {
   document.getElementById('root').style.display = 'none'; // Hide the landing page
@@ -8,16 +9,48 @@ function startExploring() {
   document.querySelector('.astronaut').style.display = 'block'; // Show the astronaut
   document.querySelector('.spaceship').style.display = 'block'; // Show the spaceship
   document.querySelector('.message-log-button').style.display = 'block'; // Show the spaceship
+  var userName = document.getElementById('userName').value;
   var spaceshipName = document.getElementById('spaceshipName').value;
-  userInputName = spaceshipName.trim(); // Store the user input name
-  spaceshipData.name = userInputName ? userInputName : 'Odyssey';
+  userInputName = userName.trim(); // Store the user name
+  userInputShipName = spaceshipName.trim(); // Store the user input ship name
+  spaceshipData.name = userInputShipName ? userInputShipName : 'Odyssey';
   updateCloseButtonMCText();
   document.querySelector('.message-log-overlay').style.display = 'block';
+
+  displayWelcomeMessage();
 }
 const astronomicalUnit = 149597871; // 149,597,871 kilometers (1 AU)
 const scaleRatio = 300; // Each unit represents 300 times the corresponding distance in reality
 
 let debounceTimer;
+
+function displayWelcomeMessage() {
+  // Get the current commander name index from local storage or set it to 0 if it doesn't exist
+  let commanderNameIndex = localStorage.getItem('commanderNameIndex');
+  if (commanderNameIndex === null) {
+    commanderNameIndex = 0;
+  } else {
+    commanderNameIndex = parseInt(commanderNameIndex);
+  }
+
+  // Array of commander names
+  const commanderNames = ["Sirius", "Elara"];
+
+  // Select the commander name based on the index
+  const commanderName = commanderNames[commanderNameIndex];
+
+  // Increment the index for the next reload (and loop back to 0 if necessary)
+  commanderNameIndex = (commanderNameIndex + 1) % commanderNames.length;
+
+  // Save the updated index back to local storage
+  localStorage.setItem('commanderNameIndex', commanderNameIndex);
+
+  // Construct the welcome message
+  const welcomeMessage = `Hello ${userInputName}! I am Mission Commander ${commanderName} Firstblood, and I will be your guide through the Solar System! You can interact with me for cool facts as well!`;
+
+  // Display the welcome message
+  document.querySelector('.welcome-message').innerText = welcomeMessage;
+}
 
 const celestialBodies = [{
   id: 'sun',
