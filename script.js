@@ -286,14 +286,6 @@ const astronautData = {
   ]
 };
 
-function generateAstronaut() {
-  const astronaut = document.getElementById('astronaut');
-
-  astronaut.addEventListener('click', function () {
-    showRandomAstronautFact(); // Display random fact
-  });
-}
-
 function showRandomAstronautFact() {
   const astronautFacts = astronautData.facts;
 
