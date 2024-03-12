@@ -288,7 +288,7 @@ document.addEventListener('DOMContentLoaded', function () {
     localStorage.setItem('commanderNameIndex', commanderNameIndex);
 
     // Get the user input name
-    const userInputName = document.getElementById('userName').value.trim();
+    const userInputName = userName.trim();
 
     // Use a default name if the user did not enter their name
     const userName = userInputName ? userInputName : 'Reese';
