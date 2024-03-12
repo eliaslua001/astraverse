@@ -1,5 +1,4 @@
 let userInputName = '';
-let userInputShipName = '';
 
 function startExploring() {
   document.getElementById('root').style.display = 'none'; // Hide the landing page
@@ -9,16 +8,11 @@ function startExploring() {
   document.querySelector('.astronaut').style.display = 'block'; // Show the astronaut
   document.querySelector('.spaceship').style.display = 'block'; // Show the spaceship
   document.querySelector('.message-log-button').style.display = 'block'; // Show the spaceship
-  var userName = document.getElementById('userName').value;
   var spaceshipName = document.getElementById('spaceshipName').value;
-  userInputName = userName.trim(); // Store the user name
-  displayWelcomeMessage(userInputName);
-  userInputShipName = spaceshipName.trim(); // Store the user input ship name
-  spaceshipData.name = userInputShipName ? userInputShipName : 'Odyssey';
+  userInputName = spaceshipName.trim(); // Store the user input name
+  spaceshipData.name = userInputName ? userInputName : 'Odyssey';
   updateCloseButtonMCText();
   document.querySelector('.message-log-overlay').style.display = 'block';
-
-  displayWelcomeMessage();
 }
 const astronomicalUnit = 149597871; // 149,597,871 kilometers (1 AU)
 const scaleRatio = 300; // Each unit represents 300 times the corresponding distance in reality
@@ -261,45 +255,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const messageLogButton = document.getElementById('message-log-button');
   const messageLogOverlay = document.getElementById('message-log-overlay');
 
-  // Function to check if the welcome message has been displayed
-  function isWelcomeMessageDisplayed() {
-    // Check if the welcome message element exists and if it has non-empty text
-    return document.querySelector('.welcome-message') && document.querySelector('.welcome-message').innerText.trim() !== '';
-  }
-
-  function displayWelcomeMessage(userName) {
-    let commanderNameIndex = localStorage.getItem('commanderNameIndex');
-    if (commanderNameIndex === null) {
-      commanderNameIndex = 0;
-    } else {
-      commanderNameIndex = parseInt(commanderNameIndex);
-    }
-
-    // Array of commander names
-    const commanderNames = ["Sirius", "Elara", "Orion", "Celeste", "Atlas", "Luna", "Altair", "Andromeda"];
-
-    // Select the commander name based on the index
-    const commanderName = commanderNames[commanderNameIndex];
-
-    // Increment the index for the next reload (and loop back to 0 if necessary)
-    commanderNameIndex = (commanderNameIndex + 1) % commanderNames.length;
-
-    // Save the updated index back to local storage
-    localStorage.setItem('commanderNameIndex', commanderNameIndex);
-
-    // Get the user input name
-    const userInputName = document.getElementById('userName').value.trim();
-
-    // Use a default name if the user did not enter their name
-    const userName = userInputName ? userInputName : 'Reese';
-
-    // Construct the welcome message
-    const welcomeMessage = `Greetings, ${userInputName}! As Commander ${commanderName} Firstblood, I'm thrilled to welcome you to our cosmic expedition! From the fiery depths of stars to the icy reaches of distant planets, we'll journey together and uncover the marvels of the universe! Let's embark on this stellar adventure, shall we? &#127776; &#128640;`;
-
-    // Display the welcome message
-    document.querySelector('.welcome-message').innerText = welcomeMessage;
-  }
-
   // Show message log overlay when user clicks start exploring
   function showOverlay() {
     messageLogOverlay.style.display = 'block';
@@ -308,10 +263,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Hide message log overlay when user clicks close button
   function hideOverlay() {
-    // If the welcome message has not been displayed yet and the overlay is being closed for the first time, display the welcome message
-    if (!isWelcomeMessageDisplayed() && messageLogOverlay.style.display === 'block') {
-      displayWelcomeMessage();
-    }
     messageLogOverlay.style.display = 'none';
   }
 
