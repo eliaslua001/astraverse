@@ -216,6 +216,29 @@ function displayWelcomeMessage() {
   // Save the updated index back to local storage
   localStorage.setItem('commanderNameIndex', commanderNameIndex);
 
+  // Change background color based on the generated name
+  const welcoWrapper = document.querySelector('.welco-wrapper');
+  const closeIconWM = document.querySelector('.close-iconWM');
+  switch (commanderName) {
+    case 'Sirius':
+    case 'Orion':
+    case 'Atlas':
+    case 'Altair':
+      welcoWrapper.style.backgroundColor = '#8fbfe7bf';
+      closeIcon.style.color = '#79b6d6';
+      break;
+    case 'Elara':
+    case 'Celeste':
+    case 'Luna':
+    case 'Andromeda':
+      welcoWrapper.style.backgroundColor = '#e78f8fbf';
+      closeIcon.style.color = '#d67979';
+      break;
+    default:
+      welcoWrapper.style.backgroundColor = '#eeeeee';
+      closeIcon.style.color = '#808080';
+  }
+
   // Construct the welcome message
   const welcomeMessage = `Greetings, ${userDisplayName}! As Commander ${commanderName} Firstblood, I'm thrilled to welcome you on our cosmic expedition! From the fiery depths of The Sun to the icy reaches of distant planets, we'll journey together and uncover the marvels of the universe! Let's embark on this stellar adventure, shall we? &#127776; &#128640;`;
 
