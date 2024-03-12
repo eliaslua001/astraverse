@@ -257,6 +257,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Show message log overlay when user clicks start exploring
   function showOverlay() {
     messageLogOverlay.style.display = 'block';
+    document.querySelector('.container').style.overflow = 'hidden';
   }
 
   // Hide message log overlay when user clicks close button
