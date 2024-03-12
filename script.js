@@ -237,7 +237,7 @@ function displayWelcomeMessage() {
   }
 
   // Construct the welcome message
-  const welcomeMessage = `Greetings, ${userDisplayName}! As Commander ${commanderName} Firstblood, I'm thrilled to welcome you on our cosmic expedition! From the fiery depths of The Sun to the icy reaches of distant planets, we'll journey together and uncover the marvels of the universe! Let's embark on this stellar adventure, shall we? &#127776;&#128640;`;
+  const welcomeMessage = `Greetings, ${userDisplayName}! As <strong><em>Commander</em></strong> <strong>${commanderName} Firstblood</strong>, I'm thrilled to welcome you on our cosmic expedition! From the fiery depths of The Sun to the icy reaches of distant planets, we'll journey together and uncover the marvels of the universe! Let's embark on this stellar adventure, shall we? &#127776;&#128640;`;
 
   // Display the welcome message
   const welcomeMessageElement = document.querySelector('.welco .welcomeMessage');
