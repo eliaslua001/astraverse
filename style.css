@@ -1,7 +1,7 @@
 .landing-content {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 48%;
+  left: 55%;
   width: fit-content;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -158,6 +158,34 @@ li {
 .material-icons {
   color: #efeff3e5;
   vertical-align: middle;
+}
+
+#userName {
+  color: #ffffffe3;
+  display: inline-block;
+  text-align: center;
+  background-color: #929292d1;
+  padding: .9em 1.8em;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  border-radius: 4px;
+  transition: all .1s linear;
+}
+
+#userName:hover {
+  background-color: #ffffff4d;
+}
+
+#userName.active {
+  width: 200px;
+  color: #efaa9d;
+  text-align: left;
+  cursor: inherit;
+}
+
+#userName::placeholder {
+  color: #ccc;
 }
 
 #spaceshipName {
