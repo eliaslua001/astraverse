@@ -1,6 +1,36 @@
 let userInputName = '';
 let userInputShipName = '';
 
+function displayWelcomeMessage(userName) {
+  let commanderNameIndex = localStorage.getItem('commanderNameIndex');
+  if (commanderNameIndex === null) {
+    commanderNameIndex = 0;
+  } else {
+    commanderNameIndex = parseInt(commanderNameIndex);
+  }
+
+  // Array of commander names
+  const commanderNames = ["Sirius", "Elara", "Orion", "Celeste", "Atlas", "Luna", "Altair", "Andromeda"];
+
+  // Select the commander name based on the index
+  const commanderName = commanderNames[commanderNameIndex];
+
+  // Increment the index for the next reload (and loop back to 0 if necessary)
+  commanderNameIndex = (commanderNameIndex + 1) % commanderNames.length;
+
+  // Save the updated index back to local storage
+  localStorage.setItem('commanderNameIndex', commanderNameIndex);
+
+  // Get the user input name or use a default name if the user did not enter their name
+  const finalUserName = userName.trim() || 'Reese';
+
+  // Construct the welcome message
+  const welcomeMessage = `Greetings, ${finalUserName}! As Commander ${commanderName} Firstblood, I'm thrilled to welcome you to our cosmic expedition! From the fiery depths of stars to the icy reaches of distant planets, we'll journey together and uncover the marvels of the universe! Let's embark on this stellar adventure, shall we? &#127776; &#128640;`;
+
+  // Display the welcome message
+  document.querySelector('.welcome-message').innerText = welcomeMessage;
+}
+
 function startExploring() {
   document.getElementById('root').style.display = 'none'; // Hide the landing page
   document.getElementById('landing-content').style.display = 'none'; // Hide the landing content
@@ -20,6 +50,7 @@ function startExploring() {
 
   displayWelcomeMessage();
 }
+
 const astronomicalUnit = 149597871; // 149,597,871 kilometers (1 AU)
 const scaleRatio = 300; // Each unit represents 300 times the corresponding distance in reality
 
@@ -265,36 +296,6 @@ document.addEventListener('DOMContentLoaded', function () {
   function isWelcomeMessageDisplayed() {
     // Check if the welcome message element exists and if it has non-empty text
     return document.querySelector('.welcome-message') && document.querySelector('.welcome-message').innerText.trim() !== '';
-  }
-
-  function displayWelcomeMessage(userName) {
-    let commanderNameIndex = localStorage.getItem('commanderNameIndex');
-    if (commanderNameIndex === null) {
-      commanderNameIndex = 0;
-    } else {
-      commanderNameIndex = parseInt(commanderNameIndex);
-    }
-
-    // Array of commander names
-    const commanderNames = ["Sirius", "Elara", "Orion", "Celeste", "Atlas", "Luna", "Altair", "Andromeda"];
-
-    // Select the commander name based on the index
-    const commanderName = commanderNames[commanderNameIndex];
-
-    // Increment the index for the next reload (and loop back to 0 if necessary)
-    commanderNameIndex = (commanderNameIndex + 1) % commanderNames.length;
-
-    // Save the updated index back to local storage
-    localStorage.setItem('commanderNameIndex', commanderNameIndex);
-
-    // Get the user input name or use a default name if the user did not enter their name
-    const finalUserName = userName.trim() || 'Reese';
-
-    // Construct the welcome message
-    const welcomeMessage = `Greetings, ${finalUserName}! As Commander ${commanderName} Firstblood, I'm thrilled to welcome you to our cosmic expedition! From the fiery depths of stars to the icy reaches of distant planets, we'll journey together and uncover the marvels of the universe! Let's embark on this stellar adventure, shall we? &#127776; &#128640;`;
-
-    // Display the welcome message
-    document.querySelector('.welcome-message').innerText = welcomeMessage;
   }
 
   // Show message log overlay when user clicks start exploring
