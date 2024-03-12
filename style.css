@@ -717,14 +717,14 @@ canvas {
 .welco {
   position: fixed;
   width: auto;
-  max-width: 200px;
-  padding: 10px;
-  color: gray;
+  max-width: 360px;
+  padding: 5px;
+  color: #3c3434;
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  left: 220px;
-  top: calc(50% - 155px);
+  left: 120px;
+  top: calc(50% - 330px);
   /* Position slightly above the center */
 }
 
@@ -747,25 +747,27 @@ canvas {
   width: auto;
   height: auto;
   position: relative;
-  background-color: transparent;
+  background-color: #e78f8fbf;
   border-radius: 10px;
   /* Add border radius to round the corners */
   flex-direction: column;
   font-size: 15px;
-  justify-content: space-evenly;
+  text-align: left;
+  line-height: 1.5;
+
 }
 
 .close-iconWM {
   position: absolute;
-  top: -8px;
-  right: -2px;
+  top: 0px;
+  right: 10px;
   cursor: pointer;
   font-size: 20px;
   color: #999;
 }
 
 .close-iconWM:hover {
-  color: #666666;
+  color: #d67979;
   text-shadow: 3px 3px 30px #dddbcd;
   -moz-transition: all 0.2s ease-in;
   -o-transition: all 0.2s ease-in;
