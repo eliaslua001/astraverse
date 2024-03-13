@@ -509,7 +509,6 @@ function scrollToNextBody() {
   if (nextBodyIndex === -1) {
     // User is at the end, scroll to the last body
     nextBodyIndex = celestialBodyPositions.length - 1;
-    document.querySelector('.command-message').style.display = 'none';
   }
   // Find the corresponding planet element
   const nextBodyElement = document.getElementById(celestialBodies[nextBodyIndex].id);
@@ -522,7 +521,6 @@ function scrollToNextBody() {
     top: scrollToPosition,
     behavior: 'smooth'
   });
-  document.querySelector('.command-message').style.display = 'none';
 }
 
 window.addEventListener('scroll', function () {
@@ -543,29 +541,17 @@ window.addEventListener('scroll', function () {
 
     // Find the next destination
     let nextDestination = null;
-    let remainingDistance = null;
     for (let i = 0; i < celestialBodies.length; i++) {
       const celestialBody = celestialBodies[i];
-      const celestialBodyPosition = celestialBody.distance * scaleRatio; // Adjust for scale factor if needed
-      if (celestialBodyPosition > scrollPosition) {
+      const celestialBodyPosition = celestialBodyPositions[i]; // Get the position from the logged array
+      if (celestialBodyPosition > scrollPosition + window.innerHeight) {
         nextDestination = celestialBody;
-        remainingDistance = celestialBody.distance - (distanceFromSunKm / astronomicalUnit); // Calculate remaining distance
         break;
       }
     }
 
-    // Define thresholds for displaying the popup
-    const popupThresholds = [
-      { distance: 2566800, body: 'Mercury' },
-      { distance: 60366300, body: 'Venus' },
-      // Add more thresholds for other celestial bodies as needed
-    ];
-
-    // Check if the scroll position matches any of the popup thresholds
-    const matchingThreshold = popupThresholds.find(threshold => distanceFromSunKm >= threshold.distance && threshold.body === nextDestination.name);
-
-    // Display the popup if a matching threshold is found
-    if (matchingThreshold) {
+    // Display the destination message ${spaceshipData.name}, ${userDisplayName}.
+    if (nextDestination) {
       const messages = [
         "Everything's looking good in the system.",
         "No anomalies detected.",
@@ -575,16 +561,16 @@ window.addEventListener('scroll', function () {
       ];
       const comModMsg = `<span class="material-icons">cell_tower</span>&nbsp;&nbsp;${spaceshipData.name}, ${userDisplayName}&nbsp;&nbsp;<span class="material-icons">cell_tower</span>`;
       const systemMessage = messages[Math.floor(Math.random() * messages.length)];
-      const destinationMessage = `Approaching ${matchingThreshold.body} at ${matchingThreshold.distance.toLocaleString()} km!`;
+      const destinationMessage = `Approaching ${nextDestination.name} in ${nextDestination.distance - (scrollPosition / scaleRatio)} km!`;
+      // Show the popup with the destination message
       document.querySelector('.command-message').style.display = 'block';
       document.querySelector('.commandMod').innerHTML = comModMsg;
       document.querySelector('.systemComMod').textContent = systemMessage;
       document.querySelector('.messageComMod').textContent = destinationMessage;
     } else {
-      // Hide the popup if no matching threshold is found
-      document.querySelector('.command-message').style.display = 'none';
+      const endMessage = `You have reached the end!`;
+      document.querySelector('.messageComMod').textContent = endMessage;
     }
 
   }, 50); // Adjust the debounce delay as needed
-
 });
