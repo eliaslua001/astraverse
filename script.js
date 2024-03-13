@@ -509,6 +509,7 @@ function scrollToNextBody() {
   if (nextBodyIndex === -1) {
     // User is at the end, scroll to the last body
     nextBodyIndex = celestialBodyPositions.length - 1;
+    document.querySelector('.command-message').style.display = 'none';
   }
   // Find the corresponding planet element
   const nextBodyElement = document.getElementById(celestialBodies[nextBodyIndex].id);
