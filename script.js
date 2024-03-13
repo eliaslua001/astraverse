@@ -515,11 +515,13 @@ window.addEventListener('scroll', function () {
 
     // Find the next destination
     let nextDestination = null;
+    let remainingDistance = null;
     for (let i = 0; i < celestialBodies.length; i++) {
       const celestialBody = celestialBodies[i];
       const celestialBodyPosition = celestialBody.distance * scaleRatio; // Adjust for scale factor if needed
       if (celestialBodyPosition > scrollPosition) {
         nextDestination = celestialBody;
+        remainingDistance = celestialBody.distance - (distanceFromSunKm / astronomicalUnit); // Calculate remaining distance
         break;
       }
     }
@@ -533,11 +535,13 @@ window.addEventListener('scroll', function () {
         "Smooth sailing ahead.",
         "Enjoy the view of the cosmos!"
       ];
+      const comModMsg = `<span class="material-icons">communication</span>>&nbsp&nbsp${spaceshipData.name}, ${userDisplayName}&nbsp&nbsp<span class="material-icons">communication</span>`;
       const systemMessage = messages[Math.floor(Math.random() * messages.length)];
-      const destinationMessage = `${spaceshipData.name}, ${userDisplayName}. Approaching ${nextDestination.name} in ${nextDestination.distance - (scrollPosition / scaleRatio)} km!`;
+      const destinationMessage = `Approaching ${nextDestination.name} in ${nextDestination.distance - (scrollPosition / scaleRatio)} km!`;
       // Show the popup with the destination message
       document.querySelector('.command-message').style.display = 'block';
-      document.querySelector('.commandModule').textContent = systemMessage;
+      document.querySelector('.commandMod').textContent = comModMsg;
+      document.querySelector('.systemComMod').textContent = systemMessage;
       document.querySelector('.messageComMod').textContent = destinationMessage;
 
     } else {
