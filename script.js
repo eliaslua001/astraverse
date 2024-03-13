@@ -255,7 +255,7 @@ function showRandomSpaceshipMessage() {
   const userInput = document.getElementById('spaceshipName').value.trim();
   spaceshipData.name = userInput ? userInput : 'Odyssey';
 
-  const missionControl = `<span class="material-icons">settings_input_antenna</span>&nbsp&nbspHouston, ${spaceshipData.name}.&nbsp&nbsp<span class="material-icons">settings_input_antenna</span>`;
+  const missionControl = `<span class="material-icons">settings_input_antenna</span>&nbsp&nbspHouston, ${spaceshipData.name}.&nbsp&nbsp<span class="material-icons">satellite_alt</span>`;
   missionControlElement.innerHTML = missionControl;
   missionControlElement.classList.add('missionControl'); // Add the class for styling
   messageContentElement.textContent = randomSpaceshipMessage;
@@ -535,7 +535,7 @@ window.addEventListener('scroll', function () {
         "Smooth sailing ahead.",
         "Enjoy the view of the cosmos!"
       ];
-      const comModMsg = `<span class="material-icons">cell_tower</span>&nbsp;&nbsp;${spaceshipData.name}, ${userDisplayName}&nbsp;&nbsp;<span class="material-icons">cell_tower</span>`;
+      const comModMsg = `<span class="material-icons">cell_tower</span>&nbsp;&nbsp;${spaceshipData.name}, ${userDisplayName}&nbsp;&nbsp;<span class="material-icons">network_intelligence_update</span>`;
       const systemMessage = messages[Math.floor(Math.random() * messages.length)];
       const destinationMessage = `Approaching ${nextDestination.name} in ${nextDestination.distance - (scrollPosition / scaleRatio)} km!`;
       // Show the popup with the destination message
