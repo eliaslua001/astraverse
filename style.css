@@ -848,12 +848,12 @@ canvas {
   text-align: center;
   font-style: italic;
   text-transform: uppercase;
-  right: 50%;
+  right: -10%;
   transform: translateX(-50%);
 }
 
 .command-message .fastTravelYes:hover {
-  background-color: #b98fe7bf;
+  background-color: #8fe7c6bf;
   border: 1px solid #cba7d454;
   color: #fff;
 }
@@ -869,7 +869,7 @@ canvas {
   text-align: center;
   font-style: italic;
   text-transform: uppercase;
-  right: 50%;
+  right: -10%;
   transform: translateX(-50%);
 }
 
