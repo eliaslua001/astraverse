@@ -512,5 +512,38 @@ window.addEventListener('scroll', function () {
       document.querySelector('.distance-meter').style.display = 'none';
       document.querySelector('.marker-line').style.display = 'none'; // Hide the marker line
     }
+
+    // Find the next destination
+    let nextDestination = null;
+    for (let i = 0; i < celestialBodies.length; i++) {
+      const celestialBody = celestialBodies[i];
+      const celestialBodyPosition = celestialBody.distance * scaleFactor; // Adjust for scale factor if needed
+      if (celestialBodyPosition > scrollPosition) {
+        nextDestination = celestialBody;
+        break;
+      }
+    }
+
+    // Display the destination message ${spaceshipData.name}, ${userDisplayName}.
+    if (nextDestination) {
+      const messages = [
+        "Everything's looking good in the system.",
+        "No anomalies detected.",
+        "Navigation systems online and operational.",
+        "Smooth sailing ahead.",
+        "Enjoy the view of the cosmos!"
+      ];
+      const systemMessage = messages[Math.floor(Math.random() * messages.length)];
+      const destinationMessage = `Approaching ${nextDestination.name} in ${nextDestination.distance - (scrollPosition / scaleFactor)} km!`;
+      // Show the popup with the destination message
+      document.querySelector('.command-message').style.display = 'block';
+      document.querySelector('.commandModule').textContent = systemMessage;
+      document.querySelector('.messageComMod').textContent = destinationMessage;
+
+    } else {
+      const endMessage = `You have reached the end!`;
+      document.querySelector('.messageComMod').textContent = endMessage;
+    }
+
   }, 50); // Adjust the debounce delay as needed
 });
