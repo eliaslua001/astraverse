@@ -3,7 +3,7 @@ let userInputShipName = '';
 let commanderName = '';
 
 let lastPopupCloseTime = 0; // Timestamp of the last popup close
-const popupReappearDelay = 60000; // Delay in milliseconds (1 minute)
+const popupReappearDelay = 30000; // Delay in milliseconds (30 seconds)
 
 function startExploring() {
   document.getElementById('root').style.display = 'none'; // Hide the landing page
