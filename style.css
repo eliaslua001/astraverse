@@ -837,7 +837,7 @@ canvas {
   text-align: center;
 }
 
-.command-message .closeButtonCM {
+.command-message .fastTravel {
   margin-top: 10px;
   background-color: #fff;
   color: #000;
@@ -852,7 +852,7 @@ canvas {
   transform: translateX(-50%);
 }
 
-.command-message .closeButtonCM:hover {
+.command-message .fastTravel:hover {
   background-color: #b98fe7bf;
   border: 1px solid #cba7d454;
   color: #fff;

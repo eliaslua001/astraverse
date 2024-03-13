@@ -554,8 +554,18 @@ window.addEventListener('scroll', function () {
       }
     }
 
-    // Display the destination message ${spaceshipData.name}, ${userDisplayName}.
-    if (nextDestination) {
+    // Define thresholds for displaying the popup
+    const popupThresholds = [
+      { distance: 2566800, body: 'Mercury' },
+      { distance: 60366300, body: 'Venus' },
+      // Add more thresholds for other celestial bodies as needed
+    ];
+
+    // Check if the scroll position matches any of the popup thresholds
+    const matchingThreshold = popupThresholds.find(threshold => distanceFromSunKm >= threshold.distance && threshold.body === nextDestination.name);
+
+    // Display the popup if a matching threshold is found
+    if (matchingThreshold) {
       const messages = [
         "Everything's looking good in the system.",
         "No anomalies detected.",
@@ -565,28 +575,17 @@ window.addEventListener('scroll', function () {
       ];
       const comModMsg = `<span class="material-icons">cell_tower</span>&nbsp;&nbsp;${spaceshipData.name}, ${userDisplayName}&nbsp;&nbsp;<span class="material-icons">cell_tower</span>`;
       const systemMessage = messages[Math.floor(Math.random() * messages.length)];
-      const destinationMessage = `Approaching ${nextDestination.name} in ${nextDestination.distance - (scrollPosition / scaleRatio)} km!`;
-      
-      // Check if the user has scrolled past the current celestial body
-      const currentBodyIndex = celestialBodies.findIndex(body => body.distance * scaleRatio > scrollPosition);
-      const currentBody = celestialBodies[currentBodyIndex];
-      const nextBody = celestialBodies[currentBodyIndex + 1];
-      const isVisible = (currentBody && nextBody && nextBody.distance * scaleRatio <= scrollPosition);
-      
-      // Show the popup with the destination message only if the user has scrolled past the current celestial body
-      if (isVisible) {
-        document.querySelector('.command-message').style.display = 'block';
-        document.querySelector('.commandMod').innerHTML = comModMsg;
-        document.querySelector('.systemComMod').textContent = systemMessage;
-        document.querySelector('.messageComMod').textContent = destinationMessage;
-      } else {
-        // If the user hasn't scrolled past the current celestial body, hide the popup
-        document.querySelector('.command-message').style.display = 'none';
-      }
+      const destinationMessage = `Approaching ${matchingThreshold.body} at ${matchingThreshold.distance.toLocaleString()} km!`;
+      document.querySelector('.command-message').style.display = 'block';
+      document.querySelector('.commandMod').innerHTML = comModMsg;
+      document.querySelector('.systemComMod').textContent = systemMessage;
+      document.querySelector('.messageComMod').textContent = destinationMessage;
     } else {
-      const endMessage = `You have reached the end!`;
-      document.querySelector('.messageComMod').textContent = endMessage;
+      // Hide the popup if no matching threshold is found
+      document.querySelector('.command-message').style.display = 'none';
     }
 
   }, 50); // Adjust the debounce delay as needed
+
+}, 50); // Adjust the debounce delay as needed
 });
