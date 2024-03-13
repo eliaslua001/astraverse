@@ -522,7 +522,6 @@ function scrollToNextBody() {
     behavior: 'smooth'
   });
   document.querySelector('.command-message').style.display = 'none';
-  
 }
 
 window.addEventListener('scroll', function () {
