@@ -13,6 +13,11 @@ function startExploring() {
   var spaceshipNameInput = document.getElementById('spaceshipName').value;
   var spaceshipName = spaceshipNameInput.trim(); // Store the user input spaceship name
   var userNameInput = document.getElementById('userName').value;
+  function toSentenceCase(str) {
+    return str.toLowerCase().replace(/(^\s*\w|[\.\!\?]\s*\w)/g, function (c) {
+      return c.toUpperCase();
+    });
+  }
   var userName = toSentenceCase(userNameInput.trim()); // Convert to sentence case and store the user input name
   userInputName = userName; // Store the user input name
   userInputShipName = spaceshipName; // Store the user input name
