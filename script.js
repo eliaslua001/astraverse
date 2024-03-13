@@ -518,7 +518,7 @@ window.addEventListener('scroll', function () {
     let remainingDistance = null;
     for (let i = 0; i < celestialBodies.length; i++) {
       const celestialBody = celestialBodies[i];
-      const celestialBodyPosition = celestialBody.distance * scaleRatio; // Adjust for scale factor if needed
+      const celestialBodyPosition = (body.distance * astronomicalUnit) / scaleRatio;
       if (celestialBodyPosition > scrollPosition) {
         nextDestination = celestialBody;
         remainingDistance = celestialBody.distance - (distanceFromSunKm / astronomicalUnit); // Calculate remaining distance
@@ -543,6 +543,13 @@ window.addEventListener('scroll', function () {
       document.querySelector('.commandMod').innerHTML = comModMsg;
       document.querySelector('.systemComMod').textContent = systemMessage;
       document.querySelector('.messageComMod').textContent = destinationMessage;
+
+      const autoScrollButton = document.createElement('button');
+      autoScrollButton.textContent = 'Go to Next Destination';
+      autoScrollButton.addEventListener('click', function() {
+        window.scrollTo({ top: celestialBodyPosition, behavior: 'smooth' });
+      });
+      document.querySelector('.command-message').appendChild(autoScrollButton);
 
     } else {
       const endMessage = `You have reached the end!`;

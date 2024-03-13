@@ -823,7 +823,7 @@ canvas {
   text-align: center;
 }
 
-.command-message .spaceship-destination {
+.command-message .commandMod {
   margin-top: 5px;
   text-align: center;
   font-style: italic;
@@ -832,6 +832,7 @@ canvas {
   vertical-align: middle;
 }
 
+.command-message .systemComMod,
 .command-message .messageComMod {
   text-align: center;
 }
