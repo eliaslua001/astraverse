@@ -544,50 +544,38 @@ window.addEventListener('scroll', function () {
       document.querySelector('.marker-line').style.display = 'none'; // Hide the marker line
     }
 
-    const viewportHeight = window.innerHeight;
-    let lastVisibleBodyIndex = -1;
-
+    let nextBodyToShow = null;
     for (let i = 0; i < celestialBodies.length; i++) {
       const bodyElement = document.getElementById(celestialBodies[i].id);
       const rect = bodyElement.getBoundingClientRect();
+      const completelyOutOfView = rect.bottom < 0; // Completely out of view
 
-      if (rect.bottom > 0 && rect.top < viewportHeight) {
-        lastVisibleBodyIndex = i; // This body is visible (partially or fully)
-      } else if (rect.top >= viewportHeight) {
-        break; // No need to check further as we've found the last visible body
+      if (!completelyOutOfView) {
+        // Found the first body either partially or fully in view or below the viewport
+        nextBodyToShow = i + 1 < celestialBodies.length ? celestialBodies[i + 1] : null;
+        break;
       }
     }
 
-    // Logic to show popup for the next body if there is one
-    if (lastVisibleBodyIndex !== -1 && lastVisibleBodyIndex < celestialBodies.length - 1) {
-      // Hide the command message initially to prevent it from showing prematurely
-      document.querySelector('.command-message').style.display = 'none';
+    // Update popup content and display logic
+    if (nextBodyToShow) {
+      const systemMessage = [
+        "Everything's looking good in the system.",
+        "No anomalies detected.",
+        "Navigation systems online and operational.",
+        "Smooth sailing ahead.",
+        "Enjoy the view of the cosmos!"
+      ][Math.floor(Math.random() * 5)];
 
-      const nextBodyIndex = lastVisibleBodyIndex + 1;
-      const nextBody = celestialBodies[nextBodyIndex];
-      const nextBodyElement = document.getElementById(nextBody.id);
-      const nextBodyRect = nextBodyElement.getBoundingClientRect();
+      const comModMsg = `<span class="material-icons">cell_tower</span>&nbsp;&nbsp;${spaceshipData.name}, ${userDisplayName}&nbsp;&nbsp;<span class="material-icons">cell_tower</span>`;
+      const destinationMessage = `Approaching ${nextBodyToShow.name} at ${(nextBodyToShow.distance * astronomicalUnit).toLocaleString()} km!`;
 
-      if (nextBodyRect.top >= viewportHeight) {
-        // Next body is just out of view, show the popup for it
-        const messages = [
-          "Everything's looking good in the system.",
-          "No anomalies detected.",
-          "Navigation systems online and operational.",
-          "Smooth sailing ahead.",
-          "Enjoy the view of the cosmos!"
-        ];
-        const comModMsg = `<span class="material-icons">cell_tower</span>&nbsp;&nbsp;${spaceshipData.name}, ${userDisplayName}&nbsp;&nbsp;<span class="material-icons">cell_tower</span>`;
-        const systemMessage = messages[Math.floor(Math.random() * messages.length)];
-        const destinationMessage = `Approaching ${nextBody.name} at ${nextBody.distance} AU`;
-        document.querySelector('.command-message').style.display = 'block';
-        document.querySelector('.commandMod').innerHTML = comModMsg;
-        document.querySelector('.systemComMod').textContent = systemMessage;
-        document.querySelector('.messageComMod').textContent = destinationMessage;
-      }
-    } else if (lastVisibleBodyIndex === celestialBodies.length - 1) {
-      // Logic for when the user has scrolled past the last celestial body
-      // Hide the command message or update it to indicate the end of the journey
+      document.querySelector('.command-message').style.display = 'block';
+      document.querySelector('.commandMod').innerHTML = comModMsg;
+      document.querySelector('.systemComMod').textContent = systemMessage;
+      document.querySelector('.messageComMod').textContent = destinationMessage;
+    } else {
+      // Hide the command message if there's no next body to show
       document.querySelector('.command-message').style.display = 'none';
     }
 
