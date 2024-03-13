@@ -125,6 +125,7 @@
 
 .message-log-text h2 {
   text-align: center;
+  margin-block-start: 0.5em;
 }
 
 .close-messageLog {
