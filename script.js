@@ -497,27 +497,30 @@ document.addEventListener('click', function (event) {
   }
 });
 
-const celestialBodyPositions = celestialBodies.map(body => (body.distance * astronomicalUnit) / scaleRatio);
-
-const fastTravelBtn = document.querySelector('.fastTravel');
-
-// Add event listener to the fast travel button
-fastTravelBtn.addEventListener('click', function () {
+function scrollToNextBody() {
   let currentIndex = 0;
   // Find the index of the current celestial body
-  for (let i = 0; i < celestialBodyPositions.length; i++) {
-    if (celestialBodyPositions[i] > window.scrollY) {
+  for (let i = 0; i < celestialBodies.length; i++) {
+    const celestialBody = celestialBodies[i];
+    const celestialBodyPosition = (celestialBody.distance * astronomicalUnit) / scaleRatio;
+    if (celestialBodyPosition > window.scrollY) {
       currentIndex = i;
       break;
     }
   }
   // Scroll to the position of the next celestial body
   const nextIndex = currentIndex + 1;
-  if (nextIndex < celestialBodyPositions.length) {
-    window.scrollTo(0, celestialBodyPositions[nextIndex]);
+  if (nextIndex < celestialBodies.length) {
+    const nextBody = celestialBodies[nextIndex];
+    const nextBodyPosition = (nextBody.distance * astronomicalUnit) / scaleRatio;
+    window.scrollTo({
+      top: nextBodyPosition,
+      behavior: 'smooth' // Smooth scrolling animation
+    });
+    // Close the popup after scrolling to the next body
     document.querySelector('.command-message').style.display = 'none';
   }
-});
+}
 
 window.addEventListener('scroll', function () {
   clearTimeout(debounceTimer);
