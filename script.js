@@ -2,6 +2,9 @@ let userInputName = '';
 let userInputShipName = '';
 let commanderName = '';
 
+let lastPopupCloseTime = 0; // Timestamp of the last popup close
+const popupReappearDelay = 60000; // Delay in milliseconds (1 minute)
+
 function startExploring() {
   document.getElementById('root').style.display = 'none'; // Hide the landing page
   document.getElementById('landing-content').style.display = 'none'; // Hide the landing content
@@ -526,11 +529,18 @@ function scrollToNextBody() {
 
 function closeFastTravel() {
   document.querySelector('.command-message').style.display = 'none';
+  lastPopupCloseTime = new Date().getTime(); // Record the close time
 }
 
 function checkVisibilityAndUpdatePopup() {
   // Initially hide the popup until we know a body has gone out of view
   document.querySelector('.command-message').style.display = 'none';
+
+  const currentTime = new Date().getTime();
+  // Check if the popup was closed recently and if the delay has not yet passed
+  if (currentTime - lastPopupCloseTime < popupReappearDelay) {
+    return; // Exit the function early if the delay hasn't passed
+  }
 
   let bodyVisible = false;
   for (let i = 0; i < celestialBodies.length; i++) {
@@ -575,7 +585,7 @@ window.addEventListener('scroll', function () {
   clearTimeout(debounceTimer);
   debounceTimer = setTimeout(function () {
     checkVisibilityAndUpdatePopup();
-    
+
     const scrollPosition = window.scrollY;
     const markerOffset = markerLine.getBoundingClientRect().top + window.scrollY - sunPosition;
     let distanceFromSunKm = (markerOffset > 0 ? markerOffset : 0) * scaleRatio + sunDistanceKm;
