@@ -518,10 +518,10 @@ window.addEventListener('scroll', function () {
     let remainingDistance = null;
     for (let i = 0; i < celestialBodies.length; i++) {
       const celestialBody = celestialBodies[i];
-      const celestialBodyPosition = (body.distance * astronomicalUnit) / scaleRatio;
+      const celestialBodyPosition = (celestialBody.distance * astronomicalUnit) / scaleRatio;
       if (celestialBodyPosition > scrollPosition) {
         nextDestination = celestialBody;
-        remainingDistance = celestialBody.distance - (distanceFromSunKm / astronomicalUnit); // Calculate remaining distance
+        remainingDistance = celestialBody.distance; // Retrieve remaining distance from array
         break;
       }
     }
