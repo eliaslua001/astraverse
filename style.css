@@ -5,12 +5,14 @@
   width: fit-content;
   transform: translate(-50%, -50%);
   text-align: center;
+  font-family: inherit;
   color: white;
   z-index: 2;
 }
 
 .landing-page {
   background-color: #000000;
+  font-family: inherit;
 }
 
 .av-logo {
@@ -20,6 +22,7 @@
 
 .wrapper {
   text-align: center;
+  font-family: inherit;
 }
 
 :root {
