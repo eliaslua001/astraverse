@@ -503,6 +503,7 @@ document.addEventListener('click', function (event) {
 
 // Function to auto-scroll to the next celestial body
 function scrollToNextBody() {
+  document.querySelector('.command-message').style.display = 'none'; 
   const viewportHeight = window.innerHeight;
   const currentPosition = window.scrollY;
   let nextBodyIndex = celestialBodyPositions.findIndex(pos => pos > currentPosition);
@@ -521,6 +522,10 @@ function scrollToNextBody() {
     top: scrollToPosition,
     behavior: 'smooth'
   });
+}
+
+function closeFastTravel() {
+  document.querySelector('.command-message').style.display = 'none'; 
 }
 
 window.addEventListener('scroll', function () {
