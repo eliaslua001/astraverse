@@ -503,19 +503,22 @@ document.addEventListener('click', function (event) {
 
 // Function to auto-scroll to the next celestial body
 function scrollToNextBody() {
+  const viewportHeight = window.innerHeight;
   const currentPosition = window.scrollY;
   let nextBodyIndex = celestialBodyPositions.findIndex(pos => pos > currentPosition);
   if (nextBodyIndex === -1) {
     // User is at the end, scroll to the last body
     nextBodyIndex = celestialBodyPositions.length - 1;
   }
-  // Find the corresponding planet name element
-  const nextBodyNameElement = document.querySelector(`#${celestialBodies[nextBodyIndex].id} .name`);
-  // Get the position of the planet name
-  const nextBodyNamePosition = nextBodyNameElement.getBoundingClientRect().top + window.scrollY;
-  // Scroll to the position of the planet name
+  // Find the corresponding planet element
+  const nextBodyElement = document.getElementById(celestialBodies[nextBodyIndex].id);
+  // Calculate the position to center the body vertically
+  const bodyTopPosition = nextBodyElement.getBoundingClientRect().top + window.scrollY;
+  const bodyHeight = nextBodyElement.offsetHeight;
+  const scrollToPosition = bodyTopPosition - (viewportHeight / 2) + (bodyHeight / 2);
+  // Scroll to the centered position of the celestial body
   window.scrollTo({
-    top: nextBodyNamePosition,
+    top: scrollToPosition,
     behavior: 'smooth'
   });
 }
