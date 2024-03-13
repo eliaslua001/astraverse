@@ -503,7 +503,7 @@ document.addEventListener('click', function (event) {
 
 // Function to auto-scroll to the next celestial body
 function scrollToNextBody() {
-  document.querySelector('.command-message').style.display = 'none'; 
+  document.querySelector('.command-message').style.display = 'none';
   const viewportHeight = window.innerHeight;
   const currentPosition = window.scrollY;
   let nextBodyIndex = celestialBodyPositions.findIndex(pos => pos > currentPosition);
@@ -525,7 +525,7 @@ function scrollToNextBody() {
 }
 
 function closeFastTravel() {
-  document.querySelector('.command-message').style.display = 'none'; 
+  document.querySelector('.command-message').style.display = 'none';
 }
 
 window.addEventListener('scroll', function () {
@@ -544,37 +544,51 @@ window.addEventListener('scroll', function () {
       document.querySelector('.marker-line').style.display = 'none'; // Hide the marker line
     }
 
-    // Find the next destination
-    let nextDestination = null;
+    const viewportHeight = window.innerHeight;
+    let lastVisibleBodyIndex = -1;
+
     for (let i = 0; i < celestialBodies.length; i++) {
-      const celestialBody = celestialBodies[i];
-      const celestialBodyPosition = celestialBodyPositions[i]; // Get the position from the logged array
-      if (celestialBodyPosition > scrollPosition + window.innerHeight) {
-        nextDestination = celestialBody;
-        break;
+      const bodyElement = document.getElementById(celestialBodies[i].id);
+      const rect = bodyElement.getBoundingClientRect();
+
+      if (rect.bottom > 0 && rect.top < viewportHeight) {
+        lastVisibleBodyIndex = i; // This body is visible (partially or fully)
+      } else if (rect.top >= viewportHeight) {
+        break; // No need to check further as we've found the last visible body
       }
     }
 
-    // Display the destination message ${spaceshipData.name}, ${userDisplayName}.
-    if (nextDestination) {
-      const messages = [
-        "Everything's looking good in the system.",
-        "No anomalies detected.",
-        "Navigation systems online and operational.",
-        "Smooth sailing ahead.",
-        "Enjoy the view of the cosmos!"
-      ];
-      const comModMsg = `<span class="material-icons">cell_tower</span>&nbsp;&nbsp;${spaceshipData.name}, ${userDisplayName}&nbsp;&nbsp;<span class="material-icons">cell_tower</span>`;
-      const systemMessage = messages[Math.floor(Math.random() * messages.length)];
-      const destinationMessage = `Approaching ${nextDestination.name} in ${nextDestination.distance - (scrollPosition / scaleRatio)} km!`;
-      // Show the popup with the destination message
-      document.querySelector('.command-message').style.display = 'block';
-      document.querySelector('.commandMod').innerHTML = comModMsg;
-      document.querySelector('.systemComMod').textContent = systemMessage;
-      document.querySelector('.messageComMod').textContent = destinationMessage;
-    } else {
-      const endMessage = `You have reached the end!`;
-      document.querySelector('.messageComMod').textContent = endMessage;
+    // Logic to show popup for the next body if there is one
+    if (lastVisibleBodyIndex !== -1 && lastVisibleBodyIndex < celestialBodies.length - 1) {
+      // Hide the command message initially to prevent it from showing prematurely
+      document.querySelector('.command-message').style.display = 'none';
+
+      const nextBodyIndex = lastVisibleBodyIndex + 1;
+      const nextBody = celestialBodies[nextBodyIndex];
+      const nextBodyElement = document.getElementById(nextBody.id);
+      const nextBodyRect = nextBodyElement.getBoundingClientRect();
+
+      if (nextBodyRect.top >= viewportHeight) {
+        // Next body is just out of view, show the popup for it
+        const messages = [
+          "Everything's looking good in the system.",
+          "No anomalies detected.",
+          "Navigation systems online and operational.",
+          "Smooth sailing ahead.",
+          "Enjoy the view of the cosmos!"
+        ];
+        const comModMsg = `<span class="material-icons">cell_tower</span>&nbsp;&nbsp;${spaceshipData.name}, ${userDisplayName}&nbsp;&nbsp;<span class="material-icons">cell_tower</span>`;
+        const systemMessage = messages[Math.floor(Math.random() * messages.length)];
+        const destinationMessage = `Approaching ${nextBody.name} at ${nextBody.distance} AU`;
+        document.querySelector('.command-message').style.display = 'block';
+        document.querySelector('.commandMod').innerHTML = comModMsg;
+        document.querySelector('.systemComMod').textContent = systemMessage;
+        document.querySelector('.messageComMod').textContent = destinationMessage;
+      }
+    } else if (lastVisibleBodyIndex === celestialBodies.length - 1) {
+      // Logic for when the user has scrolled past the last celestial body
+      // Hide the command message or update it to indicate the end of the journey
+      document.querySelector('.command-message').style.display = 'none';
     }
 
   }, 50); // Adjust the debounce delay as needed
