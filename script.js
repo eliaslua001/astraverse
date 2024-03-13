@@ -517,7 +517,7 @@ window.addEventListener('scroll', function () {
     let nextDestination = null;
     for (let i = 0; i < celestialBodies.length; i++) {
       const celestialBody = celestialBodies[i];
-      const celestialBodyPosition = celestialBody.distance * scaleFactor; // Adjust for scale factor if needed
+      const celestialBodyPosition = celestialBody.distance * scaleRatio; // Adjust for scale factor if needed
       if (celestialBodyPosition > scrollPosition) {
         nextDestination = celestialBody;
         break;
