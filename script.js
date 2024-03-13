@@ -528,6 +528,24 @@ function closeFastTravel() {
   document.querySelector('.command-message').style.display = 'none';
 }
 
+function showCommandMessage(nextBody) {
+  const systemMessage = [
+    "Everything's looking good in the system.",
+    "No anomalies detected.",
+    "Navigation systems online and operational.",
+    "Smooth sailing ahead.",
+    "Enjoy the view of the cosmos!"
+  ][Math.floor(Math.random() * 5)];
+
+  const comModMsg = `<span class="material-icons">cell_tower</span>&nbsp;&nbsp;${spaceshipData.name}, ${userDisplayName}&nbsp;&nbsp;<span class="material-icons">cell_tower</span>`;
+  const destinationMessage = `Approaching ${nextBody.name} at ${(nextBody.distance * astronomicalUnit).toLocaleString()} km!`;
+
+  document.querySelector('.command-message').style.display = 'block';
+  document.querySelector('.commandMod').innerHTML = comModMsg;
+  document.querySelector('.systemComMod').textContent = systemMessage;
+  document.querySelector('.messageComMod').textContent = destinationMessage;
+}
+
 window.addEventListener('scroll', function () {
   clearTimeout(debounceTimer);
   debounceTimer = setTimeout(function () {
@@ -544,38 +562,34 @@ window.addEventListener('scroll', function () {
       document.querySelector('.marker-line').style.display = 'none'; // Hide the marker line
     }
 
-    let nextBodyToShow = null;
-    for (let i = 0; i < celestialBodies.length; i++) {
-      const bodyElement = document.getElementById(celestialBodies[i].id);
+    const viewportHeight = window.innerHeight;
+    let lastBodyCompletelyInViewIndex = -1;
+
+    // Iterate through celestial bodies to find the last one completely in view
+    celestialBodies.forEach((body, index) => {
+      const bodyElement = document.getElementById(body.id);
       const rect = bodyElement.getBoundingClientRect();
-      const completelyOutOfView = rect.bottom < 0; // Completely out of view
 
-      if (!completelyOutOfView) {
-        // Found the first body either partially or fully in view or below the viewport
-        nextBodyToShow = i + 1 < celestialBodies.length ? celestialBodies[i + 1] : null;
-        break;
+      // A body is considered completely in view if its top is above the viewport's bottom
+      // and its bottom is below the viewport's top
+      if (rect.top < viewportHeight && rect.bottom > 0) {
+        lastBodyCompletelyInViewIndex = index;
       }
-    }
+    });
 
-    // Update popup content and display logic
-    if (nextBodyToShow) {
-      const systemMessage = [
-        "Everything's looking good in the system.",
-        "No anomalies detected.",
-        "Navigation systems online and operational.",
-        "Smooth sailing ahead.",
-        "Enjoy the view of the cosmos!"
-      ][Math.floor(Math.random() * 5)];
+    // Determine the next body to show based on the last body completely in view
+    const nextBodyIndex = lastBodyCompletelyInViewIndex + 1;
+    if (nextBodyIndex < celestialBodies.length) {
+      const nextBody = celestialBodies[nextBodyIndex];
+      const bodyElement = document.getElementById(nextBody.id);
+      const rect = bodyElement.getBoundingClientRect();
 
-      const comModMsg = `<span class="material-icons">cell_tower</span>&nbsp;&nbsp;${spaceshipData.name}, ${userDisplayName}&nbsp;&nbsp;<span class="material-icons">cell_tower</span>`;
-      const destinationMessage = `Approaching ${nextBodyToShow.name} at ${(nextBodyToShow.distance * astronomicalUnit).toLocaleString()} km!`;
-
-      document.querySelector('.command-message').style.display = 'block';
-      document.querySelector('.commandMod').innerHTML = comModMsg;
-      document.querySelector('.systemComMod').textContent = systemMessage;
-      document.querySelector('.messageComMod').textContent = destinationMessage;
+      // Only show the popup if the next body's top is below the viewport (indicating the previous body has left the view)
+      if (rect.top >= viewportHeight) {
+        showCommandMessage(nextBody);
+      }
     } else {
-      // Hide the command message if there's no next body to show
+      // Hide the command message if we've passed the last body or if there's no next body to show
       document.querySelector('.command-message').style.display = 'none';
     }
 
