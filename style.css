@@ -819,6 +819,8 @@ canvas {
   border: 2px solid #cba7d454;
   box-shadow: 0 0 5px #e05ef1;
   z-index: 999;
+  width: 300px; /* Adjust width as needed */
+  text-align: center;
 }
 
 .command-message .spaceship-destination {

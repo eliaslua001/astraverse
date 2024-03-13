@@ -534,7 +534,7 @@ window.addEventListener('scroll', function () {
         "Enjoy the view of the cosmos!"
       ];
       const systemMessage = messages[Math.floor(Math.random() * messages.length)];
-      const destinationMessage = `Approaching ${nextDestination.name} in ${nextDestination.distance - (scrollPosition / scaleRatio)} km!`;
+      const destinationMessage = `${spaceshipData.name}, ${userDisplayName}. Approaching ${nextDestination.name} in ${nextDestination.distance - (scrollPosition / scaleRatio)} km!`;
       // Show the popup with the destination message
       document.querySelector('.command-message').style.display = 'block';
       document.querySelector('.commandModule').textContent = systemMessage;
