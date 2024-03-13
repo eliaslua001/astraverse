@@ -838,7 +838,7 @@ canvas {
 }
 
 .command-message .fastTravelYes {
-  margin-top: 10px;
+  margin: 0 10px;
   background-color: #ffffff8c;
   color: #000;
   padding: 5px 10px;
@@ -856,6 +856,21 @@ canvas {
   background-color: #b98fe7bf;
   border: 1px solid #cba7d454;
   color: #fff;
+}
+
+.command-message .fastTravelNo {
+  margin: 0 10px;
+  background-color: #ffffff8c;
+  color: #000;
+  padding: 5px 10px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-style: italic;
+  text-transform: uppercase;
+  right: 50%;
+  transform: translateX(-50%);
 }
 
 .command-message .fastTravelNo:hover {
