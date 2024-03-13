@@ -10,10 +10,12 @@ function startExploring() {
   document.querySelector('.astronaut').style.display = 'block'; // Show the astronaut
   document.querySelector('.spaceship').style.display = 'block'; // Show the spaceship
   document.querySelector('.message-log-button').style.display = 'block'; // Show the spaceship
-  var spaceshipName = document.getElementById('spaceshipName').value;
-  var userName = document.getElementById('userName').value;
-  userInputName = userName.trim(); // Store the user input name
-  userInputShipName = spaceshipName.trim(); // Store the user input name
+  var spaceshipNameInput = document.getElementById('spaceshipName').value;
+  var spaceshipName = spaceshipNameInput.trim(); // Store the user input spaceship name
+  var userNameInput = document.getElementById('userName').value;
+  var userName = toSentenceCase(userNameInput.trim()); // Convert to sentence case and store the user input name
+  userInputName = userName; // Store the user input name
+  userInputShipName = spaceshipName; // Store the user input name
   userDisplayName = userInputName ? userInputName : 'Reese';
   spaceshipData.name = userInputShipName ? userInputShipName : 'Odyssey';
   updateCloseButtonMCText();
