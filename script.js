@@ -497,6 +497,28 @@ document.addEventListener('click', function (event) {
   }
 });
 
+const celestialBodyPositions = celestialBodies.map(body => (body.distance * astronomicalUnit) / scaleRatio);
+
+const fastTravelBtn = document.querySelector('.fastTravel');
+
+// Add event listener to the fast travel button
+fastTravelBtn.addEventListener('click', function () {
+  let currentIndex = 0;
+  // Find the index of the current celestial body
+  for (let i = 0; i < celestialBodyPositions.length; i++) {
+    if (celestialBodyPositions[i] > window.scrollY) {
+      currentIndex = i;
+      break;
+    }
+  }
+  // Scroll to the position of the next celestial body
+  const nextIndex = currentIndex + 1;
+  if (nextIndex < celestialBodyPositions.length) {
+    window.scrollTo(0, celestialBodyPositions[nextIndex]);
+    document.querySelector('.command-message').style.display = 'none';
+  }
+});
+
 window.addEventListener('scroll', function () {
   clearTimeout(debounceTimer);
   debounceTimer = setTimeout(function () {
@@ -515,13 +537,11 @@ window.addEventListener('scroll', function () {
 
     // Find the next destination
     let nextDestination = null;
-    let remainingDistance = null;
     for (let i = 0; i < celestialBodies.length; i++) {
       const celestialBody = celestialBodies[i];
-      const celestialBodyPosition = (celestialBody.distance * astronomicalUnit) / scaleRatio;
-      if (celestialBodyPosition > scrollPosition) {
+      const celestialBodyPosition = celestialBodyPositions[i]; // Get the position from the logged array
+      if (celestialBodyPosition > scrollPosition + window.innerHeight) {
         nextDestination = celestialBody;
-        remainingDistance = celestialBody.distance; // Retrieve remaining distance from array
         break;
       }
     }
@@ -543,14 +563,6 @@ window.addEventListener('scroll', function () {
       document.querySelector('.commandMod').innerHTML = comModMsg;
       document.querySelector('.systemComMod').textContent = systemMessage;
       document.querySelector('.messageComMod').textContent = destinationMessage;
-
-      const autoScrollButton = document.createElement('button');
-      autoScrollButton.textContent = 'Go to Next Destination';
-      autoScrollButton.addEventListener('click', function() {
-        window.scrollTo({ top: celestialBodyPosition, behavior: 'smooth' });
-      });
-      document.querySelector('.command-message').appendChild(autoScrollButton);
-
     } else {
       const endMessage = `You have reached the end!`;
       document.querySelector('.messageComMod').textContent = endMessage;
