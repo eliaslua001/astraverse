@@ -509,9 +509,13 @@ function scrollToNextBody() {
     // User is at the end, scroll to the last body
     nextBodyIndex = celestialBodyPositions.length - 1;
   }
-  const nextBodyPosition = celestialBodyPositions[nextBodyIndex];
+  // Find the corresponding planet name element
+  const nextBodyNameElement = document.querySelector(`#${celestialBodies[nextBodyIndex].id} .name`);
+  // Get the position of the planet name
+  const nextBodyNamePosition = nextBodyNameElement.getBoundingClientRect().top + window.scrollY;
+  // Scroll to the position of the planet name
   window.scrollTo({
-    top: nextBodyPosition,
+    top: nextBodyNamePosition,
     behavior: 'smooth'
   });
 }
