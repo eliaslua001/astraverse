@@ -563,11 +563,26 @@ window.addEventListener('scroll', function () {
       const comModMsg = `<span class="material-icons">cell_tower</span>&nbsp;&nbsp;${spaceshipData.name}, ${userDisplayName}&nbsp;&nbsp;<span class="material-icons">cell_tower</span>`;
       const systemMessage = messages[Math.floor(Math.random() * messages.length)];
       const destinationMessage = `Approaching ${nextDestination.name} in ${nextDestination.distance - (scrollPosition / scaleRatio)} km!`;
-      // Show the popup with the destination message
-      document.querySelector('.command-message').style.display = 'block';
-      document.querySelector('.commandMod').innerHTML = comModMsg;
-      document.querySelector('.systemComMod').textContent = systemMessage;
-      document.querySelector('.messageComMod').textContent = destinationMessage;
+      
+      // Check if the next celestial body is not visible in the viewport
+      const nextBodyIndex = celestialBodies.findIndex(body => body.name === nextDestination.name);
+      const nextBodyElement = document.getElementById(celestialBodies[nextBodyIndex].id);
+      const bodyRect = nextBodyElement.getBoundingClientRect();
+      const isVisible = (
+        bodyRect.top >= 0 &&
+        bodyRect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+      );
+      
+      // Show the popup with the destination message only if the next body is not visible
+      if (!isVisible) {
+        document.querySelector('.command-message').style.display = 'block';
+        document.querySelector('.commandMod').innerHTML = comModMsg;
+        document.querySelector('.systemComMod').textContent = systemMessage;
+        document.querySelector('.messageComMod').textContent = destinationMessage;
+      } else {
+        // If the next body is visible, hide the popup
+        document.querySelector('.command-message').style.display = 'none';
+      }
     } else {
       const endMessage = `You have reached the end!`;
       document.querySelector('.messageComMod').textContent = endMessage;
