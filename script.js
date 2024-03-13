@@ -587,5 +587,4 @@ window.addEventListener('scroll', function () {
 
   }, 50); // Adjust the debounce delay as needed
 
-}, 50); // Adjust the debounce delay as needed
 });
