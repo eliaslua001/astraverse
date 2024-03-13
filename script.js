@@ -540,7 +540,7 @@ window.addEventListener('scroll', function () {
       const destinationMessage = `Approaching ${nextDestination.name} in ${nextDestination.distance - (scrollPosition / scaleRatio)} km!`;
       // Show the popup with the destination message
       document.querySelector('.command-message').style.display = 'block';
-      document.querySelector('.commandMod').textContent = comModMsg;
+      document.querySelector('.commandMod').innerHTML = comModMsg;
       document.querySelector('.systemComMod').textContent = systemMessage;
       document.querySelector('.messageComMod').textContent = destinationMessage;
 
