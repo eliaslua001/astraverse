@@ -427,6 +427,8 @@ rightArrow.addEventListener('click', function () {
   modelViewer.currentRotation = currentRotation;
 });
 
+const celestialBodyPositions = [];
+
 celestialBodies.forEach(body => {
   const modelViewer = document.createElement('model-viewer');
   modelViewer.id = body.id;
@@ -454,6 +456,8 @@ celestialBodies.forEach(body => {
   const distance = (body.distance * astronomicalUnit) / scaleRatio;
   modelViewer.style.top = distance + 'px'; // Set the distance from the top
   document.querySelector('.container').appendChild(modelViewer);
+
+  celestialBodyPositions.push(distance); // Store the celestial body position
 
   // Create and append text element to display the name of the celestial body
   const nameElement = document.createElement('p');
@@ -497,29 +501,19 @@ document.addEventListener('click', function (event) {
   }
 });
 
+// Function to auto-scroll to the next celestial body
 function scrollToNextBody() {
-  let currentIndex = 0;
-  // Find the index of the current celestial body
-  for (let i = 0; i < celestialBodies.length; i++) {
-    const celestialBody = celestialBodies[i];
-    const celestialBodyPosition = (celestialBody.distance * astronomicalUnit) / scaleRatio;
-    if (celestialBodyPosition > window.scrollY) {
-      currentIndex = i;
-      break;
-    }
+  const currentPosition = window.scrollY;
+  let nextBodyIndex = celestialBodyPositions.findIndex(pos => pos > currentPosition);
+  if (nextBodyIndex === -1) {
+    // User is at the end, scroll to the last body
+    nextBodyIndex = celestialBodyPositions.length - 1;
   }
-  // Scroll to the position of the next celestial body
-  const nextIndex = currentIndex + 1;
-  if (nextIndex < celestialBodies.length) {
-    const nextBody = celestialBodies[nextIndex];
-    const nextBodyPosition = (nextBody.distance * astronomicalUnit) / scaleRatio;
-    window.scrollTo({
-      top: nextBodyPosition,
-      behavior: 'smooth' // Smooth scrolling animation
-    });
-    // Close the popup after scrolling to the next body
-    document.querySelector('.command-message').style.display = 'none';
-  }
+  const nextBodyPosition = celestialBodyPositions[nextBodyIndex];
+  window.scrollTo({
+    top: nextBodyPosition,
+    behavior: 'smooth'
+  });
 }
 
 window.addEventListener('scroll', function () {
