@@ -528,6 +528,31 @@ function closeFastTravel() {
   document.querySelector('.command-message').style.display = 'none';
 }
 
+function checkVisibilityAndUpdatePopup() {
+  // Initially hide the popup until we know a body has gone out of view
+  document.querySelector('.command-message').style.display = 'none';
+
+  let bodyVisible = false;
+  for (let i = 0; i < celestialBodies.length; i++) {
+    const body = celestialBodies[i];
+    const bodyElement = document.getElementById(body.id);
+    const rect = bodyElement.getBoundingClientRect();
+
+    if (rect.bottom > 0 && rect.top < window.innerHeight) {
+      // The body is currently visible
+      bodyVisible = true;
+      currentBodyIndex = i; // Update the currentBodyIndex to the last visible body
+      break;
+    }
+  }
+
+  // If the currently viewed body is not visible, show the popup for the next body
+  if (!bodyVisible && currentBodyIndex < celestialBodies.length - 1) {
+    const nextBody = celestialBodies[currentBodyIndex + 1];
+    showCommandMessage(nextBody);
+  }
+}
+
 function showCommandMessage(nextBody) {
   const systemMessage = [
     "Everything's looking good in the system.",
@@ -549,6 +574,8 @@ function showCommandMessage(nextBody) {
 window.addEventListener('scroll', function () {
   clearTimeout(debounceTimer);
   debounceTimer = setTimeout(function () {
+    checkVisibilityAndUpdatePopup();
+    
     const scrollPosition = window.scrollY;
     const markerOffset = markerLine.getBoundingClientRect().top + window.scrollY - sunPosition;
     let distanceFromSunKm = (markerOffset > 0 ? markerOffset : 0) * scaleRatio + sunDistanceKm;
@@ -556,42 +583,10 @@ window.addEventListener('scroll', function () {
     if (markerOffset > celestialBodies[0].diameter / scaleRatio) {
       document.getElementById('distance').textContent = distanceFromSunKm.toLocaleString();
       document.querySelector('.distance-meter').style.display = 'block';
-      document.querySelector('.marker-line').style.display = 'block'; // Show the marker line
+      document.querySelector('.marker-line').style.display = 'block';
     } else {
       document.querySelector('.distance-meter').style.display = 'none';
-      document.querySelector('.marker-line').style.display = 'none'; // Hide the marker line
+      document.querySelector('.marker-line').style.display = 'none';
     }
-
-    const viewportHeight = window.innerHeight;
-    let lastBodyCompletelyInViewIndex = -1;
-
-    // Iterate through celestial bodies to find the last one completely in view
-    celestialBodies.forEach((body, index) => {
-      const bodyElement = document.getElementById(body.id);
-      const rect = bodyElement.getBoundingClientRect();
-
-      // A body is considered completely in view if its top is above the viewport's bottom
-      // and its bottom is below the viewport's top
-      if (rect.top < viewportHeight && rect.bottom > 0) {
-        lastBodyCompletelyInViewIndex = index;
-      }
-    });
-
-    // Determine the next body to show based on the last body completely in view
-    const nextBodyIndex = lastBodyCompletelyInViewIndex + 1;
-    if (nextBodyIndex < celestialBodies.length) {
-      const nextBody = celestialBodies[nextBodyIndex];
-      const bodyElement = document.getElementById(nextBody.id);
-      const rect = bodyElement.getBoundingClientRect();
-
-      // Only show the popup if the next body's top is below the viewport (indicating the previous body has left the view)
-      if (rect.top >= viewportHeight) {
-        showCommandMessage(nextBody);
-      }
-    } else {
-      // Hide the command message if we've passed the last body or if there's no next body to show
-      document.querySelector('.command-message').style.display = 'none';
-    }
-
-  }, 50); // Adjust the debounce delay as needed
+  }, 100); // Unified timeout function for both visibility check and distance update
 });
