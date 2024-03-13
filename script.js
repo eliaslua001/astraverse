@@ -543,11 +543,13 @@ window.addEventListener('scroll', function () {
 
     // Find the next destination
     let nextDestination = null;
+    let remainingDistance = null;
     for (let i = 0; i < celestialBodies.length; i++) {
       const celestialBody = celestialBodies[i];
-      const celestialBodyPosition = celestialBodyPositions[i]; // Get the position from the logged array
-      if (celestialBodyPosition > scrollPosition + window.innerHeight) {
+      const celestialBodyPosition = celestialBody.distance * scaleRatio; // Adjust for scale factor if needed
+      if (celestialBodyPosition > scrollPosition) {
         nextDestination = celestialBody;
+        remainingDistance = celestialBody.distance - (distanceFromSunKm / astronomicalUnit); // Calculate remaining distance
         break;
       }
     }
@@ -565,23 +567,20 @@ window.addEventListener('scroll', function () {
       const systemMessage = messages[Math.floor(Math.random() * messages.length)];
       const destinationMessage = `Approaching ${nextDestination.name} in ${nextDestination.distance - (scrollPosition / scaleRatio)} km!`;
       
-      // Check if the next celestial body is not visible in the viewport
-      const nextBodyIndex = celestialBodies.findIndex(body => body.name === nextDestination.name);
-      const nextBodyElement = document.getElementById(celestialBodies[nextBodyIndex].id);
-      const bodyRect = nextBodyElement.getBoundingClientRect();
-      const isVisible = (
-        bodyRect.top >= 0 &&
-        bodyRect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-      );
+      // Check if the user has scrolled past the current celestial body
+      const currentBodyIndex = celestialBodies.findIndex(body => body.distance * scaleRatio > scrollPosition);
+      const currentBody = celestialBodies[currentBodyIndex];
+      const nextBody = celestialBodies[currentBodyIndex + 1];
+      const isVisible = (currentBody && nextBody && nextBody.distance * scaleRatio <= scrollPosition);
       
-      // Show the popup with the destination message only if the next body is not visible
-      if (!isVisible) {
+      // Show the popup with the destination message only if the user has scrolled past the current celestial body
+      if (isVisible) {
         document.querySelector('.command-message').style.display = 'block';
         document.querySelector('.commandMod').innerHTML = comModMsg;
         document.querySelector('.systemComMod').textContent = systemMessage;
         document.querySelector('.messageComMod').textContent = destinationMessage;
       } else {
-        // If the next body is visible, hide the popup
+        // If the user hasn't scrolled past the current celestial body, hide the popup
         document.querySelector('.command-message').style.display = 'none';
       }
     } else {
