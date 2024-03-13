@@ -535,7 +535,7 @@ window.addEventListener('scroll', function () {
         "Smooth sailing ahead.",
         "Enjoy the view of the cosmos!"
       ];
-      const comModMsg = `<span class="material-icons">communication</span>&nbsp;&nbsp;${spaceshipData.name}, ${userDisplayName}&nbsp;&nbsp;<span class="material-icons">communication</span>`;
+      const comModMsg = `<span class="material-symbols-outlined">communication</span>&nbsp;&nbsp;${spaceshipData.name}, ${userDisplayName}&nbsp;&nbsp;<span class="material-symbols-outlined">communication</span>`;
       const systemMessage = messages[Math.floor(Math.random() * messages.length)];
       const destinationMessage = `Approaching ${nextDestination.name} in ${nextDestination.distance - (scrollPosition / scaleRatio)} km!`;
       // Show the popup with the destination message
