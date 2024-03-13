@@ -411,8 +411,18 @@ body {
   margin: 0;
   padding: 0;
   color: white;
-  font-family: Arial, sans-serif;
   overflow-y: scroll;
+  font-family: 'Livvic', Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  visibility: visible;
+  letter-spacing: 0.95px;
+  word-spacing: 0.45px;
+}
+
+body.font-loaded {
+  letter-spacing: 0px;
+  word-spacing: 0px
 }
 
 /* Starfield */
