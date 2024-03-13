@@ -197,6 +197,8 @@ li {
 
 #spaceshipName {
   color: #ffffffe3;
+  font-family: 'Livvic', Verdana, sans-serif;
+  font-style: italic;
   display: inline-block;
   text-align: center;
   background-color: #929292d1;
