@@ -530,29 +530,6 @@ function scrollToNextBody() {
 function closeFastTravel() {
   document.querySelector('.command-message').style.display = 'none';
   lastPopupCloseTime = new Date().getTime(); // Record the close time
-
-  // Create and display tooltip
-  const tooltip = document.createElement('div');
-  tooltip.setAttribute('id', 'delayTooltip');
-  tooltip.textContent = 'Next action available in 30 seconds.';
-  document.body.appendChild(tooltip);
-
-  // Position the tooltip near the close button or another location
-  function positionTooltip(tooltip) {
-    const noFasttravel = document.querySelector('.fastTravelNo');
-    const noFasttravelRect = noFasttravel.getBoundingClientRect();
-    tooltip.style.position = 'absolute';
-    tooltip.style.left = `${noFasttravelRect.left}px`;
-    tooltip.style.top = `${noFasttravelRect.bottom + 10}px`; // 10px below the button
-  }
-
-  // Optionally hide the tooltip after 30 seconds or keep it until the next popup is eligible
-  setTimeout(() => {
-    const existingTooltip = document.getElementById('delayTooltip');
-    if (existingTooltip) {
-      document.body.removeChild(existingTooltip);
-    }
-  }, 30000); // Adjust timing as needed
 }
 
 function checkVisibilityAndUpdatePopup() {
@@ -566,23 +543,29 @@ function checkVisibilityAndUpdatePopup() {
   }
 
   let bodyVisible = false;
+  let nextBodyIndex = -1;
   for (let i = 0; i < celestialBodies.length; i++) {
     const body = celestialBodies[i];
     const bodyElement = document.getElementById(body.id);
     const rect = bodyElement.getBoundingClientRect();
 
-    if (rect.bottom > 0 && rect.top < window.innerHeight) {
-      // The body is currently visible
+    // Check if the body is completely out of view (considering the viewport)
+    if (rect.bottom < 0 || rect.top > window.innerHeight) {
+      bodyVisible = false;
+      nextBodyIndex = i + 1; // Next body to possibly show the popup for
+      break;
+    } else {
       bodyVisible = true;
       currentBodyIndex = i; // Update the currentBodyIndex to the last visible body
-      break;
     }
   }
 
-  // If the currently viewed body is not visible, show the popup for the next body
-  if (!bodyVisible && currentBodyIndex < celestialBodies.length - 1) {
-    const nextBody = celestialBodies[currentBodyIndex + 1];
-    showCommandMessage(nextBody);
+  // If no body is visible and we have a next body to show, set a delay to show the popup
+  if (!bodyVisible && nextBodyIndex >= 0 && nextBodyIndex < celestialBodies.length) {
+    // Delay showing the popup
+    setTimeout(() => {
+      showCommandMessage(celestialBodies[nextBodyIndex]);
+    }, 15000); // Delay in milliseconds (15 seconds)
   }
 }
 
