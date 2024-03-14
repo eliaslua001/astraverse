@@ -819,7 +819,8 @@ canvas {
   border: 2px solid #cba7d454;
   box-shadow: 0 0 5px #e05ef1;
   z-index: 999;
-  width: 300px; /* Adjust width as needed */
+  width: 300px;
+  /* Adjust width as needed */
   text-align: center;
 }
 
@@ -874,18 +875,31 @@ canvas {
 }
 
 .command-message .fastTravelNo:hover {
-  background-color: #e78f93bf;;
+  background-color: #e78f93bf;
+  ;
   border: 1px solid #cba7d454;
   color: #fff;
 }
 
-#delayTooltip {
-  padding: 5px 10px;
-  background-color: black;
-  color: white;
-  border-radius: 4px;
+.fastTravelNo .tooltip-content {
+  visibility: hidden;
+  width: 200px;
+  background-color: #ece3e3;
+  color: #181616;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
   position: absolute;
-  z-index: 1000; /* Ensure it appears above other content */
-  font-size: 14px;
-  /* Add more styling as needed */
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -100px;
+  /* Use half of the width value to align it */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.fastTravelNo:hover .tooltip-content {
+  visibility: visible;
+  opacity: 1;
 }
