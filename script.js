@@ -530,6 +530,29 @@ function scrollToNextBody() {
 function closeFastTravel() {
   document.querySelector('.command-message').style.display = 'none';
   lastPopupCloseTime = new Date().getTime(); // Record the close time
+
+  // Create and display tooltip
+  const tooltip = document.createElement('div');
+  tooltip.setAttribute('id', 'delayTooltip');
+  tooltip.textContent = 'Next action available in 30 seconds.';
+  document.body.appendChild(tooltip);
+
+  // Position the tooltip near the close button or another location
+  function positionTooltip(tooltip) {
+    const noFasttravel = document.querySelector('.fastTravelNo');
+    const noFasttravelRect = noFasttravel.getBoundingClientRect();
+    tooltip.style.position = 'absolute';
+    tooltip.style.left = `${noFasttravelRect.left}px`;
+    tooltip.style.top = `${noFasttravelRect.bottom + 10}px`; // 10px below the button
+  }
+
+  // Optionally hide the tooltip after 30 seconds or keep it until the next popup is eligible
+  setTimeout(() => {
+    const existingTooltip = document.getElementById('delayTooltip');
+    if (existingTooltip) {
+      document.body.removeChild(existingTooltip);
+    }
+  }, 30000); // Adjust timing as needed
 }
 
 function checkVisibilityAndUpdatePopup() {

@@ -878,3 +878,14 @@ canvas {
   border: 1px solid #cba7d454;
   color: #fff;
 }
+
+#delayTooltip {
+  padding: 5px 10px;
+  background-color: black;
+  color: white;
+  border-radius: 4px;
+  position: absolute;
+  z-index: 1000; /* Ensure it appears above other content */
+  font-size: 14px;
+  /* Add more styling as needed */
+}
