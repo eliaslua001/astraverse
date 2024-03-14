@@ -882,7 +882,7 @@ canvas {
 }
 
 .fastTravelNo .tooltip-content {
-  visibility: hidden;
+  display: none;
   width: 200px;
   background-color: #ece3e3;
   color: #181616;
@@ -900,6 +900,6 @@ canvas {
 }
 
 .fastTravelNo:hover .tooltip-content {
-  visibility: visible;
+  display: block; 
   opacity: 1;
 }
