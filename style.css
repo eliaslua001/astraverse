@@ -167,7 +167,7 @@ li {
   list-style-type: none;
 }
 
-.custom-list ul li:not(strong):before {
+.custom-list > li:before {
   display: inline-block;
   font-family: 'Material Icons';
   /* Specify the Material Icons font */
