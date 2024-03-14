@@ -179,6 +179,10 @@ li {
   /* Adjust spacing between icon and text */
 }
 
+.custom-list > li > strong:before {
+  content: none; /* Remove the icon if the text is wrapped in <strong> tags */
+}
+
 .material-icons {
   color: #efeff3e5;
   vertical-align: middle;
