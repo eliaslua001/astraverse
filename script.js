@@ -558,10 +558,8 @@ function checkVisibilityAndUpdatePopup() {
 
   // If the currently viewed body is not visible, show the popup for the next body
   if (!bodyVisible && currentBodyIndex < celestialBodies.length - 1) {
-    setTimeout(() => {
     const nextBody = celestialBodies[currentBodyIndex + 1];
     showCommandMessage(nextBody);
-  }, 15000); // Delay in milliseconds (15 seconds)
   }
 }
 
