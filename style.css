@@ -83,6 +83,7 @@
 .message-log-button {
   position: fixed;
   color: #ffffff;
+  top: 0px;
   right: 20px;
   font-size: 30px;
   cursor: grab;
@@ -182,6 +183,11 @@ li {
   color: #efeff3e5;
   vertical-align: middle;
 }
+
+.console {
+ font-size: 15px;
+}
+
 
 #userName {
   color: #ffffffe3;
