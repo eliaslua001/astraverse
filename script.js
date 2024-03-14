@@ -543,29 +543,25 @@ function checkVisibilityAndUpdatePopup() {
   }
 
   let bodyVisible = false;
-  let nextBodyIndex = -1;
   for (let i = 0; i < celestialBodies.length; i++) {
     const body = celestialBodies[i];
     const bodyElement = document.getElementById(body.id);
     const rect = bodyElement.getBoundingClientRect();
 
-    // Check if the body is completely out of view (considering the viewport)
-    if (rect.bottom < 0 || rect.top > window.innerHeight) {
-      bodyVisible = false;
-      nextBodyIndex = i + 1; // Next body to possibly show the popup for
-      break;
-    } else {
+    if (rect.bottom > 0 && rect.top < window.innerHeight) {
+      // The body is currently visible
       bodyVisible = true;
       currentBodyIndex = i; // Update the currentBodyIndex to the last visible body
+      break;
     }
   }
 
-  // If no body is visible and we have a next body to show, set a delay to show the popup
-  if (!bodyVisible && nextBodyIndex >= 0 && nextBodyIndex < celestialBodies.length) {
-    // Delay showing the popup
+  // If the currently viewed body is not visible, show the popup for the next body
+  if (!bodyVisible && currentBodyIndex < celestialBodies.length - 1) {
     setTimeout(() => {
-      showCommandMessage(celestialBodies[nextBodyIndex]);
-    }, 15000); // Delay in milliseconds (15 seconds)
+    const nextBody = celestialBodies[currentBodyIndex + 1];
+    showCommandMessage(nextBody);
+  }, 15000); // Delay in milliseconds (15 seconds)
   }
 }
 
