@@ -95,13 +95,14 @@ const celestialBodies = [{
   src: 'assets/sun.glb',
   poster: 'assets/sun.png',
   alt: 'Sun',
+  category: 'G2 V, yellow dwarf main-sequence star',
   color: 'yellow',
   diameter: 1392700, // 1.3927 million kilometres
   distance: 0, // Starting point for this model
   name: 'Sun',
   age: '4.5 billion',
   facts: [
-    'The Sun is a G2 V, yellow dwarf main-sequence star.',
+    'The Sun\'s true colour is actually "white". It appears yellow due to the scattering of sunlight in the Earth\'s atmosphere.',
     'The Sun is a star at the center of the Solar System.',
     'The Sun is about 100 times wider than Earth.',
     'It is composed of hot plasma interwoven with magnetic fields.',
@@ -120,6 +121,8 @@ const celestialBodies = [{
   src: 'assets/mercury.glb',
   poster: 'assets/mercury.png',
   alt: 'Mercury',
+  classification: 'Inner Planet',
+  category: 'Terrestrial',
   color: 'gray',
   diameter: 4879, // 4,879 kilometres
   distance: 0.4, // AU Distance
@@ -142,6 +145,8 @@ const celestialBodies = [{
   src: 'assets/venus.glb',
   poster: 'assets/venus.png',
   alt: 'Venus',
+  classification: 'Inner Planet',
+  category: 'Terrestrial',
   color: 'orange',
   diameter: 12104, // 12,104 kilometers
   distance: 0.72, // AU Distance
@@ -166,6 +171,8 @@ const celestialBodies = [{
   src: 'assets/earth.glb',
   poster: 'assets/earth.png',
   alt: 'Earth',
+  classification: 'Inner Planet',
+  category: 'Terrestrial',
   color: 'blue',
   diameter: 12742, // 12,742 kilometres
   distance: 1, // AU Distance
@@ -212,6 +219,8 @@ const celestialBodies = [{
   src: 'assets/mars.glb',
   poster: 'assets/mars.png',
   alt: 'Mars',
+  classification: 'Inner Planet',
+  category: 'Terrestrial',
   color: 'red',
   diameter: 6779, // 6,779 kilometers
   distance: 1.5, // AU Distance
@@ -237,6 +246,8 @@ const celestialBodies = [{
   src: 'assets/jupiter.glb',
   poster: 'assets/jupiter.png',
   alt: 'Jupiter',
+  classification: 'Outer Planet',
+  category: 'Gas Giant',
   color: 'tan',
   diameter: 142800, // 142,800 kilometres
   distance: 5.20, // AU Distance
@@ -244,16 +255,15 @@ const celestialBodies = [{
   facts: [
     'Jupiter is aptly named after the king of the ancient Roman Pantheon, also known as Zeus in ancient Greek Mythology. ',
     'Jupiter is the largest planet in the Solar System and has 95 offically recognised moons.',
-    'Its iconic Great Red Spot is a massive storm that has been raging for at least 400 years.',
     'Although Jupiter is not suitable for life as we know it, Europa, one of it\'s moon is most likely able to support life elsewhere beside Earth.',
     'Jupiter is 11 times wider than Earth!',
     'Jupiter has the shortest day in our Solar System. A Jovian day takes about 10 hours while a Jovian year takes about 12 Earth years.',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
+    'Of the 95 moons, the Gallilean satellites (Io, Europa, Ganymede, and Callisto) are the most fascinating places!',
+    'Ganymede is the largest moon in our Solar System and is even biger than Mercury!',
+    'Jupiter\'s rings is made up of small dark particles that can be seen when backlit by The Sun.',
+    'Jupiter\'s composition is similar to that of The Sun (mostly hygroden and helium)',
+    'Jupiter does not have a solid surface as it a Gas Giant.',
+    'With no solid surface, Jupiter\'s storm can persists for many years. One example is the iconic Great Red Spot which have been raging for more than 300 years!',
   ]
 },
 {
@@ -261,19 +271,22 @@ const celestialBodies = [{
   src: 'assets/saturn.glb',
   poster: 'assets/saturn.png',
   alt: 'Saturn',
+  classification: 'Outer Planet',
+  category: 'Gas Giant',
   color: 'gold',
   width: 402536, // 120,536 kilometres, 402,536 kilometres including rings
   diameter: 120536,
   distance: 9.5, // AU Distance
   name: 'Saturn',
   facts: [
+    'Saturn is named after the ancient Roman god of agriculture and is the father of Jupiter. The ancient Greek equivalent is Cronus."',
     'Saturn is known for its prominent ring system, made up of ice particles and dust.',
     'It has the second-largest moon in the Solar System, Titan, which has a dense atmosphere and surface lakes of liquid methane.',
-    '',
-    '',
-    '',
-    '',
-    '',
+    'As with Jupiter, Saturn\'s moons like Enceladus and Titan could support life as they have internal oceans.',
+    'Saturn is nine times wider than Earth!',
+    'One Saturnian day takes 10.5 hours while one Saturnian years is about 29.4 Earth years.',
+    'Saturn have an axial tilt of about 26.7°, hence it too experience seasons.',
+    'Saturn\'s iconic rings are made up of comets, asteroids, and shattered moons. Interestingly, the vertical height of the main ring is only about 10m despite the ring system extending to 282,000km from the planet. ',
     '',
     '',
     '',
