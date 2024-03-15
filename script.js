@@ -254,7 +254,7 @@ const celestialBodies = [{
   name: 'Jupiter',
   facts: [
     'Jupiter is aptly named after the king of the ancient Roman Pantheon, also known as Zeus in ancient Greek Mythology.',
-    'Jupiter is the largest planet in the Solar System and has 79 officially recognized moons.',
+    'Jupiter is the largest planet in the Solar System and has 95 officially recognized moons.',
     'Although Jupiter is not suitable for life as we know it, Europa, one of its moons, is most likely able to support life elsewhere besides Earth.',
     'Jupiter is 11 times wider than Earth!',
     'Jupiter has the shortest day in our Solar System. A Jovian day takes about 10 hours while a Jovian year takes about 12 Earth years.',
