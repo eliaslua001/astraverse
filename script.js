@@ -49,14 +49,16 @@ const sectionHeaders = [
 ];
 
 const sectionContents = [
-  "Scroll slowly to take in the beauty of each celestial body in our to-scale solar system.",
-  "Click on any celestial body to discover interesting facts and details about it. Discover more by clicking on the left and right arrows in the fact boxes to navigate through different facts about each celestial body. Zoom in and out on the 3D model for a closer look if you so wish.",
-  "Opt for 'Fast Travel' when the option appears, allowing you to swiftly advance to the next celestial bodies. This prompt reappears every 30 seconds after being dismissed, should you choose to leap ahead.",
-  "Engage with your spacecraft at any moment for entertaining and insightful updates from Mission Control, enhancing your voyage.",
-  "Interact with the astronaut to learn random space facts that might surprise you.",
-  "Keep an eye on the distance meter to see how far you've traveled from the Sun, appreciating the vast distances of space.",
-  "Don't forget to explore the outer planets, they're further away but hold fascinating secrets!",
-  `Click on the <img src="assets/hub.svg" alt="hub" style="width: 1em; fill = '#f0e6e6e7'; vertical-align: middle;"> icon at the top right corner at any time to revisit the Command Console.`
+  ["Scroll slowly to take in the beauty of each celestial body in our to-scale solar system."],
+  ["Click on any celestial body to discover interesting facts and details about it.",
+    "Discover more by clicking on the left and right arrows in the fact boxes to navigate through different facts about each celestial body.",
+    "Zoom in and out on the 3D model for a closer look if you so wish."],
+  ["Opt for 'Fast Travel' when the option appears, allowing you to swiftly advance to the next celestial bodies. This prompt reappears every 30 seconds after being dismissed, should you choose to leap ahead."],
+  ["Engage with your spacecraft at any moment for entertaining and insightful updates from Mission Control, enhancing your voyage."],
+  ["Interact with the astronaut to learn random space facts that might surprise you."],
+  ["Keep an eye on the distance meter to see how far you've traveled from the Sun, appreciating the vast distances of space."],
+  ["Don't forget to explore the outer planets, they're further away but hold fascinating secrets!"],
+  ["Click on the <span class='material-icons console'>hub</span> icon at the top right corner at any time to revisit the Command Console."]
 ];
 
 // Get the parent ul element
