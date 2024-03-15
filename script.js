@@ -80,14 +80,11 @@ for (let i = 0; i < sectionHeaders.length; i++) {
   const subLi = document.createElement('li');
   subLi.innerHTML = content; // Use innerHTML to parse HTML content
 
-  // Add SVG icon as bullet point for all section contents
-  const svgIcon = document.createElement('img');
-  svgIcon.src = 'assets/rocket_launch.svg';
-  svgIcon.alt = 'rocket_launch';
-  svgIcon.style.width = '1em'; // Adjust size if needed
-  svgIcon.style.marginRight = '0.5em'; // Adjust margin if needed
-  svgIcon.style.fill = '#f0e6e6e7'; // Set the fill color
-  subLi.insertBefore(svgIcon, subLi.firstChild);
+  // Add Google Material Icon as bullet point for all section contents
+  const span = document.createElement('span');
+  span.className = 'material-icons';
+  span.textContent = 'rocket_launch';
+  subLi.insertBefore(span, subLi.firstChild);
 
   ul.appendChild(subLi);
 
