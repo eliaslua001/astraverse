@@ -50,9 +50,11 @@ const sectionHeaders = [
 
 const sectionContents = [
   ["Scroll slowly to take in the beauty of each celestial body in our to-scale solar system."],
-  ["Click on any celestial body to discover interesting facts and details about it.",
+  [
+    "Click on any celestial body to discover interesting facts and details about it.",
     "Discover more by clicking on the left and right arrows in the fact boxes to navigate through different facts about each celestial body.",
-    "Zoom in and out on the 3D model for a closer look if you so wish."],
+    "Zoom in and out on the 3D model for a closer look if you so wish."
+  ],
   ["Opt for 'Fast Travel' when the option appears, allowing you to swiftly advance to the next celestial bodies. This prompt reappears every 30 seconds after being dismissed, should you choose to leap ahead."],
   ["Engage with your spacecraft at any moment for entertaining and insightful updates from Mission Control, enhancing your voyage."],
   ["Interact with the astronaut to learn random space facts that might surprise you."],
