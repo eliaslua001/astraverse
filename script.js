@@ -79,15 +79,13 @@ for (let i = 0; i < sectionHeaders.length; i++) {
   const ul = document.createElement('ul');
   for (const item of content) {
     const subLi = document.createElement('li');
-    subLi.textContent = item;
+    subLi.innerHTML = item; // Add item
 
-    // Add Google Material Icon as bullet point only for section contents
-    if (content !== sectionContents[7]) {
-      const span = document.createElement('span');
-      span.className = 'material-icons';
-      span.textContent = 'rocket_launch';
-      subLi.insertBefore(span, subLi.firstChild);
-    }
+    // Add Google Material Icon as bullet point for all section contents
+    const span = document.createElement('span');
+    span.className = 'material-icons';
+    span.textContent = 'rocket_launch';
+    subLi.insertBefore(span, subLi.firstChild);
 
     ul.appendChild(subLi);
   }
@@ -98,7 +96,6 @@ for (let i = 0; i < sectionHeaders.length; i++) {
   // Append the parent li to the custom list ul
   consoleListUl.appendChild(li);
 }
-
 
 const celestialBodies = [{
   id: 'sun',
