@@ -1,4 +1,4 @@
-# AstraVerse
+# ![AstraVerse Logo in white](assets/astraverse.svg)
 
 This project aims to provide an interactive web visualisation of the Solar System, allowing users to explore celestial bodies, learn fascinating facts, and embark on a virtual journey through space.
 
