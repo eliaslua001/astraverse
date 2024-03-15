@@ -58,7 +58,7 @@ const sectionContents = [
   ["Interact with the astronaut to learn random space facts that might surprise you."],
   ["Keep an eye on the distance meter to see how far you've traveled from the Sun, appreciating the vast distances of space."],
   ["Don't forget to explore the outer planets, they're further away but hold fascinating secrets!"],
-  ["Click on the <span class='material-icons console'>hub</span> icon at the top right corner at any time to revisit the Command Console."]
+  ["Click on the", "icon at the top right corner at any time to revisit the Command Console."]
 ];
 
 // Get the parent ul element
@@ -86,6 +86,7 @@ for (let i = 0; i < sectionHeaders.length; i++) {
   const span = document.createElement('span');
   span.className = 'material-icons';
   span.textContent = 'rocket_launch';
+  span.style.fontSize = '15px';
   subLi.insertBefore(span, subLi.firstChild);
 
   ul.appendChild(subLi);
