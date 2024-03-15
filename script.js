@@ -36,18 +36,6 @@ const scaleRatio = 300; // Each unit represents 300 times the corresponding dist
 
 let debounceTimer;
 
-// Define section headers and contents into array
-const sectionHeaders = [
-  "Explore at Your Pace",
-  "Interactive Learning",
-  "Swift Journey",
-  "Mission Control Messages",
-  "Astronomical Facts",
-  "Travel Log",
-  "Outer Planets Exploration",
-  "Command Console Access"
-];
-
 const sectionContents = [
   ["Scroll slowly to take in the beauty of each celestial body in our to-scale solar system."],
   ["Click on any celestial body to discover interesting facts and details about it.",
@@ -58,7 +46,7 @@ const sectionContents = [
   ["Interact with the astronaut to learn random space facts that might surprise you."],
   ["Keep an eye on the distance meter to see how far you've traveled from the Sun, appreciating the vast distances of space."],
   ["Don't forget to explore the outer planets, they're further away but hold fascinating secrets!"],
-  ["Click on the", "<img src='assets/hub.svg' alt='hub' class='hub-icon'>", "icon at the top right corner at any time to revisit the Command Console."]
+  ["Click on the <img src='assets/hub.svg' alt='hub' class='hub-icon'> icon at the top right corner at any time to revisit the Command Console."]
 ];
 
 // Get the parent ul element
@@ -80,6 +68,17 @@ for (let i = 0; i < sectionHeaders.length; i++) {
   for (const item of content) {
     const subLi = document.createElement('li');
     subLi.innerHTML = item;
+
+    // Modify size and color of SVG icon
+    if (item.includes('hub.svg')) {
+      const icon = subLi.querySelector('.hub-icon');
+      if (icon) {
+        icon.style.width = '20px'; // Adjust size as needed
+        icon.style.height = '20px'; // Adjust size as needed
+        icon.style.fill = 'red'; // Change color as needed
+      }
+    }
+
     ul.appendChild(subLi);
   }
 
