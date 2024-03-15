@@ -900,11 +900,3 @@ canvas {
   position: relative; /* Position relative for icon positioning */
   padding-left: 20px; /* Add indentation for contents */
 }
-
-.material-icons {
-  position: absolute; /* Position icons absolutely */
-  left: 0; /* Align icons to the left */
-  top: 6px; /* Align icons to the top */
-  margin-right: 10px; /* Add some space between icons and text */
-  font-size: 15px; /* Adjust the size of icons */
-}

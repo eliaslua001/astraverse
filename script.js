@@ -56,7 +56,7 @@ const sectionContents = [
   "Interact with the astronaut to learn random space facts that might surprise you.",
   "Keep an eye on the distance meter to see how far you've traveled from the Sun, appreciating the vast distances of space.",
   "Don't forget to explore the outer planets, they're further away but hold fascinating secrets!",
-  `Click on the <img src="assets/hub.svg" alt="hub" style="width: 1em; vertical-align: middle;"> icon at the top right corner at any time to revisit the Command Console.`
+  `Click on the <img src="assets/hub.svg" alt="hub" style="width: 1em; fill = '#f0e6e6e7'; vertical-align: middle;"> icon at the top right corner at any time to revisit the Command Console.`
 ];
 
 // Get the parent ul element
@@ -86,6 +86,7 @@ for (let i = 0; i < sectionHeaders.length; i++) {
   svgIcon.alt = 'rocket_launch';
   svgIcon.style.width = '1em'; // Adjust size if needed
   svgIcon.style.marginRight = '0.5em'; // Adjust margin if needed
+  svgIcon.style.fill = '#f0e6e6e7'; // Set the fill color
   subLi.insertBefore(svgIcon, subLi.firstChild);
 
   ul.appendChild(subLi);
