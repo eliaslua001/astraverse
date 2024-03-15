@@ -111,7 +111,7 @@ const celestialBodies = [{
     'The Sun is a ball of hydrogen and helium, held in place by its own gravity.',
     'The part of the Sun that is commonly referred to as the "surface" is actually the photosphere, as the Sun doesn\'t have a solid surface!',
     'The photosphere is about 402 km thick.',
-    'Sunspots are a key feature of the Sun, created when a portion of the Sun\'s magnetic field pokes out from within its interior.', // Corrected subject-verb agreement and apostrophe usage
+    'Sunspots are a key feature of the Sun, created when a portion of the Sun\'s magnetic field pokes out from within its interior.',
     'Approximately every 11 years, the Sun\'s geographic poles change their magnetic polarity.'
   ]
 },
@@ -125,6 +125,7 @@ const celestialBodies = [{
   distance: 0.4, // AU Distance
   name: 'Mercury',
   facts: [
+    'Mercury is named after the ancient Roman god of traveller, otherwise known as Hermes to the ancient Greeks.',
     'Mercury is the smallest planet in the Solar System and the closest to the Sun.',
     'It has a very thin atmosphere composed mainly of oxygen, sodium, hydrogen, helium, and potassium.',
     'Mercury\'s day temperature can go up as high as 430°C while at night can go as low as -180°C!',
@@ -152,11 +153,11 @@ const celestialBodies = [{
     'It has a thick atmosphere mainly composed of carbon dioxide with clouds of sulfuric acid.',
     'Venus is similar in structure and size to Earth.',
     'Venus spins slowly in the opposite direction from most planets.',
-    'Venus is the hottest planet in our Solar System due to its thick atmosphere traps heat in a runaway greenshouse effect, with surface temperature high enought o melt lead!',
+    'Venus holds the title for the hottest planet in our Solar System. Its thick atmosphere creates a potent greenhouse effect, trapping heat and leading to surface temperatures capable of melting lead.',
     'The atmospheric pressure at the height of 50km fromt the surface is similar to that of Earth.',
-    'Venus\'s day temperatuire can go as high as 475°C.',
+    'Venus\' day temperatuire can go as high as 475°C.',
     'One Venusian year is about 1.92 Venusian solar days: One Venusian day takes 243 Earth days while one Venusian year takes 225 Earth days. ',
-    'Venus\'s tilt axis is at a mere 3 degrees, hence it too will not experience any significant seasons',
+    'Venus\' tilt axis is at a mere 3 degrees, hence it too will not experience any significant seasons',
     'Though similar to Earth, Venus is an inferno where life as we know it could not exist on Venus like it does on Earth.',
   ]
 },
@@ -170,20 +171,17 @@ const celestialBodies = [{
   distance: 1, // AU Distance
   name: 'Earth',
   facts: [
+    'Earth is the only planet that is not named after a god in ancient Greek/Roman mythology. Its name originates from Old English and Germanic roots.',
     'Earth is the third planet from the Sun and the only astronomical object known to harbor life.',
-    'It has one natural satellite, the Moon, which plays a significant role in stabilizing its axial tilt.',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-  
-  
+    'It has one natural satellite, the Moon, which plays a significant role in stabilising its axial tilt.',
+    'Earth is the only planet in our Solar System to have one moon.',
+    'Earth is made up of four layers, starting from the inner core follwoed by the outer core, mantle, and lastly the crust.',
+    'Earth\'s axis is tilted at 23.4° which causes our yearly seasons.',
+    'Earth\'s global oceans covers nearly 70% of the planet\'s surface and it contains 97% of Earth\'s water.',
+    'Most of Earth\'s volcanoes and mountain ranges are underwater.',
+    'Our surface contains 78% nitrogen, 21% oxygen, and 1% other gases such as argon, carbon dioxide, and neon.',
+    'Our atmosphere is one of the most important feature as it shields us from the radiation and solar storms from Sun. It also protects us from meteoroids.',
+    'Earth\'s polarity can change every 400,000 years or so, swapping the geological north and south point.',
   ]
 },
 {
@@ -198,15 +196,15 @@ const celestialBodies = [{
   facts: [
     'The Moon is Earth\'s only natural satellite.',
     'It is tidally locked to Earth, meaning the same side always faces Earth.',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
+    'The Moon is possibly formed after a collision with Earth billions of years ago.',
+    'The Moon is 384,400km away from Earth and its slowly moving further away from us each year.',
+    'The Moon rotates at the same rate as it revolves around Earth, which ias why the same side is always facing us.',
+    'The Moon\'s is made up of a core, mantle, and a crust.',
+    'The Moon used to have active volcanoes but are now dormat for millions of years.',
+    'The lighter areas on The Moon\'s surface are known as highlands and the darker features are called maria (Latin for seas).',
+    'The brightest lunar crater is called Tycho Crater, with a diameter of 85km and having a depth of 4,700m. ',
+    'The gravity on The Moon is one-sixth that of Earth.',
+    'The surface temperature during the day is 127°C while at night, the temperature plumemt to -173°C. ',
   ]
 },
 {
@@ -219,6 +217,7 @@ const celestialBodies = [{
   distance: 1.5, // AU Distance
   name: 'Mars',
   facts: [
+    'Mars is named after the ancient Roman god of war and its known as Ares to the ancient Greeks.',
     'Mars is known as the "Red Planet" due to its reddish appearance.',
     'It has the tallest volcano and the deepest canyon in the Solar System, Olympus Mons and Valles Marineris respectively.',
     '',
