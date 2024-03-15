@@ -103,16 +103,16 @@ const celestialBodies = [{
   facts: [
     'The Sun is a G2 V, yellow dwarf main-sequence star.',
     'The Sun is a star at the center of the Solar System.',
-    'The Sun is about 100 tiems wider than Earth',
+    'The Sun is about 100 times wider than Earth.',
     'It is composed of hot plasma interwoven with magnetic fields.',
-    'The Sun&#39;s core can go up to 15 million°C.',
+    'The Sun\'s core can reach temperatures up to 15 million°C.',
     'The Sun was formed 4.6 billion years ago.',
-    'In 5.6 billion years time, our Sun will become a White dwarf.',
+    'In 5.6 billion years, our Sun will become a white dwarf.',
     'The Sun is a ball of hydrogen and helium, held in place by its own gravity.',
-    'The part of The Sun that its commonly referred to as "surface" is actually the photosphere as the Sun doesn&#39;t have a solid surface!',
+    'The part of the Sun that is commonly referred to as the "surface" is actually the photosphere, as the Sun doesn\'t have a solid surface!',
     'The photosphere is about 402 km thick.',
-    'Sunspots is a key feature of the Sun where it was created when a portion of Sun&#39;s magnetic field pokes out from within its interior.',
-    'Approximately every 11 years, the Sun&#39;s geographic poles change their magnetic polarity.'
+    'Sunspots are a key feature of the Sun, created when a portion of the Sun\'s magnetic field pokes out from within its interior.', // Corrected subject-verb agreement and apostrophe usage
+    'Approximately every 11 years, the Sun\'s geographic poles change their magnetic polarity.'
   ]
 },
 {
@@ -127,13 +127,13 @@ const celestialBodies = [{
   facts: [
     'Mercury is the smallest planet in the Solar System and the closest to the Sun.',
     'It has a very thin atmosphere composed mainly of oxygen, sodium, hydrogen, helium, and potassium.',
-    'Mercury&#39;s day temperature can go up as high as 430°C while at night can go as low as -180°C!',
+    'Mercury\'s day temperature can go up as high as 430°C while at night can go as low as -180°C!',
     'Mercury is not the hottest planet despite being the closest to our Sun!',
     'Mercury is fastest planet, travelling at a speed of 47km/s!',
-    'Mercury&#39;s rotation is slower then its orbit: One Mercurian solar day = 2 Mercurian years!',
-    'Mercury&#39;s axis tilt is just 2 degrees, hence it does not experience seasons like the other planets does.',
-    'Mercury is the second densest planet in our Solar System, it&#39;s mettalic core is about 85% of the planet&#39;s radius!',
-    'Mercury&#39;s exosphere consists mostly of oxygen, sodium, hydrogen, helium, and potassium.'
+    'Mercury\'s rotation is slower then its orbit: One Mercurian solar day = 2 Mercurian years!',
+    'Mercury\'s axis tilt is just 2 degrees, hence it does not experience seasons like the other planets does.',
+    'Mercury is the second densest planet in our Solar System, it\'s mettalic core is about 85% of the planet\'s radius!',
+    'Mercury\'s exosphere consists mostly of oxygen, sodium, hydrogen, helium, and potassium.'
   ]
 },
 {
@@ -146,8 +146,18 @@ const celestialBodies = [{
   distance: 0.72, // AU Distance
   name: 'Venus',
   facts: [
+    'Venus is named after the ancient Roman goddess of love who in turn is known as Aphrodite to the ancient Greeks.',
+    'Venus is the only planet that is named after a goddess.',
     'Venus is often called the "Morning Star" or the "Evening Star".',
-    'It has a thick atmosphere mainly composed of carbon dioxide with clouds of sulfuric acid.'
+    'It has a thick atmosphere mainly composed of carbon dioxide with clouds of sulfuric acid.',
+    'Venus is similar in structure and size to Earth.',
+    'Venus spins slowly in the opposite direction from most planets.',
+    'Venus is the hottest planet in our Solar System due to its thick atmosphere traps heat in a runaway greenshouse effect, with surface temperature high enought o melt lead!',
+    'The atmospheric pressure at the height of 50km fromt the surface is similar to that of Earth.',
+    'Venus\'s day temperatuire can go as high as 475°C.',
+    'One Venusian year is about 1.92 Venusian solar days: One Venusian day takes 243 Earth days while one Venusian year takes 225 Earth days. ',
+    'Venus\'s tilt axis is at a mere 3 degrees, hence it too will not experience any significant seasons',
+    'Though similar to Earth, Venus is an inferno where life as we know it could not exist on Venus like it does on Earth.',
   ]
 },
 {
@@ -161,7 +171,19 @@ const celestialBodies = [{
   name: 'Earth',
   facts: [
     'Earth is the third planet from the Sun and the only astronomical object known to harbor life.',
-    'It has one natural satellite, the Moon, which plays a significant role in stabilizing its axial tilt.'
+    'It has one natural satellite, the Moon, which plays a significant role in stabilizing its axial tilt.',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+  
+  
   ]
 },
 {
@@ -175,7 +197,16 @@ const celestialBodies = [{
   name: 'Moon',
   facts: [
     'The Moon is Earth\'s only natural satellite.',
-    'It is tidally locked to Earth, meaning the same side always faces Earth.'
+    'It is tidally locked to Earth, meaning the same side always faces Earth.',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
   ]
 },
 {
@@ -189,7 +220,16 @@ const celestialBodies = [{
   name: 'Mars',
   facts: [
     'Mars is known as the "Red Planet" due to its reddish appearance.',
-    'It has the tallest volcano and the deepest canyon in the Solar System, Olympus Mons and Valles Marineris respectively.'
+    'It has the tallest volcano and the deepest canyon in the Solar System, Olympus Mons and Valles Marineris respectively.',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
   ]
 },
 {
@@ -203,7 +243,16 @@ const celestialBodies = [{
   name: 'Jupiter',
   facts: [
     'Jupiter is the largest planet in the Solar System and has more than 75 moons.',
-    'Its iconic Great Red Spot is a massive storm that has been raging for at least 400 years.'
+    'Its iconic Great Red Spot is a massive storm that has been raging for at least 400 years.',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
   ]
 },
 {
@@ -218,7 +267,16 @@ const celestialBodies = [{
   name: 'Saturn',
   facts: [
     'Saturn is known for its prominent ring system, made up of ice particles and dust.',
-    'It has the second-largest moon in the Solar System, Titan, which has a dense atmosphere and surface lakes of liquid methane.'
+    'It has the second-largest moon in the Solar System, Titan, which has a dense atmosphere and surface lakes of liquid methane.',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
   ]
 },
 {
@@ -232,7 +290,16 @@ const celestialBodies = [{
   name: 'Uranus',
   facts: [
     'Uranus is unique among the planets because it rotates on its side.',
-    'It was the first planet discovered with a telescope, by William Herschel in 1781.'
+    'It was the first planet discovered with a telescope, by William Herschel in 1781.',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
   ]
 },
 {
@@ -246,7 +313,16 @@ const celestialBodies = [{
   name: 'Neptune',
   facts: [
     'Neptune is the farthest planet from the Sun and is often referred to as an "Ice Giant".',
-    'It was the first planet to be discovered through mathematical calculations, rather than direct observation.'
+    'It was the first planet to be discovered through mathematical calculations, rather than direct observation.',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
   ]
 }
 ];
@@ -256,8 +332,13 @@ const spaceshipData = {
   messages: [
     "Remember to buckle up! Safety first as we embark on our journey.",
     "Keep an eye on the distance meter to track our progress.",
-    "Hover over celestial bodies to learn fascinating facts about them.",
-    // Add more messages here
+    "Click on the celestial bodies to learn fascinating facts about them.",
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
   ]
 };
 
@@ -364,6 +445,12 @@ const astronautData = {
     'A day on Venus is longer than a year on Venus.',
     'There are more stars in the universe than grains of sand on all the beaches on Earth.',
     'A light-year is the distance light travels in one year, which equals about 9.5 trillion kilometers.',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
     '',
     '',
   ]
