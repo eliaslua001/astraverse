@@ -36,7 +36,7 @@ const scaleRatio = 300; // Each unit represents 300 times the corresponding dist
 
 let debounceTimer;
 
-// Define section headers and contents as arrays
+// Define section headers and contents into array
 const sectionHeaders = [
   "Explore at Your Pace",
   "Interactive Learning",
@@ -58,7 +58,7 @@ const sectionContents = [
   ["Interact with the astronaut to learn random space facts that might surprise you."],
   ["Keep an eye on the distance meter to see how far you've traveled from the Sun, appreciating the vast distances of space."],
   ["Don't forget to explore the outer planets, they're further away but hold fascinating secrets!"],
-  ["Click on the", "icon at the top right corner at any time to revisit the Command Console."]
+  ["Click on the <span class='material-icons console'>hub</span> icon at the top right corner at any time to revisit the Command Console."]
 ];
 
 // Get the parent ul element

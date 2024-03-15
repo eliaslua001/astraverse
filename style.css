@@ -886,29 +886,25 @@ canvas {
   color: #fff;
 }
 
-/* Hide default list-style */
 .console-list ul {
   list-style-type: none;
-  padding-left: 20px; /* Add some left padding for indentation */
+  padding-left: 10px; /* Add some left padding for indentation */
 }
 
-/* Style for section headers */
 .console-list ul > li > strong {
   display: block; /* Ensure headers are on their own line */
   margin-bottom: 5px; /* Add some space below headers */
 }
 
-/* Style for section contents */
 .console-list ul > li > ul > li {
   position: relative; /* Position relative for icon positioning */
-  padding-left: 30px; /* Add indentation for contents */
+  padding-left: 20px; /* Add indentation for contents */
 }
 
-/* Style for Google Material Icons */
 .material-icons {
   position: absolute; /* Position icons absolutely */
   left: 0; /* Align icons to the left */
-  top: 0; /* Align icons to the top */
-  margin-right: 5px; /* Add some space between icons and text */
-  font-size: 20px; /* Adjust the size of icons */
+  top: 6px; /* Align icons to the top */
+  margin-right: 10px; /* Add some space between icons and text */
+  font-size: 15px; /* Adjust the size of icons */
 }
