@@ -79,7 +79,7 @@ for (let i = 0; i < sectionHeaders.length; i++) {
   const ul = document.createElement('ul');
   for (const item of content) {
     const subLi = document.createElement('li');
-    subLi.textContent = item;
+    subLi.innerHTML = item;
     ul.appendChild(subLi);
   }
 
