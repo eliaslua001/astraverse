@@ -889,7 +889,7 @@ canvas {
 /* Hide default list-style */
 .console-list ul {
   list-style-type: none;
-  padding-left: 10px; /* Add some left padding for indentation */
+  padding-left: 0px; /* Add some left padding for indentation */
 }
 
 /* Style for section headers */
@@ -901,7 +901,7 @@ canvas {
 /* Style for section contents */
 .console-list ul > li > ul > li {
   position: relative; /* Position relative for icon positioning */
-  padding-left: 5px; /* Add indentation for contents */
+  padding-left: 10px; /* Add indentation for contents */
 }
 
 .console-list li .material-icons {
@@ -909,8 +909,11 @@ canvas {
   flex-shrink: 0; /* Prevent the icon from shrinking */
 }
 
-.console-list li span {
-  word-wrap: break-word;
-  white-space: normal;
-  flex-grow: 1;
+.console-list li {
+  display: flex;
+  align-items: flex-start; /* Align items at the start of the flex container */
+}
+
+.console-list li img {
+  margin-right: 10px; /* Adjust margin between icon and text */
 }
