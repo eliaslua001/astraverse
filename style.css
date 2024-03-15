@@ -889,6 +889,7 @@ canvas {
 /* Hide default list-style */
 .console-list ul {
   list-style-type: none;
+  list-style-position: outside;
   padding-left: 0px; /* Add some left padding for indentation */
 }
 
