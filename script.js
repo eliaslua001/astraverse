@@ -121,7 +121,7 @@ const celestialBodies = [{
   poster: 'assets/mercury.png',
   alt: 'Mercury',
   color: 'gray',
-  diameter: 4879.4, // 4,879.4 kilometres
+  diameter: 4879, // 4,879 kilometres
   distance: 0.4, // AU Distance
   name: 'Mercury',
   facts: [
@@ -132,10 +132,8 @@ const celestialBodies = [{
     'Mercury is fastest planet, travelling at a speed of 47km/s!',
     'Mercury&#39;s rotation is slower then its orbit: One Mercurian solar day = 2 Mercurian years!',
     'Mercury&#39;s axis tilt is just 2 degrees, hence it does not experience seasons like the other planets does.',
-    'Mercury is the second densest planet in our Solar System.',
-    '',
-    '',
-
+    'Mercury is the second densest planet in our Solar System, it&#39;s mettalic core is about 85% of the planet&#39;s radius!',
+    'Mercury&#39;s exosphere consists mostly of oxygen, sodium, hydrogen, helium, and potassium.'
   ]
 },
 {
