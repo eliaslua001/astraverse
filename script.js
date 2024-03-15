@@ -36,7 +36,7 @@ const scaleRatio = 300; // Each unit represents 300 times the corresponding dist
 
 let debounceTimer;
 
-// Define section headers and contents as arrays
+// Define section headers and contents into array
 const sectionHeaders = [
   "Explore at Your Pace",
   "Interactive Learning",
@@ -58,7 +58,7 @@ const sectionContents = [
   ["Interact with the astronaut to learn random space facts that might surprise you."],
   ["Keep an eye on the distance meter to see how far you've traveled from the Sun, appreciating the vast distances of space."],
   ["Don't forget to explore the outer planets, they're further away but hold fascinating secrets!"],
-  ["Click on the <img src='assets/hub_icon.svg' alt='hub-icon'> icon at the top right corner at any time to revisit the Command Console."]
+  ["Click on the <img src='assets/hub.svg' alt='hub' class='hub-icon'> icon at the top right corner at any time to revisit the Command Console."]
 ];
 
 // Get the parent ul element
@@ -80,15 +80,6 @@ for (let i = 0; i < sectionHeaders.length; i++) {
   for (const item of content) {
     const subLi = document.createElement('li');
     subLi.textContent = item;
-
-    // Add Google Material Icon as bullet point only for section contents
-    if (content !== sectionContents[8]) {
-      const span = document.createElement('span');
-      span.className = 'material-icons';
-      span.textContent = 'rocket_launch';
-      subLi.insertBefore(span, subLi.firstChild);
-    }
-
     ul.appendChild(subLi);
   }
 
@@ -98,6 +89,7 @@ for (let i = 0; i < sectionHeaders.length; i++) {
   // Append the parent li to the custom list ul
   consoleListUl.appendChild(li);
 }
+
 
 const celestialBodies = [{
   id: 'sun',
@@ -636,7 +628,7 @@ function showCommandMessage(nextBody) {
   ][Math.floor(Math.random() * 5)];
 
   const comModMsg = `<span class="material-icons">cell_tower</span>&nbsp;&nbsp;${spaceshipData.name}, ${userDisplayName}&nbsp;&nbsp;<span class="material-icons">cell_tower</span>`;
-  const destinationMessage = `Approaching ${nextBody.name} at ${(nextBody.distance * astronomicalUnit).toLocaleString()} km!`;
+  const destinationMessage = `Travelling towards ${nextBody.name} at ${(nextBody.distance * astronomicalUnit).toLocaleString()} km!`;
 
   document.querySelector('.command-message').style.display = 'block';
   document.querySelector('.commandMod').innerHTML = comModMsg;
