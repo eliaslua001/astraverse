@@ -36,6 +36,70 @@ const scaleRatio = 300; // Each unit represents 300 times the corresponding dist
 
 let debounceTimer;
 
+// Define section headers and contents as arrays
+const sectionHeaders = [
+  "Explore at Your Pace",
+  "Interactive Learning",
+  "Swift Journey",
+  "Mission Control Messages",
+  "Astronomical Facts",
+  "Travel Log",
+  "Outer Planets Exploration",
+  "Command Console Access"
+];
+
+const sectionContents = [
+  ["Scroll slowly to take in the beauty of each celestial body in our to-scale solar system."],
+  ["Click on any celestial body to discover interesting facts and details about it.",
+    "Discover more by clicking on the left and right arrows in the fact boxes to navigate through different facts about each celestial body.",
+    "Zoom in and out on the 3D model for a closer look if you so wish."],
+  ["Opt for 'Fast Travel' when the option appears, allowing you to swiftly advance to the next celestial bodies. This prompt reappears every 30 seconds after being dismissed, should you choose to leap ahead."],
+  ["Engage with your spacecraft at any moment for entertaining and insightful updates from Mission Control, enhancing your voyage."],
+  ["Interact with the astronaut to learn random space facts that might surprise you."],
+  ["Keep an eye on the distance meter to see how far you've traveled from the Sun, appreciating the vast distances of space."],
+  ["Don't forget to explore the outer planets, they're further away but hold fascinating secrets!"],
+  ["Click on the", "icon at the top right corner at any time to revisit the Command Console."]
+];
+
+// Get the parent ul element
+const consoleListUl = document.getElementById('console-list-ul');
+
+// Loop through the section headers and contents arrays
+for (let i = 0; i < sectionHeaders.length; i++) {
+  const header = sectionHeaders[i];
+  const content = sectionContents[i];
+
+  // Create li elements for each section
+  const li = document.createElement('li');
+  const strong = document.createElement('strong');
+  strong.textContent = header;
+  li.appendChild(strong);
+
+  // Create ul element for the contents
+  const ul = document.createElement('ul');
+  for (const item of content) {
+    const subLi = document.createElement('li');
+    subLi.textContent = item;
+
+    // Add Google Material Icon as bullet point only for section contents
+    if (content !== sectionContents[7]) {
+      const span = document.createElement('span');
+      span.className = 'material-icons';
+      span.textContent = 'rocket_launch';
+      subLi.insertBefore(span, subLi.firstChild);
+    }
+
+    ul.appendChild(subLi);
+  }
+
+  // Append the ul element to the parent li
+  li.appendChild(ul);
+
+  // Append the parent li to the custom list ul
+  consoleListUl.appendChild(li);
+}
+
+
 const celestialBodies = [{
   id: 'sun',
   src: 'assets/sun.glb',
