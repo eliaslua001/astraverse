@@ -101,8 +101,18 @@ const celestialBodies = [{
   name: 'Sun',
   age: '4.5 billion',
   facts: [
+    'The Sun is a G2 V, yellow dwarf main-sequence star.',
     'The Sun is a star at the center of the Solar System.',
+    'The Sun is about 100 tiems wider than Earth',
     'It is composed of hot plasma interwoven with magnetic fields.',
+    'The Sun&#39;s core can go up to 15 million°C.',
+    'The Sun was formed 4.6 billion years ago.',
+    'In 5.6 billion years time, our Sun will become a White dwarf.',
+    'The Sun is a ball of hydrogen and helium, held in place by its own gravity.',
+    'The part of The Sun that its commonly referred to as "surface" is actually the photosphere as the Sun doesn&#39;t have a solid surface!',
+    'The photosphere is about 402 km thick.',
+    'Sunspots is a key feature of the Sun where it was created when a portion of Sun&#39;s magnetic field pokes out from within its interior.',
+    'Approximately every 11 years, the Sun&#39;s geographic poles change their magnetic polarity.'
   ]
 },
 {
@@ -116,7 +126,16 @@ const celestialBodies = [{
   name: 'Mercury',
   facts: [
     'Mercury is the smallest planet in the Solar System and the closest to the Sun.',
-    'It has a very thin atmosphere composed mainly of oxygen, sodium, hydrogen, helium, and potassium.'
+    'It has a very thin atmosphere composed mainly of oxygen, sodium, hydrogen, helium, and potassium.',
+    'Mercury&#39;s day temperature can go up as high as 430°C while at night can go as low as -180°C!',
+    'Mercury is not the hottest planet despite being the closest to our Sun!',
+    'Mercury is fastest planet, travelling at a speed of 47km/s!',
+    'Mercury&#39;s rotation is slower then its orbit: One Mercurian solar day = 2 Mercurian years!',
+    'Mercury&#39;s axis tilt is just 2 degrees, hence it does not experience seasons like the other planets does.',
+    'Mercury is the second densest planet in our Solar System.',
+    '',
+    '',
+
   ]
 },
 {
@@ -345,8 +364,10 @@ const astronautData = {
     'The Sun contains 99.86% of the mass in the Solar System.',
     'The largest volcano in the Solar System is on Mars: Olympus Mons.',
     'A day on Venus is longer than a year on Venus.',
-    'There are more stars in the universe than grains of sand on all the beaches on Earth.'
-    // Add more facts as needed
+    'There are more stars in the universe than grains of sand on all the beaches on Earth.',
+    'A light-year is the distance light travels in one year, which equals about 9.5 trillion kilometers.',
+    '',
+    '',
   ]
 };
 
