@@ -82,7 +82,7 @@ for (let i = 0; i < sectionHeaders.length; i++) {
     subLi.textContent = item;
 
     // Add Google Material Icon as bullet point only for section contents
-    if (content !== sectionContents[7]) {
+    if (content !== sectionContents[8]) {
       const span = document.createElement('span');
       span.className = 'material-icons';
       span.textContent = 'rocket_launch';
