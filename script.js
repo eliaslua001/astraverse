@@ -178,17 +178,17 @@ const celestialBodies = [{
   distance: 1, // AU Distance
   name: 'Earth',
   facts: [
-    'The Moon is Earth\'s only natural satellite.',
-    'It is tidally locked to Earth, meaning the same side always faces Earth.',
-    'The Moon possibly formed after a collision with Earth billions of years ago.',
-    'The Moon is 384,400 km away from Earth and is slowly moving further away from us each year.',
-    'The Moon rotates at the same rate as it revolves around Earth, which is why the same side always faces us.',
-    'The Moon is made up of a core, mantle, and crust.',
-    'The Moon used to have active volcanoes but they have been dormant for millions of years.',
-    'The lighter areas on the Moon\'s surface are known as highlands, and the darker features are called maria (Latin for seas).',
-    'The brightest lunar crater is called Tycho Crater, with a diameter of 85 km and a depth of 4,700 m.',
-    'The gravity on the Moon is one-sixth that of Earth.',
-    'The surface temperature during the day reaches 127°C, while at night, the temperature plummets to -173°C.'
+    'Earth is the only planet that is not named after a god in ancient Greek/Roman mythology. Its name originates from Old English and Germanic roots.',
+    'Earth is the third planet from the Sun and the only astronomical object known to harbor life.',
+    'It has one natural satellite, the Moon, which plays a significant role in stabilising its axial tilt.',
+    'Earth is the only planet in our Solar System to have one moon.',
+    'Earth is made up of four layers, starting from the inner core follwoed by the outer core, mantle, and lastly the crust.',
+    'Earth\'s axis is tilted at 23.4° which causes our yearly seasons.',
+    'Earth\'s global oceans covers nearly 70% of the planet\'s surface and it contains 97% of Earth\'s water.',
+    'Most of Earth\'s volcanoes and mountain ranges are underwater.',
+    'Our surface contains 78% nitrogen, 21% oxygen, and 1% other gases such as argon, carbon dioxide, and neon.',
+    'Our atmosphere is one of the most important feature as it shields us from the radiation and solar storms from Sun. It also protects us from meteoroids.',
+    'Earth\'s polarity can change every 400,000 years or so, swapping the geological north and south point.',
   ]
 },
 {
