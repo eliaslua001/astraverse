@@ -113,6 +113,8 @@
 
 .message-log-content {
   position: absolute;
+  resize: both;
+  max-height: 80vh;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -121,6 +123,24 @@
   border-radius: 10px;
   max-width: 80%;
   overflow: auto;
+}
+
+.message-log-content::-webkit-scrollbar-track {
+  background: #cba7d454;
+  border-radius: 10px;
+}
+
+.message-log-content::-webkit-scrollbar-thumb {
+  background: #cba7d4ba;
+  border-radius: 10px;
+}
+
+.message-log-content::-webkit-scrollbar-thumb:hover {
+  background: #8c7293ba;
+}
+
+.message-log-content::-webkit-scrollbar {
+  width: 8px;
 }
 
 .message-log-text h2 {
@@ -169,9 +189,8 @@ li {
 }
 
 .console {
- font-size: 30px;
+  font-size: 30px;
 }
-
 
 #userName {
   color: #ffffffe3;
@@ -464,7 +483,6 @@ canvas {
   overflow: hidden;
   z-index: -1;
 }
-
 /* Starfield */
 
 .container {
@@ -529,22 +547,17 @@ canvas {
 }
 
 .model-viewer {
-  max-width: 500px;
-  /* Set a maximum width to prevent models from exceeding the container */
-  max-height: 300px;
-  /* Set a maximum height to prevent models from exceeding the container */
-  margin: 0 auto;
-  /* Center the model-viewer horizontally */
+  max-width: 500px; /* Set a maximum width to prevent models from exceeding the container */
+  max-height: 300px; /* Set a maximum height to prevent models from exceeding the container */
+  margin: 0 auto; /* Center the model-viewer horizontally */
 }
 
 .fact-wrapper {
   padding: 15px;
-  /* Add padding on all sides */
   width: auto;
   height: auto;
   position: relative;
   border-radius: 10px;
-  /* Add border radius to round the corners */
   flex-direction: column;
   font-size: 15px;
   justify-content: space-evenly;
@@ -604,6 +617,26 @@ canvas {
   text-transform: uppercase;
   font-size: 50px;
   font-weight: bold;
+  padding: 0px;
+}
+
+.fact-container .classification {
+  font-size: 0.8em;
+  color: #CCCCCC;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-style: italic;
+  margin-bottom: -1.5em;
+}
+
+.fact-container .category {
+  font-size: 0.8em;
+  color: #CCCCCC;
+  border-radius: 5px;
+  text-align: center;
+  font-style: italic;
+  margin-top: -1.5em;
 }
 
 .fact-container p {
@@ -612,7 +645,6 @@ canvas {
 
 .marker-line {
   display: none;
-  /* Initially hide the marker line */
   position: fixed;
   left: 0;
   top: 50%;
@@ -624,7 +656,6 @@ canvas {
 
 .astronaut {
   display: none;
-  /* Initially hide the astronaut */
   position: fixed;
   width: 100px;
   height: 100px;
@@ -645,7 +676,6 @@ canvas {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   left: 220px;
   top: calc(50% - 155px);
-  /* Position slightly above the center */
 }
 
 .astronaut-fact::after {
@@ -656,9 +686,7 @@ canvas {
   border-width: 10px;
   border-style: solid;
   border-color: transparent rgba(255, 255, 255, 0.9) transparent transparent;
-  /* Arrow color */
   transform: rotate(-45deg);
-  /* Rotate the arrow */
 }
 
 .close-icon {
@@ -763,7 +791,6 @@ canvas {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   left: 120px;
   top: calc(50% - 330px);
-  /* Position slightly above the center */
 }
 
 .welco::after {
@@ -774,19 +801,15 @@ canvas {
   border-width: 10px;
   border-style: solid;
   border-color: transparent rgba(255, 255, 255, 0.9) transparent transparent;
-  /* Arrow color */
   transform: rotate(-45deg);
-  /* Rotate the arrow */
 }
 
 .welco-wrapper {
   padding: 15px;
-  /* Add padding on all sides */
   width: auto;
   height: auto;
   position: relative;
   border-radius: 10px;
-  /* Add border radius to round the corners */
   flex-direction: column;
   font-size: 15px;
   text-align: left;
@@ -825,7 +848,6 @@ canvas {
   box-shadow: 0 0 5px #e05ef1;
   z-index: 999;
   width: 300px;
-  /* Adjust width as needed */
   text-align: center;
 }
 
@@ -890,27 +912,27 @@ canvas {
 .console-list ul {
   list-style-type: none;
   list-style-position: outside;
-  padding-left: 0px; /* Add some left padding for indentation */
+  padding-left: 0px;
 }
 
 /* Style for section headers */
-.console-list ul > li > strong {
-  display: block; /* Ensure headers are on their own line */
-  margin-bottom: 5px; /* Add some space below headers */
+.console-list ul>li>strong {
+  display: block;
+  margin-bottom: 5px;
 }
 
 /* Style for section contents */
-.console-list ul > li > ul > li {
-  position: relative; /* Position relative for icon positioning */
-  padding-left: 10px; /* Add indentation for contents */
+.console-list ul>li>ul>li {
+  position: relative;
+  padding-left: 10px;
 }
 
 .console-list li .material-icons {
-  margin-right: 10px; /* Adjust the right margin of the icon */
-  flex-shrink: 0; /* Prevent the icon from shrinking */
+  margin-right: 10px;
+  flex-shrink: 0;
 }
 
 .hub-icon {
   font-size: 15px;
-  color:#bdb9b9ea
+  color: #bdb9b9ea
 }
