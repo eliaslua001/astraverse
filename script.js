@@ -474,7 +474,7 @@ const astronautData = {
         'The Sun makes up about 99.86% of the Solar System\'s mass.',
         'Jupiter\'s moon Ganymede is the largest moon in the Solar System.',
         'The Milky Way galaxy is estimated to contain between 100 to 400 billion stars.',
-        'The speed of light is approximately 299,792 kilometers per second.',
+        'The speed of light is exactly 299,792,458 metres per second.',
         'The Hubble Space Telescope travels at a speed of about 28,000 kilometers per hour in orbit around the Earth.',
         'Black holes are regions of spacetime where gravity is so strong that nothing, not even light, can escape from them.',
         'The Great Red Spot on Jupiter is a massive storm that has been raging for at least 400 years.',
